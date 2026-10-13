@@ -1,0 +1,5 @@
+Entity Type,Extracted Entity,Original Sentence
+PERSON,Elon Musk,"""Elon Musk is the CEO of Tesla."""
+ORGANIZATION,Tesla,"""Elon Musk is the CEO of Tesla."""
+LOCATION,New York City,"""She lives in New York City."""
+ORGANIZATION,Tesla,"""Tesla is leading innovation."""

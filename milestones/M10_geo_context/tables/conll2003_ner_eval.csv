@@ -1,0 +1,2 @@
+benchmark,precision,recall,f1_score
+CoNLL-2003 Test (1000 sentences),0.3771,0.4891,0.4259

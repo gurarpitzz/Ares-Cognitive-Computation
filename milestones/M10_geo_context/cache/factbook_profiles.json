@@ -1,0 +1,122 @@
+{
+  "US": {
+    "country_name": "United States",
+    "iso2": "US",
+    "iso3": "USA",
+    "population": 339000000,
+    "government_type": "constitutional federal republic",
+    "gdp_per_capita_usd": 76300,
+    "military_expenditure_pct_gdp": 3.5,
+    "instability_index": 0.15,
+    "nuclear_state": true,
+    "active_conflict_zone": false
+  },
+  "IN": {
+    "country_name": "India",
+    "iso2": "IN",
+    "iso3": "IND",
+    "population": 1428000000,
+    "government_type": "federal parliamentary republic",
+    "gdp_per_capita_usd": 8400,
+    "military_expenditure_pct_gdp": 2.4,
+    "instability_index": 0.45,
+    "nuclear_state": true,
+    "active_conflict_zone": false
+  },
+  "JP": {
+    "country_name": "Japan",
+    "iso2": "JP",
+    "iso3": "JPN",
+    "population": 124000000,
+    "government_type": "parliamentary constitutional monarchy",
+    "gdp_per_capita_usd": 42100,
+    "military_expenditure_pct_gdp": 1.1,
+    "instability_index": 0.1,
+    "nuclear_state": false,
+    "active_conflict_zone": false
+  },
+  "CN": {
+    "country_name": "China",
+    "iso2": "CN",
+    "iso3": "CHN",
+    "population": 1412000000,
+    "government_type": "communist party-led state",
+    "gdp_per_capita_usd": 18200,
+    "military_expenditure_pct_gdp": 1.7,
+    "instability_index": 0.35,
+    "nuclear_state": true,
+    "active_conflict_zone": false
+  },
+  "RU": {
+    "country_name": "Russia",
+    "iso2": "RU",
+    "iso3": "RUS",
+    "population": 144000000,
+    "government_type": "semi-presidential federation",
+    "gdp_per_capita_usd": 30000,
+    "military_expenditure_pct_gdp": 4.1,
+    "instability_index": 0.85,
+    "nuclear_state": true,
+    "active_conflict_zone": true
+  },
+  "UA": {
+    "country_name": "Ukraine",
+    "iso2": "UA",
+    "iso3": "UKR",
+    "population": 38000000,
+    "government_type": "semi-presidential republic",
+    "gdp_per_capita_usd": 12600,
+    "military_expenditure_pct_gdp": 33.5,
+    "instability_index": 0.95,
+    "nuclear_state": false,
+    "active_conflict_zone": true
+  },
+  "FR": {
+    "country_name": "France",
+    "iso2": "FR",
+    "iso3": "FRA",
+    "population": 68000000,
+    "government_type": "semi-presidential republic",
+    "gdp_per_capita_usd": 45000,
+    "military_expenditure_pct_gdp": 1.9,
+    "instability_index": 0.18,
+    "nuclear_state": true,
+    "active_conflict_zone": false
+  },
+  "DE": {
+    "country_name": "Germany",
+    "iso2": "DE",
+    "iso3": "DEU",
+    "population": 84000000,
+    "government_type": "federal parliamentary republic",
+    "gdp_per_capita_usd": 54000,
+    "military_expenditure_pct_gdp": 1.4,
+    "instability_index": 0.12,
+    "nuclear_state": false,
+    "active_conflict_zone": false
+  },
+  "IL": {
+    "country_name": "Israel",
+    "iso2": "IL",
+    "iso3": "ISR",
+    "population": 9800000,
+    "government_type": "parliamentary democracy",
+    "gdp_per_capita_usd": 49000,
+    "military_expenditure_pct_gdp": 4.5,
+    "instability_index": 0.9,
+    "nuclear_state": true,
+    "active_conflict_zone": true
+  },
+  "PS": {
+    "country_name": "Palestine",
+    "iso2": "PS",
+    "iso3": "PSE",
+    "population": 5200000,
+    "government_type": "semi-presidential authority",
+    "gdp_per_capita_usd": 5600,
+    "military_expenditure_pct_gdp": 0.0,
+    "instability_index": 0.98,
+    "nuclear_state": false,
+    "active_conflict_zone": true
+  }
+}

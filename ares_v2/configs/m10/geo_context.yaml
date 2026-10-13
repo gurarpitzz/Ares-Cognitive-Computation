@@ -1,0 +1,48 @@
+# Milestone M10: Geopolitical & Contextual Intelligence Configuration
+
+experiment_id: "M10-geo-context-s42"
+milestone: "M10"
+ledger_ids:
+  - "C007"
+  - "C008"
+  - "C009"
+  - "C083"
+
+ner:
+  model_name: "en_core_web_sm"
+  conll_split: "test"
+  max_eval_samples: 1000
+
+topic:
+  model_name: "facebook/bart-large-mnli"
+  candidate_labels:
+    - "Economy"
+    - "Technology"
+    - "Science"
+    - "Health"
+    - "Politics"
+    - "Entertainment"
+  confidence_threshold: 0.40
+
+geotag:
+  cities_path: "data/raw/geonames/cities15000.txt"
+  country_info_path: "data/raw/geonames/countryInfo.txt"
+  gwn_benchmark: "data/raw/toponyms/GWN.xml"
+  accuracy_threshold_km: 161.0
+  max_gwn_eval: 400
+
+gdelt:
+  snapshot_path: "milestones/M10_geo_context/cache/gdelt_events_snapshot.json"
+  window_days: 3
+  regional_baseline_rate: 5.0
+  strict_temporal_integrity: true
+
+risk:
+  w1: 0.55
+  w2: 0.45
+  lambda_thresh: 0.65
+  gamma_thresh: 0.60
+  alpha1: 0.35
+  alpha2: 0.30
+  alpha3: 0.35
+  weights_provenance: "heuristic_proxy_fitted"

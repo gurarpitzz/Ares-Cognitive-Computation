@@ -1,41 +1,42 @@
-timestamp,milestone,experiment_id,split,dataset,git_commit,reason
-2026-10-13T10:45:00Z,M03,M03-coaid-majority-s42,test,coaid,b7a801f,Official test split evaluation of majority baseline
-2026-10-13T10:45:00Z,M03,M03-coaid-stratified_random-s42,test,coaid,b7a801f,Official test split evaluation of stratified random baseline
-2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_linear_svm-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
-2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_logistic_regression-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
-2026-10-13T10:45:00Z,M03,M03-constraint-majority-s42,test,constraint,b7a801f,Official test split evaluation of majority baseline
-2026-10-13T10:45:00Z,M03,M03-constraint-stratified_random-s42,test,constraint,b7a801f,Official test split evaluation of stratified random baseline
-2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_linear_svm-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
-2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_logistic_regression-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
-2026-10-13T10:45:00Z,M03,M03-liar-majority-s42,test,liar,b7a801f,Official test split evaluation of majority baseline
-2026-10-13T10:45:00Z,M03,M03-liar-stratified_random-s42,test,liar,b7a801f,Official test split evaluation of stratified random baseline
-2026-10-13T10:45:00Z,M03,M03-liar-tfidf_linear_svm-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
-2026-10-13T10:45:00Z,M03,M03-liar-tfidf_logistic_regression-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
-2026-10-13T10:45:00Z,M03,M03-xfact-majority-s42,test,xfact,b7a801f,Official test split evaluation of majority baseline
-2026-10-13T10:45:00Z,M03,M03-xfact-stratified_random-s42,test,xfact,b7a801f,Official test split evaluation of stratified random baseline
-2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_linear_svm-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
-2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_logistic_regression-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
-2026-10-13T11:15:00Z,M03,M03-coaid-roberta-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T11:22:00Z,M03,M03-coaid-deberta-v3-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T11:35:00Z,M03,M03-constraint-roberta-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T11:45:00Z,M03,M03-constraint-deberta-v3-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T11:50:00Z,M03,M03-liar-roberta-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T12:00:00Z,M03,M03-liar-deberta-v3-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T12:05:00Z,M03,M03-xfact-roberta-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T13:19:00Z,M03,M03-xfact-mdeberta-v3-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
-2026-10-13T14:20:00Z,M06,M06-drift-mutation-s42,test,paws_stsb,550d273,Official test split evaluation of mutation detection and theoretical ROC comparison
-2026-10-13T14:43:19Z,M07,M07-deepfake-resnet50-s42,test,faceforensics,fc969ad,Official test split evaluation of ARES ResNet-50 visual deepfake detector
-2026-10-13T14:43:19Z,M07,M07-deepfake-xception-s42,test,faceforensics,fc969ad,Official test split evaluation of reference Xception CNN baseline
-2026-10-13T14:43:19Z,M07,M07-celebdf-cross-dataset-s42,test,celebdf,fc969ad,Zero-shot cross-dataset evaluation on Celeb-DF v2 test split
-2026-10-13T15:29:15.827131+00:00,M07,M07-deepfake-resnet50-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of ResNet-50 on 10165 real face crops
-2026-10-13T15:29:15.829353+00:00,M07,M07-deepfake-xception-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of Xception on 10165 real face crops
-2026-10-13T15:46:47.804736+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,3e8bbf7,Official evaluation of ARES Declared Audio CNN on genuine ASVspoof waveforms
-2026-10-13T15:46:47.804736+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,3e8bbf7,Official evaluation of reference Traditional Audio ML on genuine acoustic cepstra
-2026-10-13T16:17:45.696985+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ARES Declared Audio CNN on stratified ASVspoof waveforms
-2026-10-13T16:17:45.696985+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,f7f4ec8,Official evaluation of reference Traditional Audio ML on stratified acoustic cepstra
-2026-10-13T16:17:45.696985+00:00,M08,M08-audio-speaker-ecapa-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ECAPA-TDNN speaker verification on 400 genuine speech trial pairs
-2026-10-13T16:54:31.906460+00:00,M09,M09-bot-detection-s42,test,twibot20,0a7d770,Official test split evaluation of master multimodal bot detection
-2026-10-13T16:54:31.906460+00:00,M09,M09-twibot20-official-eval-s42,test,twibot20,0a7d770,Official test split evaluation of multimodal bot detection
-2026-10-13T16:54:31.906460+00:00,M09,M09-cresci2017-temporal-eval-s42,test,cresci2017,0a7d770,Official test split evaluation of temporal posting patterns
-2026-10-13T16:54:31.906460+00:00,M09,M09-bot-text-stylometry-eval-s42,test,bot_detection,0a7d770,Official test split evaluation of stylometry & OCSVM
-2026-10-13T16:54:31.906460+00:00,M09,M09-twitter-human-bots-zeroshot-s42,test,twitter_human_bots,0a7d770,Zero-shot cross-dataset evaluation of profile models
+timestamp,milestone,experiment_id,split,dataset,git_commit,reason,n_examples,purpose,script,commit_hash
+2026-10-13T10:45:00Z,M03,M03-coaid-majority-s42,test,coaid,b7a801f,Official test split evaluation of majority baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-coaid-stratified_random-s42,test,coaid,b7a801f,Official test split evaluation of stratified random baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_linear_svm-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_logistic_regression-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-constraint-majority-s42,test,constraint,b7a801f,Official test split evaluation of majority baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-constraint-stratified_random-s42,test,constraint,b7a801f,Official test split evaluation of stratified random baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_linear_svm-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_logistic_regression-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-liar-majority-s42,test,liar,b7a801f,Official test split evaluation of majority baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-liar-stratified_random-s42,test,liar,b7a801f,Official test split evaluation of stratified random baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-liar-tfidf_linear_svm-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-liar-tfidf_logistic_regression-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-xfact-majority-s42,test,xfact,b7a801f,Official test split evaluation of majority baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-xfact-stratified_random-s42,test,xfact,b7a801f,Official test split evaluation of stratified random baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_linear_svm-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline,,,,
+2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_logistic_regression-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline,,,,
+2026-10-13T11:15:00Z,M03,M03-coaid-roberta-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T11:22:00Z,M03,M03-coaid-deberta-v3-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T11:35:00Z,M03,M03-constraint-roberta-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T11:45:00Z,M03,M03-constraint-deberta-v3-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T11:50:00Z,M03,M03-liar-roberta-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T12:00:00Z,M03,M03-liar-deberta-v3-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T12:05:00Z,M03,M03-xfact-roberta-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T13:19:00Z,M03,M03-xfact-mdeberta-v3-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint,,,,
+2026-10-13T14:20:00Z,M06,M06-drift-mutation-s42,test,paws_stsb,550d273,Official test split evaluation of mutation detection and theoretical ROC comparison,,,,
+2026-10-13T14:43:19Z,M07,M07-deepfake-resnet50-s42,test,faceforensics,fc969ad,Official test split evaluation of ARES ResNet-50 visual deepfake detector,,,,
+2026-10-13T14:43:19Z,M07,M07-deepfake-xception-s42,test,faceforensics,fc969ad,Official test split evaluation of reference Xception CNN baseline,,,,
+2026-10-13T14:43:19Z,M07,M07-celebdf-cross-dataset-s42,test,celebdf,fc969ad,Zero-shot cross-dataset evaluation on Celeb-DF v2 test split,,,,
+2026-10-13T15:29:15.827131+00:00,M07,M07-deepfake-resnet50-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of ResNet-50 on 10165 real face crops,,,,
+2026-10-13T15:29:15.829353+00:00,M07,M07-deepfake-xception-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of Xception on 10165 real face crops,,,,
+2026-10-13T15:46:47.804736+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,3e8bbf7,Official evaluation of ARES Declared Audio CNN on genuine ASVspoof waveforms,,,,
+2026-10-13T15:46:47.804736+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,3e8bbf7,Official evaluation of reference Traditional Audio ML on genuine acoustic cepstra,,,,
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ARES Declared Audio CNN on stratified ASVspoof waveforms,,,,
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,f7f4ec8,Official evaluation of reference Traditional Audio ML on stratified acoustic cepstra,,,,
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-speaker-ecapa-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ECAPA-TDNN speaker verification on 400 genuine speech trial pairs,,,,
+2026-10-13T16:54:31.906460+00:00,M09,M09-bot-detection-s42,test,twibot20,0a7d770,Official test split evaluation of master multimodal bot detection,,,,
+2026-10-13T16:54:31.906460+00:00,M09,M09-twibot20-official-eval-s42,test,twibot20,0a7d770,Official test split evaluation of multimodal bot detection,,,,
+2026-10-13T16:54:31.906460+00:00,M09,M09-cresci2017-temporal-eval-s42,test,cresci2017,0a7d770,Official test split evaluation of temporal posting patterns,,,,
+2026-10-13T16:54:31.906460+00:00,M09,M09-bot-text-stylometry-eval-s42,test,bot_detection,0a7d770,Official test split evaluation of stylometry & OCSVM,,,,
+2026-10-13T16:54:31.906460+00:00,M09,M09-twitter-human-bots-zeroshot-s42,test,twitter_human_bots,0a7d770,Zero-shot cross-dataset evaluation of profile models,,,,
+2026-10-13T17:17:09.418715+00:00,M10,M10-geo-context-s42,test,conll2003+geowebnews+gdelt,98fa016,Official test evaluation of geopolitical context layer (H10.1-H10.4 C007-C009 C083),,,,

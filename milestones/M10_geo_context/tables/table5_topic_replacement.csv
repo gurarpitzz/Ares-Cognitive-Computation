@@ -1,0 +1,4 @@
+Text Sample,Predicted Topic,Confidence,Method
+"""The economy is facing inflation due to the pandemic.""",Economy,0.9517,zero_shot_nli
+"""Tesla's new car model will be released next month.""",Technology,0.7766,zero_shot_nli
+"""New breakthroughs in quantum computing are promising.""",Technology,0.6057,zero_shot_nli
