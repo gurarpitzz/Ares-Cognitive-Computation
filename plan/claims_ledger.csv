@@ -95,6 +95,6 @@ C093,III-F,Sec. III-F,Highly scalable deployment enabling 24/7 surveillance,clai
 C094,IV-E,Fig. 6,Preprocessing time vs data size curves,figure,systems,yes,M13,UNVERIFIED,,,,TBD,
 C095,XV-E,Sec. XV-E,Optimization towards ONNX and edge deployment underway,statement,systems,yes,M13,UNVERIFIED,,,,TBD,Optional ONNX export + measure
 C096,VI-B/XXVIII-A,Eq. 41-42,Escalation if max V(y)<tau OR rho(c)>rho_crit,method,method,yes,M05,UNVERIFIED,,,,TBD,
-C097,XXII-B,Sec. XXII-B,95% CIs computed by bootstrap resampling,method,statistics,yes,M00/M11,UNVERIFIED,,,,TBD,Formula shown is normal approximation (audit M-11)
+C097,XXII-B,Sec. XXII-B,95% CIs computed by bootstrap resampling,normal approximation formula,method,yes,M00/M11,REVISED,Non-parametric percentile bootstrap (B=10000),,ares_v2/tests/common/test_stats.py,Replace normal approximation formula in Sec. XXII-B with empirical percentile bootstrap equation and cite B=10000 resamples,Audit M-11 resolved in M00. Verified by test_bootstrap_ci_coverage and test_paired_bootstrap_delta
 C098,XXXV/Lim.,Eq. 62,R_Dr(f) proportional to 1/|Dr|,formula,theory,no-as-stated,M01,UNVERIFIED,,,,TBD,Not a known result (audit M-12)
 C099,Response letter,Reproducibility guide,python evaluate.py --dataset liar --samples 50 reproduces benchmark experiments,statement,statement,no-as-stated,M15,UNVERIFIED,,,,TBD,Current script evaluates 50 random LIAR claims via live web; not the paper's results

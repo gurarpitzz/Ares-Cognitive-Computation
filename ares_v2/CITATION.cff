@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software or benchmark, please cite it as below."
+authors:
+  - family-names: "Singh"
+    given-names: "Gurarpit"
+title: "ARES: Autonomous Real-time Evaluation System for Multi-Modal Misinformation Verification"
+version: 2.0.0
+date-released: 2026-10-13
+url: "https://github.com/gurarpitzz/Ares-Cognitive-Computation"

@@ -1,0 +1,28 @@
+# Audited distinctive result numbers from the original manuscript
+# Used by tests/integrity/test_no_manuscript_numbers.py to prevent target chasing.
+forbidden_result_values:
+  - 0.893
+  - 0.875
+  - 0.911
+  - 0.948
+  - 415
+  - 1.99
+  - 0.071
+  - 0.058
+  - 0.043
+  - 0.031
+  - 0.049
+  - 0.112
+  - 0.094
+  - 0.036
+  - 0.061
+  - 6.8
+  - 18.6
+  - 1.26
+  - 0.4231
+  - 0.8799
+  - 30000
+  - 6.3
+  - 22.4
+  - 4.8
+  - 88

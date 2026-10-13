@@ -1,0 +1,49 @@
+{
+  "experiment_id": "M00-smoke-kill-resume",
+  "milestone": "M00",
+  "ledger_ids": [
+    "C097"
+  ],
+  "data_kind": "simulated",
+  "git_commit": "c0739c517996b2c2ef583af7403c765ad3d11640",
+  "dirty_worktree": false,
+  "config_path": "configs/smoke/kill_resume.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "val",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": true,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T10:57:01Z",
+  "finished_at": "2026-10-13T10:57:06Z",
+  "wall_clock_s": 4.762576103210449,
+  "n_examples": 2400,
+  "metrics": {
+    "loss_uninterrupted": 0.722014844417572,
+    "loss_resumed": 0.722014844417572,
+    "delta_loss": 0.0,
+    "passed": 1.0
+  },
+  "ci95": {},
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Verified that atomic checkpoint restoration reproduces uninterrupted training within delta <= 1e-3."
+}
