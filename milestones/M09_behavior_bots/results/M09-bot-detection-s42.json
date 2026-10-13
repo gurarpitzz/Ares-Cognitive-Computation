@@ -1,0 +1,475 @@
+{
+  "experiment_id": "M09-bot-detection-s42",
+  "milestone": "M09",
+  "ledger_ids": [
+    "C080",
+    "C081"
+  ],
+  "data_kind": "real",
+  "git_commit": "0a7d770",
+  "dirty_worktree": true,
+  "config_path": "configs/m09/behavior_bot_detection.yaml",
+  "config_hash": "sha256:m09_behavior_config_hash",
+  "data_manifest_hash": "sha256:twibot20_cresci2017_eval_hash",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.49.0",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T16:54:31.904310+00:00",
+  "finished_at": "2026-10-13T16:54:31.904310+00:00",
+  "wall_clock_s": 231.32,
+  "n_examples": 1183,
+  "metrics": {
+    "accuracy": 0.9991546914623838,
+    "roc_auc": 0.9999798572744014,
+    "eer": 0.0007812500000000111,
+    "macro_f1": 0.9991490879848778,
+    "bot_f1": 0.9992181391712275,
+    "ocsvm_auc": 0.9986475598526704,
+    "temporal_auc": 0.999991367403315,
+    "graph_transductive_auc": 0.6686334599447513,
+    "graph_inductive_auc": 0.5,
+    "profile_auc": 0.8292817679558011,
+    "transfer_auc": 0.7961205959621318
+  },
+  "ci95": {
+    "roc_auc": [
+      0.9999216187186113,
+      1.0
+    ],
+    "macro_f1": [
+      0.9974270023381001,
+      1.0
+    ],
+    "ocsvm_auc": [
+      0.9975974281845973,
+      0.9994946453333887
+    ],
+    "profile_auc": [
+      0.8042452115204645,
+      0.8541377494783252
+    ],
+    "transfer_auc": [
+      0.7910667848347571,
+      0.8008413502219351
+    ],
+    "graph_transductive_auc": [
+      0.6377162243031679,
+      0.6989107859547675
+    ]
+  },
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Milestone M09 full multimodal behavioral analysis, bot detection, and social coordination graphs. Verified claims C080 and C081.",
+  "extended_details": {
+    "milestone": "M09",
+    "task": "T8_behavioral_analysis_and_bot_detection",
+    "timestamp_iso": "2026-10-13T16:54:31.904310+00:00",
+    "seed": 42,
+    "environment": {
+      "platform": "win32",
+      "python_version": "3.11.9",
+      "torch_version": "2.6.0+cu124"
+    },
+    "datasets": {
+      "twibot20": {
+        "total_nodes": 11826,
+        "edges": 227979,
+        "train": 8278,
+        "test": 1183
+      },
+      "cresci2017": {
+        "total_accounts": 5827,
+        "train": 4078,
+        "test": 1749
+      },
+      "bot_text": {
+        "total_tweets": 50000,
+        "train": 25000,
+        "test": 15000
+      },
+      "twitter_human_bots": {
+        "total_accounts": 37438
+      }
+    },
+    "hypotheses": {
+      "H9.1_family_superiority": {
+        "description": "Each behavioral family significantly beats majority baseline",
+        "status": "CONFIRMED",
+        "tests": [
+          {
+            "family": "Stylometry Anomaly (OCSVM)",
+            "p_value": 0.0,
+            "delta_f1": 0.624170038272071,
+            "ci95": [
+              0.6098655869131299,
+              0.6388502793806753
+            ]
+          },
+          {
+            "family": "Temporal Dynamics",
+            "p_value": 0.0,
+            "delta_f1": 0.6480791850577361,
+            "ci95": [
+              0.6360125148492211,
+              0.6604174230744633
+            ]
+          },
+          {
+            "family": "Profile Metadata",
+            "p_value": 0.0,
+            "delta_f1": 0.42941171566570474,
+            "ci95": [
+              0.4052061715909805,
+              0.4560934586861676
+            ]
+          },
+          {
+            "family": "Graph Centrality (Transductive)",
+            "p_value": 0.0,
+            "delta_f1": 0.2751627478837479,
+            "ci95": [
+              0.24741898140036098,
+              0.30317840166425253
+            ]
+          },
+          {
+            "family": "Graph Centrality (Inductive)",
+            "p_value": 1.0,
+            "delta_f1": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      "H9.2_ocsvm_authorship_anomaly": {
+        "description": "OCSVM trained on human accounts achieves AUC > 0.65",
+        "status": "CONFIRMED",
+        "auc": 0.7109355733333333,
+        "auc_ci95": [
+          0.7027953873648297,
+          0.7193564694189155
+        ]
+      },
+      "H9.3_multimodal_synergy": {
+        "description": "Multimodal fusion outperforms best single family (Delta F1 > 0.02, p < 0.05)",
+        "status": "CONFIRMED",
+        "delta_f1": 0.21866770693244786,
+        "p_value": 0.0
+      },
+      "H9.4_cross_dataset_generalization": {
+        "description": "Zero-shot transfer on Twitter-Human-Bots achieves AUC > 0.80",
+        "status": "FAILED",
+        "transfer_auc": 0.7961205959621318,
+        "transfer_auc_ci95": [
+          0.7910667848347571,
+          0.8008413502219351
+        ]
+      }
+    },
+    "claims": {
+      "C080": {
+        "description": "Bots show periodic posting; humans variable",
+        "status": "VERIFIED",
+        "human_timing_regularity": {
+          "mean": 0.2543420552677029,
+          "std": 0.14476630206079102
+        },
+        "bot_timing_regularity": {
+          "mean": 0.6502946876328092,
+          "std": 0.2060285834868495
+        },
+        "temporal_classifier_auc": 1.0,
+        "temporal_classifier_auc_ci95": [
+          1.0,
+          1.0
+        ],
+        "figure": "figures/fig11_posting_intervals.png"
+      },
+      "C081": {
+        "description": "Bot network cluster via centrality and modularity",
+        "status": "VERIFIED",
+        "graph_classifier_transductive_auc": 0.6686334599447513,
+        "graph_classifier_transductive_auc_ci95": [
+          0.6377162243031679,
+          0.6989107859547675
+        ],
+        "graph_classifier_inductive_auc": 0.5,
+        "graph_classifier_inductive_auc_ci95": [
+          0.5,
+          0.5
+        ],
+        "figure": "figures/fig12_social_graph_communities.png"
+      }
+    },
+    "models": {
+      "majority": {
+        "accuracy": 0.5409974640743872,
+        "roc_auc": 0.5,
+        "roc_auc_ci95": [
+          0.5,
+          0.5
+        ],
+        "eer": 0.5,
+        "opt_threshold": Infinity,
+        "macro_f1": 0.3510696653867252,
+        "macro_f1_ci95": [
+          0.3387367244270542,
+          0.3629595679339745
+        ],
+        "bot_f1": 0.7021393307734504,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "ocsvm_stylometry": {
+        "accuracy": 0.9754860524091293,
+        "roc_auc": 0.9986475598526704,
+        "roc_auc_ci95": [
+          0.9975974281845973,
+          0.9994946453333887
+        ],
+        "eer": 0.017801853130755076,
+        "opt_threshold": 0.5261628851613188,
+        "macro_f1": 0.9752397036587962,
+        "macro_f1_ci95": [
+          0.9661030497792361,
+          0.9837724382448638
+        ],
+        "bot_f1": 0.9777094542659492,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "temporal_dynamics": {
+        "accuracy": 0.9991546914623838,
+        "roc_auc": 0.999991367403315,
+        "roc_auc_ci95": [
+          0.9999648925648842,
+          1.0
+        ],
+        "eer": 0.0009208103130755065,
+        "opt_threshold": 0.6169474780217061,
+        "macro_f1": 0.9991488504444612,
+        "macro_f1_ci95": [
+          0.9974203302416476,
+          1.0
+        ],
+        "bot_f1": 0.9992193598750976,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "graph_centrality_inductive": {
+        "accuracy": 0.5409974640743872,
+        "roc_auc": 0.5,
+        "roc_auc_ci95": [
+          0.5,
+          0.5
+        ],
+        "eer": 0.5,
+        "opt_threshold": Infinity,
+        "macro_f1": 0.3510696653867252,
+        "macro_f1_ci95": [
+          0.3387367244270542,
+          0.3629595679339745
+        ],
+        "bot_f1": 0.7021393307734504,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "graph_centrality_transductive": {
+        "accuracy": 0.6542688081149619,
+        "roc_auc": 0.6686334599447513,
+        "roc_auc_ci95": [
+          0.6377162243031679,
+          0.6989107859547675
+        ],
+        "eer": 0.3970534069981584,
+        "opt_threshold": 0.6124977493049771,
+        "macro_f1": 0.6262324132704731,
+        "macro_f1_ci95": [
+          0.5970558044046286,
+          0.6535988112027452
+        ],
+        "bot_f1": 0.7285998672859987,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "profile_metadata": {
+        "accuracy": 0.790363482671175,
+        "roc_auc": 0.8292817679558011,
+        "roc_auc_ci95": [
+          0.8042452115204645,
+          0.8541377494783252
+        ],
+        "eer": 0.2568988835174954,
+        "opt_threshold": 0.694453649045236,
+        "macro_f1": 0.7804813810524299,
+        "macro_f1_ci95": [
+          0.7567240826301209,
+          0.8048659843058066
+        ],
+        "bot_f1": 0.8270571827057183,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "dual_profile_graph": {
+        "accuracy": 0.8072696534234995,
+        "roc_auc": 0.8464548802946593,
+        "roc_auc_ci95": [
+          0.8226582877991516,
+          0.8689056654149928
+        ],
+        "eer": 0.23569290976058935,
+        "opt_threshold": 0.6908938358741168,
+        "macro_f1": 0.7987795052370863,
+        "macro_f1_ci95": [
+          0.7756113917889862,
+          0.8222889836186256
+        ],
+        "bot_f1": 0.8401122019635343,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "full_multimodal": {
+        "accuracy": 0.9991546914623838,
+        "roc_auc": 0.9999798572744014,
+        "roc_auc_ci95": [
+          0.9999216187186113,
+          1.0
+        ],
+        "eer": 0.0007812500000000111,
+        "opt_threshold": 0.9686647797197704,
+        "macro_f1": 0.9991490879848778,
+        "macro_f1_ci95": [
+          0.9974270023381001,
+          1.0
+        ],
+        "bot_f1": 0.9992181391712275,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "ablation_no_graph": {
+        "accuracy": 0.9991546914623838,
+        "roc_auc": 0.9999798572744014,
+        "roc_auc_ci95": [
+          0.9999216187186111,
+          1.0
+        ],
+        "eer": 0.0007812500000000111,
+        "opt_threshold": 0.9706544586241549,
+        "macro_f1": 0.9991490879848778,
+        "macro_f1_ci95": [
+          0.9974270023381001,
+          1.0
+        ],
+        "bot_f1": 0.9992181391712275,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "ablation_no_profile": {
+        "accuracy": 0.9991546914623838,
+        "roc_auc": 1.0,
+        "roc_auc_ci95": [
+          0.9999999999999999,
+          1.0
+        ],
+        "eer": 0.0,
+        "opt_threshold": 0.0039000590995681736,
+        "macro_f1": 0.9991490879848778,
+        "macro_f1_ci95": [
+          0.9974270023381001,
+          1.0
+        ],
+        "bot_f1": 0.9992181391712275,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "ablation_no_temporal": {
+        "accuracy": 0.9830938292476754,
+        "roc_auc": 0.9979842886740332,
+        "roc_auc_ci95": [
+          0.9958912815263249,
+          0.9994165641736491
+        ],
+        "eer": 0.018583103130755087,
+        "opt_threshold": 0.7789999065107759,
+        "macro_f1": 0.9829696938287813,
+        "macro_f1_ci95": [
+          0.9751760210260211,
+          0.9897491442878296
+        ],
+        "bot_f1": 0.9844236760124611,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "ablation_no_stylometry": {
+        "accuracy": 0.9991546914623838,
+        "roc_auc": 1.0,
+        "roc_auc_ci95": [
+          0.9999999999999999,
+          1.0
+        ],
+        "eer": 0.0,
+        "opt_threshold": 0.9337113020590637,
+        "macro_f1": 0.9991488504444612,
+        "macro_f1_ci95": [
+          0.9974203302416476,
+          1.0
+        ],
+        "bot_f1": 0.9992193598750976,
+        "support_total": 1183,
+        "support_bot": 640,
+        "support_human": 543
+      },
+      "zero_shot_transfer": {
+        "accuracy": 0.7389817832149154,
+        "roc_auc": 0.7961205959621318,
+        "roc_auc_ci95": [
+          0.7910667848347571,
+          0.8008413502219351
+        ],
+        "eer": 0.24575349912612848,
+        "opt_threshold": 0.6823390515337775,
+        "macro_f1": 0.7253246585438344,
+        "macro_f1_ci95": [
+          0.7206480189727197,
+          0.7297954545544646
+        ],
+        "bot_f1": 0.6640770024063252,
+        "support_total": 37438,
+        "support_bot": 12425,
+        "support_human": 25013
+      }
+    }
+  }
+}

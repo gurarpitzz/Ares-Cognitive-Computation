@@ -12,3 +12,4 @@ date,milestone,experiment_id,gpu_hours,peak_vram_gb,peak_disk_gb,throttled
 2026-10-13,M07,M07-deepfake-xception-eval,0.025,5.4,1.2,false
 2026-10-13,M07,M07-celebdf-cross-dataset-eval,0.020,4.8,1.2,false
 2026-10-13,M08,M08-audio-master-eval,0.0192,4.5,1.5,false
+2026-10-13,M09,M09-behavior-master-eval,0.0643,3.2,0.8,false

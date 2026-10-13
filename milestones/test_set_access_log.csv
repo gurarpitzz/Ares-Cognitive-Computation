@@ -34,3 +34,8 @@ timestamp,milestone,experiment_id,split,dataset,git_commit,reason
 2026-10-13T16:17:45.696985+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ARES Declared Audio CNN on stratified ASVspoof waveforms
 2026-10-13T16:17:45.696985+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,f7f4ec8,Official evaluation of reference Traditional Audio ML on stratified acoustic cepstra
 2026-10-13T16:17:45.696985+00:00,M08,M08-audio-speaker-ecapa-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ECAPA-TDNN speaker verification on 400 genuine speech trial pairs
+2026-10-13T16:54:31.906460+00:00,M09,M09-bot-detection-s42,test,twibot20,0a7d770,Official test split evaluation of master multimodal bot detection
+2026-10-13T16:54:31.906460+00:00,M09,M09-twibot20-official-eval-s42,test,twibot20,0a7d770,Official test split evaluation of multimodal bot detection
+2026-10-13T16:54:31.906460+00:00,M09,M09-cresci2017-temporal-eval-s42,test,cresci2017,0a7d770,Official test split evaluation of temporal posting patterns
+2026-10-13T16:54:31.906460+00:00,M09,M09-bot-text-stylometry-eval-s42,test,bot_detection,0a7d770,Official test split evaluation of stylometry & OCSVM
+2026-10-13T16:54:31.906460+00:00,M09,M09-twitter-human-bots-zeroshot-s42,test,twitter_human_bots,0a7d770,Zero-shot cross-dataset evaluation of profile models

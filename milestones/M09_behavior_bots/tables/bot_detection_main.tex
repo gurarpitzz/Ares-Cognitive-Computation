@@ -1,0 +1,14 @@
+\begin{tabular}{llllll}
+\toprule
+Model / Architecture & Accuracy [%] & ROC-AUC [%] [95% CI] & EER [%] & Macro-F1 [%] [95% CI] & Bot-F1 [%] \\
+\midrule
+Majority Class Anchor & 54.10 & 50.00 [50.00, 50.00] & 50.00 & 35.11 [33.87, 36.30] & 70.21 \\
+Authorship Anomaly OCSVM (Zero-Bot Training) & 97.55 & 99.86 [99.76, 99.95] & 1.78 & 97.52 [96.61, 98.38] & 97.77 \\
+Temporal Dynamics & HMM LLR & 99.92 & 100.00 [100.00, 100.00] & 0.09 & 99.91 [99.74, 100.00] & 99.92 \\
+Graph Centrality (Inductive Subgraph) & 54.10 & 50.00 [50.00, 50.00] & 50.00 & 35.11 [33.87, 36.30] & 70.21 \\
+Graph Centrality (Transductive + Louvain) & 65.43 & 66.86 [63.77, 69.89] & 39.71 & 62.62 [59.71, 65.36] & 72.86 \\
+Profile Metadata (TwiBot-20) & 79.04 & 82.93 [80.42, 85.41] & 25.69 & 78.05 [75.67, 80.49] & 82.71 \\
+Dual Fusion: Profile + Graph & 80.73 & 84.65 [82.27, 86.89] & 23.57 & 79.88 [77.56, 82.23] & 84.01 \\
+ARES Full Multimodal Behavior Classifier & 99.92 & 100.00 [99.99, 100.00] & 0.08 & 99.91 [99.74, 100.00] & 99.92 \\
+\bottomrule
+\end{tabular}
