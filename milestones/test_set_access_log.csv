@@ -27,3 +27,5 @@ timestamp,milestone,experiment_id,split,dataset,git_commit,reason
 2026-10-13T14:43:19Z,M07,M07-deepfake-resnet50-s42,test,faceforensics,fc969ad,Official test split evaluation of ARES ResNet-50 visual deepfake detector
 2026-10-13T14:43:19Z,M07,M07-deepfake-xception-s42,test,faceforensics,fc969ad,Official test split evaluation of reference Xception CNN baseline
 2026-10-13T14:43:19Z,M07,M07-celebdf-cross-dataset-s42,test,celebdf,fc969ad,Zero-shot cross-dataset evaluation on Celeb-DF v2 test split
+2026-10-13T15:29:15.827131+00:00,M07,M07-deepfake-resnet50-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of ResNet-50 on 10165 real face crops
+2026-10-13T15:29:15.829353+00:00,M07,M07-deepfake-xception-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of Xception on 10165 real face crops

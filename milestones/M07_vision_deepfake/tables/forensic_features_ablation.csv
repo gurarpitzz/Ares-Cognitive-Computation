@@ -1,4 +1,4 @@
 modality,cross_auc,delta_vs_cnn,notes
-Pure Spatial CNN (ResNet-50),0.7274599980837405,0.0,Baseline vision model
-Forensic Frequency + Landmark (Standalone),0.9378173804733161,0.21035738238957558,Azimuthal FFT (32 bins) + Landmark Jitter (6 feats)
-Late Fusion (CNN + Forensics),0.9378173804733161,0.21035738238957558,Optimal alpha=0.00 (H7.3 confirmed: delta=+0.2104)
+Pure Spatial CNN (ResNet-50),0.7498823993566106,0.0,Baseline visual model
+Forensic Frequency + Temporal Dynamics (Standalone),0.4383696757257098,-0.3115127236309008,32 azimuthal FFT bins + 32 temporal variance features
+Late Fusion (CNN + Forensics),0.7493512996767878,-0.0005310996798227885,Validation-optimal alpha=0.05

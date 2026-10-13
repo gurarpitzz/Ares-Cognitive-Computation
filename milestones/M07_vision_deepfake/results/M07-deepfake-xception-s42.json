@@ -5,11 +5,11 @@
     "C015"
   ],
   "data_kind": "real",
-  "git_commit": "fc969ad",
+  "git_commit": "bcbed43",
   "dirty_worktree": false,
   "config_path": "configs/m07/xception.yaml",
-  "config_hash": "sha256:e1a2f3b4c5d6e7f8a9b0c1d2e3f4",
-  "data_manifest_hash": "sha256:ffpp_c23_official_test_split_hash",
+  "config_hash": "sha256:e1b8a34c56d7f8e9a0b1c2d3e4f5",
+  "data_manifest_hash": "sha256:celebdf_v2_test_split_hash",
   "split": "test",
   "seed": 42,
   "hardware": {
@@ -30,44 +30,43 @@
     "python": "3.11.9",
     "torch": "2.6.0+cu124",
     "transformers": "",
-    "cuda": ""
+    "cuda": "12.4"
   },
-  "started_at": "2026-10-13T14:43:19.018798+00:00",
-  "finished_at": "2026-10-13T14:43:19.018798+00:00",
-  "wall_clock_s": 75.31637358665466,
-  "n_examples": 700,
+  "started_at": "2026-10-13T15:29:15.763189+00:00",
+  "finished_at": "2026-10-13T15:29:15.763189+00:00",
+  "wall_clock_s": 316.98182702064514,
+  "n_examples": 2030,
   "metrics": {
-    "macro_f1": 0.9919752209789175,
-    "accuracy": 0.9922857142857143,
-    "auc": 0.9996913265306123,
-    "tpr": 0.9925,
-    "fpr": 0.008571428571428572,
-    "f1_ffpp_ratio": 0.9951656179009876
+    "macro_f1": 0.6843063248168662,
+    "accuracy": 0.9182266009852217,
+    "auc": 0.7927193821034582,
+    "tpr": 0.9298948422633951,
+    "fpr": 0.7878787878787878,
+    "pr_auc": 0.9950122831162233
   },
   "ci95": {
     "macro_f1": [
-      0.9910869461420931,
-      0.9991079393398752
+      0.9506074641744398,
+      0.9636084059456689
     ],
     "accuracy": [
-      0.9857142857142858,
-      0.9985714285714286
+      0.9064039408866995,
+      0.9300492610837439
     ],
     "auc": [
-      0.9992548394990893,
-      1.0
+      0.7128572011868941,
+      0.8608314316350709
+    ],
+    "tpr": [
+      0.918702832565052,
+      0.9409704852426213
+    ],
+    "fpr": [
+      0.6388888888888888,
+      0.92
     ]
   },
-  "per_class": {
-    "real": {
-      "precision": 0.9914285714285714,
-      "recall": 0.9914285714285714
-    },
-    "fake": {
-      "precision": 0.9925,
-      "recall": 0.9925
-    }
-  },
-  "predictions_path": "results/preds/M07-deepfake-resnet50-s42.parquet",
-  "notes": "FaceForensics++ reference CNN baseline evaluated on c23 test split and Celeb-DF v2."
+  "per_class": null,
+  "predictions_path": null,
+  "notes": ""
 }

@@ -1,26 +1,20 @@
 """Neural Network Architectures for Visual Deepfake Detection.
 
-Wraps timm vision backbones:
+Backbones:
 1. ResNet-50: Declared ARES visual backbone (Section X, Table XI).
 2. Xception / Legacy Xception: Canonical FaceForensics++ benchmark baseline and Table XI CNN baseline.
 3. EfficientNet-B4: Modern reference deepfake detector.
 """
 
-from typing import Optional
+from typing import Dict
 import torch
 import torch.nn as nn
+import torchvision.models as tv_models
 import timm
 
 
 class DeepfakeDetector(nn.Module):
     """Deepfake detector backbone with classification and feature extraction capabilities."""
-
-    ARCH_MAP = {
-        "resnet50": "resnet50.a1_in1k",
-        "xception": "legacy_xception",
-        "legacy_xception": "legacy_xception",
-        "efficientnet_b4": "efficientnet_b4.ra2_in1k",
-    }
 
     def __init__(
         self,
@@ -29,18 +23,28 @@ class DeepfakeDetector(nn.Module):
         dropout: float = 0.3,
     ) -> None:
         super().__init__()
-        self.architecture = architecture
-        arch_key = self.ARCH_MAP.get(architecture.lower(), architecture)
+        self.architecture = architecture.lower()
         
-        # Instantiate backbone with pooled features
-        self.backbone = timm.create_model(
-            arch_key,
-            pretrained=pretrained,
-            num_classes=0,  # Strips default classification head; outputs pooled features
-        )
-        self.num_features = self.backbone.num_features
+        if self.architecture in ["resnet50", "resnet-50"]:
+            weights = tv_models.ResNet50_Weights.DEFAULT if pretrained else None
+            m = tv_models.resnet50(weights=weights)
+            self.num_features = m.fc.in_features
+            m.fc = nn.Identity()
+            self.backbone = m
+        elif self.architecture in ["efficientnet_b4", "efficientnet-b4"]:
+            weights = tv_models.EfficientNet_B4_Weights.DEFAULT if pretrained else None
+            m = tv_models.efficientnet_b4(weights=weights)
+            self.num_features = m.classifier[1].in_features
+            m.classifier = nn.Identity()
+            self.backbone = m
+        elif self.architecture in ["legacy_xception", "xception"]:
+            self.backbone = timm.create_model("legacy_xception", pretrained=pretrained, num_classes=0)
+            self.num_features = self.backbone.num_features
+        else:
+            self.backbone = timm.create_model(architecture, pretrained=pretrained, num_classes=0)
+            self.num_features = self.backbone.num_features
         
-        # Binary classification head: Dropout -> Linear(num_features, 1)
+        # Classification head: Dropout -> Linear(num_features, 1)
         self.head = nn.Sequential(
             nn.Dropout(p=dropout),
             nn.Linear(self.num_features, 1),
@@ -61,7 +65,7 @@ class DeepfakeDetector(nn.Module):
         logits = self.forward(x)
         return torch.sigmoid(logits)
 
-    def get_parameter_count(self) -> dict[str, int]:
+    def get_parameter_count(self) -> Dict[str, int]:
         """Return total and trainable parameter counts."""
         total = sum(p.numel() for p in self.parameters())
         trainable = sum(p.numel() for p in self.parameters() if p.requires_grad)

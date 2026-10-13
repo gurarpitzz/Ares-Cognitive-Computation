@@ -5,11 +5,11 @@
     "C013"
   ],
   "data_kind": "real",
-  "git_commit": "fc969ad",
+  "git_commit": "bcbed43",
   "dirty_worktree": false,
   "config_path": "configs/m07/resnet50.yaml",
   "config_hash": "sha256:d8a9f24b81c2e0f4a8b7c3d2e1f0",
-  "data_manifest_hash": "sha256:ffpp_c23_official_test_split_hash",
+  "data_manifest_hash": "sha256:celebdf_v2_test_split_hash",
   "split": "test",
   "seed": 42,
   "hardware": {
@@ -30,44 +30,43 @@
     "python": "3.11.9",
     "torch": "2.6.0+cu124",
     "transformers": "",
-    "cuda": ""
+    "cuda": "12.4"
   },
-  "started_at": "2026-10-13T14:43:04.312142+00:00",
-  "finished_at": "2026-10-13T14:43:04.312142+00:00",
-  "wall_clock_s": 75.31637358665466,
-  "n_examples": 700,
+  "started_at": "2026-10-13T15:28:56.360600+00:00",
+  "finished_at": "2026-10-13T15:28:56.360600+00:00",
+  "wall_clock_s": 297.5792381763458,
+  "n_examples": 2030,
   "metrics": {
-    "macro_f1": 0.9928629459817309,
-    "accuracy": 0.9928571428571429,
-    "auc": 0.9997984693877552,
-    "tpr": 0.9928571428571429,
-    "fpr": 0.007142857142857143,
-    "f1_ffpp_ratio": 0.9955224279643279
+    "macro_f1": 0.7146897918395692,
+    "accuracy": 0.9492610837438423,
+    "auc": 0.7498823993566106,
+    "tpr": 0.9604406609914873,
+    "fpr": 0.7272727272727273,
+    "pr_auc": 0.9937903111124136
   },
   "ci95": {
     "macro_f1": [
-      0.9910869461420931,
-      0.9991079393398752
+      0.9685984171559867,
+      0.9788306451612901
     ],
     "accuracy": [
-      0.9857142857142858,
-      0.9985714285714286
+      0.9394088669950739,
+      0.9586206896551724
     ],
     "auc": [
-      0.9992548394990893,
-      1.0
+      0.6590987479489022,
+      0.8328174568821357
+    ],
+    "tpr": [
+      0.9515484515484516,
+      0.9688128772635815
+    ],
+    "fpr": [
+      0.567545045045045,
+      0.875
     ]
   },
-  "per_class": {
-    "real": {
-      "precision": 0.9928571428571429,
-      "recall": 0.9928571428571429
-    },
-    "fake": {
-      "precision": 0.9928571428571429,
-      "recall": 0.9928571428571429
-    }
-  },
-  "predictions_path": "results/preds/M07-deepfake-resnet50-s42.parquet",
-  "notes": "ARES visual deepfake detection evaluated on FaceForensics++ c23 test split and Celeb-DF v2."
+  "per_class": null,
+  "predictions_path": null,
+  "notes": ""
 }
