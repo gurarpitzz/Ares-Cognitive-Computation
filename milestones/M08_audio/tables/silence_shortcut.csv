@@ -1,2 +1,2 @@
 modality,roc_auc,eer,threshold,notes
-Silence Duration Alone (Linear),1.0,0.0,0.24950548781939652,Red Flag RF1 control: established baseline from leading/trailing silence duration
+Silence Duration Alone (Linear),0.8243555555555555,0.24,0.53156366645587,Red Flag RF1 control: linear classifier trained solely on leading/trailing silence duration

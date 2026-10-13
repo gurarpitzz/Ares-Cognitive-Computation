@@ -31,3 +31,6 @@ timestamp,milestone,experiment_id,split,dataset,git_commit,reason
 2026-10-13T15:29:15.829353+00:00,M07,M07-deepfake-xception-s42,test,celebdf,bcbed43,Genuine empirical test evaluation of Xception on 10165 real face crops
 2026-10-13T15:46:47.804736+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,3e8bbf7,Official evaluation of ARES Declared Audio CNN on genuine ASVspoof waveforms
 2026-10-13T15:46:47.804736+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,3e8bbf7,Official evaluation of reference Traditional Audio ML on genuine acoustic cepstra
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-declared-cnn-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ARES Declared Audio CNN on stratified ASVspoof waveforms
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-traditional-ml-s42,test,asvspoof2019,f7f4ec8,Official evaluation of reference Traditional Audio ML on stratified acoustic cepstra
+2026-10-13T16:17:45.696985+00:00,M08,M08-audio-speaker-ecapa-s42,test,asvspoof2019,f7f4ec8,Official evaluation of ECAPA-TDNN speaker verification on 400 genuine speech trial pairs

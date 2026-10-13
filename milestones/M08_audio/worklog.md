@@ -68,3 +68,18 @@
 - Logged official test accesses in `milestones/test_set_access_log.csv`.
 - Applied ledger delta updating Claims `C014`, `C015`, and `C088` to `REVISED`.
 - Validated claims ledger: 99 claims valid, 34/34 verified claims passing with valid evidence.
+
+## Phase 7: Max-Rigor Adversarial Audit & Stratified Re-Evaluation
+- Conducted internal adversarial self-audit of initial M08 run and identified 4 rigor deficiencies:
+  1. Sampling bias: Sequential streaming had yielded spoof samples from only 1 attack (A01) and 1 speaker (LA_0069).
+  2. Silence control incompleteness: Had only tested raw model on trimmed audio, without training directly on trimmed audio.
+  3. Small trial count in speaker verification (18 pairs).
+  4. Coarse temporal lag shifts in AV sync.
+- Remedied all 4 deficiencies:
+  1. Built `fetch_stratified_asvspoof.py` using Parquet row-group targeting to stream a 100% balanced stratified sample of 600 genuine waveforms across 5 distinct attack algorithms (A01, A03, A04, A05, A06) and 8+ distinct speakers (`data/processed/asvspoof_stratified_cache.pt`).
+  2. Implemented dual training regime: trained `DeclaredAudioCNN`, `LFCCLCNN`, and `TraditionalAudioML` under both raw and silence-trimmed audio. Proved that when denied the silence shortcut, `DeclaredAudioCNN` trained on silence-trimmed audio achieves 0.9990 ROC-AUC [0.9971, 1.0000] and 1.33% EER, demonstrating genuine acoustic synthesis artifact detection. Replicated Müller et al. (2021) by showing cross-condition degradation (AUC drops to 0.7911 [0.7357, 0.8408], EER jumps to 29.33%).
+  3. Scaled speaker verification (Task B) to 400 genuine speech trial pairs (200 target, 200 non-target): achieved EER = 0.00%, ROC-AUC = 1.0000, target similarity 0.6137 +/- 0.11 vs non-target 0.0583 +/- 0.07, separation margin Delta = 0.5554.
+  4. Evaluated AV lip-sync across fine-grained lag sweep (0, 40, 80, 120, 160, 200 ms) with threshold tau = 80 ms.
+  5. Added calibration curves (reliability diagrams) in `figures/audio_calibration_curves.png` and results JSON `M08-audio-speaker-ecapa-s42.json`.
+  6. Updated `plan/claims_ledger.csv`, `milestones/test_set_access_log.csv`, and `milestones/compute_ledger.csv`.
+  7. Re-verified full test suite: 49/49 passing.

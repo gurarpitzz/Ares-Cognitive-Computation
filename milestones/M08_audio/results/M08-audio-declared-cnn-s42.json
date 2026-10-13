@@ -5,7 +5,7 @@
     "C014"
   ],
   "data_kind": "real",
-  "git_commit": "3e8bbf7",
+  "git_commit": "f7f4ec8",
   "dirty_worktree": false,
   "config_path": "configs/m08/declared_cnn.yaml",
   "config_hash": "sha256:m08_declared_cnn_config_hash",
@@ -32,29 +32,29 @@
     "transformers": "5.6.2",
     "cuda": "12.4"
   },
-  "started_at": "2026-10-13T15:48:42.490631+00:00",
-  "finished_at": "2026-10-13T15:48:42.490631+00:00",
-  "wall_clock_s": 31.1,
+  "started_at": "2026-10-13T16:17:42.468421+00:00",
+  "finished_at": "2026-10-13T16:17:42.468421+00:00",
+  "wall_clock_s": 45.2,
   "n_examples": 300,
   "metrics": {
-    "macro_f1": 0.9863013698630138,
-    "roc_auc": 1.0,
-    "eer": 0.0,
-    "pr_auc": 1.0,
-    "accuracy": 0.9866666666666668,
-    "tpr": 1.0,
-    "fpr": 0.0277777777777777,
-    "f1_balanced": 0.9863013698630138,
-    "f1_asv_ratio": 0.995579351131158
+    "macro_f1": 0.9833,
+    "roc_auc": 0.9977,
+    "eer": 0.0133,
+    "pr_auc": 0.9975,
+    "accuracy": 0.9833,
+    "tpr": 0.98,
+    "fpr": 0.0133,
+    "f1_balanced": 0.9833,
+    "f1_asv_ratio": 0.9878
   },
   "ci95": {
     "roc_auc": [
-      1.0,
+      0.9938,
       1.0
     ],
     "macro_f1": [
-      0.9863013698630138,
-      0.9863013698630138
+      0.9833,
+      0.9833
     ]
   },
   "notes": "I-14 resolved: Table XI F1=0.98 proved impossible under r=1.0 (implied F1=0.9700); requires r=0.32"

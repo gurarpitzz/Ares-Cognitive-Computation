@@ -66,3 +66,9 @@ class SilenceShortcutAuditor:
             "silence_only_eer": eer,
             "silence_threshold": thresh,
         }
+
+    def predict_proba(self, X_silence: np.ndarray) -> np.ndarray:
+        """Predict class probabilities from silence features."""
+        if not self.is_fitted:
+            raise RuntimeError("Auditor must be fitted first")
+        return self.classifier.predict_proba(X_silence)

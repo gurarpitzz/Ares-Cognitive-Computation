@@ -1,2 +1,2 @@
-protocol,model,target_pairs,nontarget_pairs,mean_target_sim,mean_nontarget_sim,eer,optimal_threshold,rf4_sanity_confirmed
-Speaker Identity Verification (VoxCeleb-pretrained ECAPA),ECAPA-TDNN (192-d),15,3,0.5364182492097219,0.031507849072416626,0.0,0.04777967184782028,True
+protocol,model,target_pairs,nontarget_pairs,mean_target_sim,mean_nontarget_sim,eer,eer_pct,optimal_threshold,roc_auc,ci95_auc,rf4_sanity_confirmed
+Speaker Identity Verification (VoxCeleb-pretrained ECAPA),ECAPA-TDNN (192-d),200,200,0.6137,0.0583,0.0,0.00%,0.2186,1.0,"[1.0000, 1.0000]",True

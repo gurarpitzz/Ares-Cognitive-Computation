@@ -1,3 +1,7 @@
-condition,mean_offset_sec,mean_offset_ms,tampering_flagged_pct
-Synchronized (Original),0.0,0.0,0.0
-Desynchronized (+160ms Lag Tampering),0.16,160.0,100.0
+induced_lag_ms,shift_frames,mean_detected_offset_ms,mean_correlation_confidence,tampering_flagged_pct,perceptual_status
+0,0,0.0,1.0,0.0,Synchronous
+40,1,40.0,0.9951,0.0,Synchronous
+80,2,80.0,0.9902,100.0,Desynchronized / Tampered
+120,3,120.0,0.9853,100.0,Desynchronized / Tampered
+160,4,160.0,0.9805,100.0,Desynchronized / Tampered
+200,5,200.0,0.9757,100.0,Desynchronized / Tampered
