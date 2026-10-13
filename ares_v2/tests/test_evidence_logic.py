@@ -61,3 +61,18 @@ def test_quantity_extractor_and_logic():
     res = logic.evaluate("Claim asserts 500 casualties.", ["Official reports confirm 0 casualties."])
     assert res["logic_flag"] == "CONTRADICTION"
     assert res["logic_adjustment"] < 0
+
+def test_wikidata_relation_checker():
+    from ares.logic.wikidata_checks import WikidataRelationChecker
+    checker = WikidataRelationChecker()
+    
+    # Consistent fact
+    res1 = checker.check_claim("The capital of France is Paris.")
+    assert res1["status"] == "CONSISTENT"
+    assert res1["relation"] == "P36 (capital)"
+    
+    # Contradicted fact
+    res2 = checker.check_claim("The capital of France is Berlin.")
+    assert res2["status"] == "CONTRADICTED"
+    assert res2["gold"] == "paris"
+    assert res2["claimed"] == "berlin"

@@ -1,9 +1,14 @@
 {
   "milestone": "M04",
-  "wall_clock_s": 33.9,
+  "wall_clock_s": 78.6,
+  "n_claims_evaluated": 450,
+  "optimal_thresholds": {
+    "tau_true": 0.25,
+    "tau_false": -0.05
+  },
   "retrieval_metrics": [
     {
-      "model": "BM25",
+      "model": "BM25 (Okapi)",
       "recall@1": 0.6667,
       "recall@5": 0.6667,
       "recall@10": 0.6667,
@@ -11,10 +16,10 @@
     },
     {
       "model": "Dense (all-MiniLM-L6-v2)",
-      "recall@1": 0.6583,
+      "recall@1": 0.6622,
       "recall@5": 0.6667,
-      "recall@10": 0.6667,
-      "mrr": 0.6625
+      "recall@10": 0.6689,
+      "mrr": 0.6648
     },
     {
       "model": "Hybrid (BM25 + Dense RRF)",
@@ -26,30 +31,32 @@
   ],
   "nli_comparison": [
     {
-      "setting": "Soft-N Functional (P(entail) - P(contradict))",
-      "accuracy": 0.4333,
-      "macro_f1": 0.2684,
-      "ci95_low": 0.224,
-      "ci95_high": 0.3068
+      "model": "BART-large-MNLI (Soft-N)",
+      "setting": "Soft-N (P(entail) - P(contradict))",
+      "accuracy": 0.4133,
+      "macro_f1": 0.251,
+      "ci95_low": 0.2294,
+      "ci95_high": 0.2726
     },
     {
-      "setting": "Hard-N Functional (Discrete {-1, 0, +1})",
-      "accuracy": 0.4417,
-      "macro_f1": 0.2816,
-      "ci95_low": 0.2338,
-      "ci95_high": 0.322
+      "model": "BART-large-MNLI (Hard-N)",
+      "setting": "Hard-N (Discrete {-1, 0, +1})",
+      "accuracy": 0.4022,
+      "macro_f1": 0.2464,
+      "ci95_low": 0.2234,
+      "ci95_high": 0.2698
     }
   ],
   "credibility_comparison": [
     {
       "condition": "Lin et al. Credibility Weighted W in [0, 1]",
-      "macro_f1": 0.278,
-      "accuracy": 0.4333
+      "macro_f1": 0.2628,
+      "accuracy": 0.42
     },
     {
       "condition": "Uniform Unweighted W = 1.0",
-      "macro_f1": 0.2819,
-      "accuracy": 0.4583
+      "macro_f1": 0.139,
+      "accuracy": 0.2044
     }
   ],
   "table15": [
@@ -69,16 +76,16 @@
     },
     {
       "layer": "3. Contextual Reasoning (Oracle NLI)",
-      "precision": 0.231,
-      "recall": 0.325,
-      "macro_f1": 0.268,
+      "precision": 0.214,
+      "recall": 0.31,
+      "macro_f1": 0.251,
       "benchmark": "FEVER + BART-large-MNLI"
     },
     {
       "layer": "4. Cross-Source Verification (Full Pipeline)",
-      "precision": 0.25,
-      "recall": 0.325,
-      "macro_f1": 0.278,
+      "precision": 0.226,
+      "recall": 0.315,
+      "macro_f1": 0.263,
       "benchmark": "FEVER End-to-End Pipeline"
     }
   ],

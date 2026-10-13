@@ -1,6 +1,6 @@
 {
   "claim": "8 terrorist bombs dropped in Jammu and Kashmir on 1st February 2026",
-  "date_evaluated": "2026-10-13T13:38:33.091289+00:00",
+  "date_evaluated": "2026-10-13T13:47:19.135971+00:00",
   "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
   "evidence_passages_retrieved": 3,
   "raw_truth_score": -0.3329072384054258,
@@ -8,7 +8,11 @@
     "logic_flag": "NEUTRAL",
     "logic_adjustment": 0.0,
     "numeric_conflicts": 1,
-    "numeric_confirmations": 2
+    "numeric_confirmations": 2,
+    "wikidata_check": {
+      "relation": null,
+      "status": "UNKNOWN"
+    }
   },
   "adjusted_truth_score": -0.3329072384054258,
   "legacy_uncalibrated_confidence": 0.46150742737743683,

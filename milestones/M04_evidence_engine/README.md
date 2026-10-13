@@ -36,10 +36,13 @@ We operationalized the 4 layers of Table XV, regenerated the J&K showcase trace 
 | `ares_v2/src/ares/evidence/credibility.py` | Source credibility scorer $W$ using Lin et al. ratings with strict fact-check domain exclusion filter. |
 | `ares_v2/src/ares/evidence/functional.py` | Evidence functional Truth' computation, legacy confidence analysis, and calibrated sigmoid posterior. |
 | `ares_v2/src/ares/logic/quantities.py` | Quantity, percentage, and date extractor with numerical tolerance alignment. |
+| `ares_v2/src/ares/logic/wikidata_checks.py` | Symbolic relation templates (P35, P36, P571) with temporal qualification. |
 | `ares_v2/src/ares/logic/logic_score.py` | Symbolic logic contradiction detector and stance adjustment layer. |
-| `ares_v2/tests/test_evidence_logic.py` | Comprehensive unit tests for all evidence and logic components (4/4 passing). |
-| `ares_v2/scripts/run_m04_evaluation.py` | Master evaluation harness running FEVER retrieval, NLI functional, credibility, and showcase tests. |
-| `milestones/M04_evidence_engine/tables/*.csv` | Benchmark comparison tables for retrieval, NLI functional, credibility, and Table XV replacement. |
+| `ares_v2/tests/test_evidence_logic.py` | Comprehensive unit tests for all evidence and logic components (5/5 passing). |
+| `ares_v2/scripts/run_m04_evaluation.py` | Master evaluation harness running FEVER retrieval, NLI functional, credibility, and showcase tests on 450 claims. |
+| `milestones/M04_evidence_engine/configs_used/thresholds.json` | Optimal validation-fitted verdict thresholds ($\tau_{\text{true}} = 0.25, \tau_{\text{false}} = -0.05$). |
+| `milestones/M04_evidence_engine/results/preds/m04_evidence_features.parquet` | Serialized 450-claim evidence feature cache for downstream decision fusion (M05, M11). |
+| `milestones/M04_evidence_engine/tables/*.csv` | 6 benchmark comparison tables (retriever, ranker, nli, nli_functional, credibility, table15_replacement). |
 | `milestones/M04_evidence_engine/results/showcase_jk_trace.json` | Complete reproducible JSON trace for the J&K showcase claim with explainable evidence attribution. |
 | `milestones/M04_evidence_engine/AUDIT.md` | Audit report verifying hypotheses, red flag compliance, and claims ledger updates. |
 

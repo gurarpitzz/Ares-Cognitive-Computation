@@ -1,3 +1,3 @@
-setting,accuracy,macro_f1,ci95_low,ci95_high
-Soft-N Functional (P(entail) - P(contradict)),0.4333,0.2684,0.224,0.3068
-"Hard-N Functional (Discrete {-1, 0, +1})",0.4417,0.2816,0.2338,0.322
+model,setting,accuracy,macro_f1,ci95_low,ci95_high
+BART-large-MNLI (Soft-N),Soft-N (P(entail) - P(contradict)),0.4133,0.251,0.2294,0.2726
+BART-large-MNLI (Hard-N),"Hard-N (Discrete {-1, 0, +1})",0.4022,0.2464,0.2234,0.2698
