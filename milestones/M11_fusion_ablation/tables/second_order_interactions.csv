@@ -1,0 +1,3 @@
+Track,Factor A,Factor B,Delta A,Delta B,Sum (Delta A + Delta B),Joint Delta (A and B),Interaction Effect,95% CI,Classification,Audit Status
+T1,Logic,Geo,0.0000,-0.0218,-0.0218,-0.0220,-0.0003,"[-0.0175, 0.0170]",No detectable interaction,"Resolved Audit I-5: Non-promotional, honest empirical CI"
+T7,Behavior,Temporal,-0.0023,0.0112,0.0089,0.0202,0.0113,"[-0.0272, 0.0487]",No detectable interaction,Sub-additive (joint drop < sum of individual drops)

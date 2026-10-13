@@ -14,3 +14,12 @@ date,milestone,experiment_id,gpu_hours,peak_vram_gb,peak_disk_gb,throttled,times
 2026-10-13,M08,M08-audio-master-eval,0.0192,4.5,1.5,False,,,,,
 2026-10-13,M09,M09-behavior-master-eval,0.0643,3.2,0.8,False,,,,,
 ,M10,,0.0067,,,,2026-10-13T17:17:09.418715+00:00,"NER, Geotag, Topic, GDELT, Risk evaluation",NVIDIA GeForce RTX 4060 Laptop GPU,24.11,ares_v2/scripts/run_m10_evaluation.py
+2026-10-13T17:33:40.891897+00:00,M11,E2E_Multimodal_Fusion_T3,2.17,cuda,0.0006
+2026-10-13T17:37:21.622841+00:00,M11,E2E_Multimodal_Fusion_T3,1.97,cuda,0.0005
+2026-10-13T17:47:32.415405+00:00,M11,E2E_Multimodal_Fusion_T3,2.41,cuda,0.0007
+2026-10-13T17:52:59.755017+00:00,M11,E2E_Multimodal_Fusion_T3,2.05,cuda,0.0006
+2026-10-13T17:56:29.010314+00:00,M11,Full_M11_Evaluation_Pipeline,263.72,cpu+gpu,0.0733
+2026-10-13T17:57:58.178737+00:00,M11,E2E_Multimodal_Fusion_T3,1.95,cuda,0.0005
+2026-10-13T18:01:40.328228+00:00,M11,Full_M11_Evaluation_Pipeline,269.23,cpu+gpu,0.0748
+2026-10-13T18:03:05.256398+00:00,M11,E2E_Multimodal_Fusion_T3,1.89,cuda,0.0005
+2026-10-13T18:05:23.035462+00:00,M11,Full_M11_Evaluation_Pipeline,188.19,cpu+gpu,0.0523

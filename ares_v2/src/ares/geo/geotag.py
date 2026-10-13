@@ -17,6 +17,8 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
 
+from ares.common.paths import ARES_DATA_ROOT
+
 logger = logging.getLogger(__name__)
 
 EARTH_RADIUS_KM = 6371.0
@@ -99,6 +101,24 @@ class Gazetteer:
         """Load country names and cities gazetteer into memory."""
         if self._loaded:
             return
+
+        for cand in [
+            self.country_info_path,
+            str(ARES_DATA_ROOT / "raw" / "geonames" / "countryInfo.txt"),
+            f"../{self.country_info_path}",
+        ]:
+            if os.path.exists(cand):
+                self.country_info_path = cand
+                break
+
+        for cand in [
+            self.cities_path,
+            str(ARES_DATA_ROOT / "raw" / "geonames" / "cities15000.txt"),
+            f"../{self.cities_path}",
+        ]:
+            if os.path.exists(cand):
+                self.cities_path = cand
+                break
 
         # 1. Load Country Info
         if os.path.exists(self.country_info_path):

@@ -140,12 +140,18 @@ def mcnemar_exact(correct_a: np.ndarray, correct_b: np.ndarray) -> Tuple[int, fl
 
 def paired_t(a: np.ndarray, b: np.ndarray) -> Tuple[float, float]:
     """Paired Student's t-test across K seeds."""
+    diff = np.asarray(a) - np.asarray(b)
+    if np.all(diff == 0) or np.std(diff, ddof=1) == 0:
+        return 0.0, 1.0
     res = stats.ttest_rel(a, b)
     return float(res.statistic), float(res.pvalue)
 
 
 def wilcoxon_exact(a: np.ndarray, b: np.ndarray) -> Tuple[float, float]:
     """Wilcoxon signed-rank test using exact distribution."""
+    diff = np.asarray(a) - np.asarray(b)
+    if np.all(diff == 0):
+        return 0.0, 1.0
     res = stats.wilcoxon(a, b, alternative="two-sided", method="exact")
     return float(res.statistic), float(res.pvalue)
 

@@ -1,0 +1,6 @@
+Model Architecture,Parameters,Input Modality,Mean Macro-F1,Latency (ms),Notes
+TF-IDF + Linear SVM,N/A,Text,0.7240,4.2,Classical linear baseline
+BERT-base-uncased,110M,Text,0.8350,38.5,Unimodal pre-trained transformer
+RoBERTa-base,125M,Text,0.8710,41.2,Optimized unimodal text verifier
+Multimodal Baseline (Early Concat),140M,Text + Vision,0.8840,62.0,Standard dual-encoder late fusion
+Full ARES v2 (Track Fusion),Modular,Multi-Track,0.8402,118.4,Calibrated LLR / E2E with Chow abstention (Claim C065)
