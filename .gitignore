@@ -1,0 +1,43 @@
+# Data & Cache directories
+data/
+cache/
+*.tar
+*.tar.gz
+*.zip
+
+# Model checkpoints & large binary weights
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.gguf
+*.bin
+
+# Python environments & caches
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Tracking & logging
+wandb/
+mlruns/
+lightning_logs/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Scratch and temporary data
+scratch/
+tmp/
+logs/*.log

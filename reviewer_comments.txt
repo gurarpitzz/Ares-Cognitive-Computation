@@ -1,0 +1,62 @@
+Ref: Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296
+
+Dear Dr Singh,
+
+Your manuscript "ARES: Autonomous Real-time Evaluation System" has now been assessed. If there are any reviewer comments on your manuscript, you can find them at the end of this email.
+
+Regrettably, your manuscript has been rejected for publication in Cognitive Computation.
+
+Thank you for the opportunity to review your work. I'm sorry that we cannot be more positive on this occasion and hope you will not be deterred from submitting future work to Cognitive Computation.
+
+Kind regards,
+
+Amir Hussain
+Editor
+Cognitive Computation
+
+While I'm sorry we cannot publish your work in Cognitive Computation, your manuscript may be a good fit for one of our other journals. At Springer Nature we provide a free service to give authors a range of personalised journal recommendations. The corresponding author will receive an email with more information in the next 2 days. 
+
+Reviewer Comments:
+
+Reviewer 1
+This article presents ARES, an AI-driven framework for autonomous, real-time misinformation detection that integrates multi-modal analysis with contextual reasoning.
+The manuscript suffers from critical technical issues that prevent a proper assessment of its scientific content. Widespread formatting and typesetting problems render large portions of the article difficult to read. Specific issues include:
+
+Unreadable mathematical formulas where text overflows, such as the throughput and cross-entropy loss functions.
+Tables containing raw LaTeX code instead of rendered output.
+Plots with confusing and overlayed visual components.
+
+These problems are present in both the PDF and DOC versions provided.
+
+While the research outcomes appear promising and the emphasis on reproducibility is a welcome approach, this commitment must be supported by providing access to the mentioned public benchmarks and trained models. Moreover, open-sourcing the code would greatly strengthen the reproducibility claims.
+
+I recommend that the authors address all content and formatting issues and provide links to the mentioned resources.
+
+Reviewer 2
+The manuscript currently contains fundamental flaws, including missing citations, non-standard author information, and anomalies in figures/tables, as detailed below:
+1. Unresolved citation markers "[?]" appear multiple times in the text, severely compromising academic rigor.
+2. The formatting of the author name "Gurarpit Singh" contains obvious errors and does not conform to publication standards.
+3. Anomalies in figures and tables: Apparent garbled code is present in Figure 15, Figure 16, Table 7, and Table 8, hindering data interpretation and undermining the manuscript's credibility.
+4. The paper title is overly general and fails to clearly reflect the core technical contribution or methodological innovation of this study.
+Due to the issues listed above, the manuscript in its current form does not meet the criteria for evaluation. Please revise it carefully and resubmit.
+
+Reviewer 3
+The paper proposes ARES, an AI system for real-time multi-modal misinformation detection, integrating NLP, computer vision, and geopolitical analytics. It claims high performance (F1-score: 0.92) and low latency (415ms/claim) but provides limited empirical support. Evaluation focused on textual similarity searches, academic database checks, and full PDF review for structural issues.
+
+Strengths
+
+Innovative Concept: The triple-layered verification engine and integration of tools like GDELT for context are forward-thinking, addressing gaps in multi-modality and geopolitics.
+Ethical Focus: Strong section on safeguards (e.g., privacy via PII sanitization, transparency APIs) demonstrates awareness of deployment risks.
+Broad Coverage: Use cases (e.g., disaster response, elections) highlight practical applicability.
+
+Weaknesses
+
+Incomplete References: Over 20 placeholders like "[?]" appear in related work and methods, eroding credibility. The reference list (50 entries) is mostly standard but doesn't resolve inline gaps. Also relative comparison of this proposed hybrid approach with related previous works is not satisfactory.
+Training details (e.g., hyperparameters, loss functions) are superficial. Benchmarks compare favorably to baselines (Table XIII) but lack statistical significance tests or open-source code for verification.
+Assertions like "superior accuracy" rely on internal metrics without external validation. Stress tests (e.g., COVID infodemic: 89.3% F1) are scenario-specific but not generalized.
+
+The work includes narrative sections (e.g., "The Story Behind ARES"). I believe the writing style better suited to blogs than journals, with promotional language in the conclusion.
+
+Many section of the paper (at least the version I received for review) are not properly formatted with overlapping texts and misaligned figures.
+
+For revision, I suggest completing citations, sharing code/datasets on GitHub, and adding ablation studies.
