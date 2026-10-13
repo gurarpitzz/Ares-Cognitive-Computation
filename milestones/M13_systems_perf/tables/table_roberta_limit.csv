@@ -1,0 +1,5 @@
+sequence_length_n,max_position_embeddings,exceeds_architectural_limit,execution_status,error_type,error_message
+256,514,False,SUCCESS,,
+512,514,False,SUCCESS,,
+768,514,True,CRASHED_EXPECTED,RuntimeError,index 514 is out of bounds for dimension 1 with size 514
+1024,514,True,CRASHED_EXPECTED,RuntimeError,index 514 is out of bounds for dimension 1 with size 514

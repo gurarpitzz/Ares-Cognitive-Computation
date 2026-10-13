@@ -1,0 +1,10 @@
+module_name,device,dtype,p50_ms,p90_ms,p99_ms,mean_ms,ci95_low,ci95_high,cold_start_ms
+text_verifier_deberta-v3-base_fp32_n128,cuda,fp32,14.816,18.876,22.422,15.805,15.415,16.235,535.792
+text_verifier_deberta-v3-base_fp16_n128,cuda,fp16,16.326,18.160,20.414,16.569,16.345,16.830,268.944
+nli_cross_encoder_fp32_M5,cuda,fp32,8.714,9.205,10.344,8.810,8.740,8.888,47.780
+bm25_retrieval_N1000_k5,cpu,fp32,0.013,0.016,0.029,0.014,0.013,0.016,0.050
+symbolic_logic_checker,cpu,fp32,0.002,0.002,0.002,0.001,0.001,0.001,0.010
+video_deepfake_resnet50_frames16,cuda,fp32,27.150,27.241,27.424,27.172,27.156,27.194,356.593
+audio_spoof_declared_cnn_4s,cuda,fp32,1.300,1.757,2.552,1.430,1.372,1.489,193.030
+toponym_geotag_lookup,cpu,fp32,0.001,0.001,0.001,0.001,0.001,0.001,0.006
+late_fusion_1024d_gelu_chow,cuda,fp32,0.220,0.317,0.841,0.248,0.241,0.257,8.993
