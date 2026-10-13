@@ -1,0 +1,65 @@
+# ARES 2.0 Hardware Residency Profile (8 GB VRAM / 16 GB RAM)
+# Milestone M14: Service Operational Configuration
+
+hardware:
+  target_gpu: "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB GDDR6)"
+  target_cpu: "13th Gen Intel Core i7-13620H (16 vCPUs)"
+  system_ram_gb: 16
+  vram_budget_mb: 8192
+  max_operational_vram_mb: 2048  # Hard cap leaving >= 6 GB for OS and display
+
+resident_models:
+  text_verifier:
+    model_id: "microsoft/deberta-v3-base"
+    precision: "fp16"
+    device: "cuda:0"
+    estimated_vram_mb: 490.0
+    checkpoint_sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    pin_memory: true
+
+  nli_cross_encoder:
+    model_id: "typeform/distilbert-base-uncased-mnli"
+    precision: "fp16"
+    device: "cuda:0"
+    estimated_vram_mb: 265.0
+    checkpoint_sha256: "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2"
+    pin_memory: true
+
+  late_fusion_head:
+    model_id: "ares_fusion_1024d_gelu_chow"
+    precision: "fp32"
+    device: "cuda:0"
+    estimated_vram_mb: 15.4
+    checkpoint_sha256: "3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b"
+    pin_memory: true
+
+on_demand_models:
+  vision_deepfake:
+    model_id: "resnet50_deepfake_detector"
+    precision: "fp32"
+    device: "cuda:0"
+    estimated_vram_mb: 183.6
+    unload_after_idle_s: 30.0
+
+  audio_spoofing:
+    model_id: "declared_audio_cnn_spectrogram"
+    precision: "fp32"
+    device: "cuda:0"
+    estimated_vram_mb: 57.8
+    unload_after_idle_s: 30.0
+
+cpu_resident_modules:
+  bm25_retrieval:
+    index_type: "in_memory_bm25"
+    memory_ram_mb: 12.5
+  logic_checker:
+    engine: "first_order_ast_solver"
+    memory_ram_mb: 2.0
+  toponym_geo:
+    engine: "geonames_trie_lookup"
+    memory_ram_mb: 8.0
+
+concurrency:
+  max_async_workers: 64
+  batch_size: 1
+  request_timeout_s: 10.0

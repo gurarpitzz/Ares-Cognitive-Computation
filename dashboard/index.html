@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARES 2.0 — Cognitive Computation Fact-Checking Platform</title>
+  <meta name="description" content="Operational analyst console, real-time multi-modal claim verification, explainable evidence attribution, and cryptographic audit log.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Top Operational Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-group">
+        <div class="logo-glyph">A</div>
+        <div class="logo-text">
+          <h1>ARES <span class="version-tag">2.0</span></h1>
+          <p class="subtitle">Cognitive Computation Multi-Modal Fact-Checking Platform</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="telemetry-pill">
+        <span class="status-indicator online"></span>
+        <span class="pill-label">SERVICE:</span>
+        <span class="pill-val" id="service-status">ONLINE</span>
+      </div>
+      <div class="telemetry-pill">
+        <span class="pill-label">GPU:</span>
+        <span class="pill-val">RTX 4060 (8 GB)</span>
+      </div>
+      <div class="telemetry-pill">
+        <span class="pill-label">AUDIT CHAIN:</span>
+        <span class="pill-val verified" id="audit-status">VERIFIED (40 BLOCKS)</span>
+      </div>
+      <div class="telemetry-pill kill-switch-pill" id="killswitch-indicator">
+        <span class="pill-label">KILL SWITCH:</span>
+        <span class="pill-val normal">DISARMED</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="btn-replay" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Replay Feed
+      </button>
+      <button id="btn-killswitch" class="btn btn-danger-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+        Emergency Freeze
+      </button>
+    </div>
+  </header>
+
+  <!-- Metrics Ticker Row -->
+  <section class="metrics-ticker">
+    <div class="metric-card">
+      <div class="metric-title">TOTAL CLAIMS INGESTED</div>
+      <div class="metric-value" id="stat-total-claims">40</div>
+      <div class="metric-sub">CoAID & X-FACT Benchmark Replay</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">CRITICAL ALERTS</div>
+      <div class="metric-value text-critical" id="stat-critical-alerts">0</div>
+      <div class="metric-sub">Misinformation Risk &ge; 0.70</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">MEDIAN LATENCY (p50)</div>
+      <div class="metric-value text-accent" id="stat-latency">23.8 ms</div>
+      <div class="metric-sub">Local T2 Pipeline (DeBERTa+NLI+BM25)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">AVG CALIBRATED POSTERIOR</div>
+      <div class="metric-value text-gold" id="stat-confidence">0.82</div>
+      <div class="metric-sub">Platt Temperature-Scaled P(Y|x)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-title">CRYPTOGRAPHIC HEAD HASH</div>
+      <div class="metric-value mono-small text-cyan" id="stat-head-hash">c5433977...</div>
+      <div class="metric-sub">SHA-256 Tamper-Evident Ledger</div>
+    </div>
+  </section>
+
+  <!-- Main Grid Layout: 3 Columns -->
+  <main class="dashboard-grid">
+    <!-- Column 1: Live Claims Feed -->
+    <section class="panel feed-panel">
+      <div class="panel-header">
+        <h2>Live Claims Ingestion Feed</h2>
+        <div class="filter-controls">
+          <input type="text" id="feed-search" placeholder="Search claims, keywords..." class="search-input">
+          <div class="filter-chips">
+            <button class="chip active" data-filter="ALL">All (40)</button>
+            <button class="chip" data-filter="FALSE">False</button>
+            <button class="chip" data-filter="DISPUTED">Disputed</button>
+            <button class="chip" data-filter="MEDIUM">Med Alert</button>
+          </div>
+        </div>
+      </div>
+      <div class="feed-scroll" id="claims-feed-container">
+        <!-- Dynamically populated claim cards -->
+      </div>
+    </section>
+
+    <!-- Column 2: Deep Explainability Trace (Truth' Equation) -->
+    <section class="panel trace-panel">
+      <div class="panel-header">
+        <h2>Explainable Evidence Attribution (Truth')</h2>
+        <span class="panel-badge" id="selected-claim-badge">Select a claim to inspect</span>
+      </div>
+
+      <div class="trace-content" id="trace-content-container">
+        <div class="empty-state" id="trace-empty-state">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <p>Click on any claim from the feed to inspect its full Truth' equation attribution graph, credibility-weighted evidence, and cryptographic audit record.</p>
+        </div>
+
+        <div class="trace-details hidden" id="trace-active-view">
+          <div class="claim-banner">
+            <div class="claim-text-display" id="inspect-claim-text"></div>
+            <div class="claim-meta-row">
+              <span class="meta-tag" id="inspect-dataset"></span>
+              <span class="meta-tag" id="inspect-location"></span>
+              <span class="meta-tag" id="inspect-latency"></span>
+              <span class="meta-tag" id="inspect-ground-truth"></span>
+            </div>
+          </div>
+
+          <div class="score-meters-row">
+            <div class="meter-box">
+              <div class="meter-title">VERDICT</div>
+              <div class="verdict-display-pill" id="inspect-verdict">FALSE</div>
+            </div>
+            <div class="meter-box">
+              <div class="meter-title">CALIBRATED CONFIDENCE</div>
+              <div class="meter-bar-container">
+                <div class="meter-bar" id="meter-confidence-bar"></div>
+              </div>
+              <div class="meter-num" id="inspect-confidence">0.00</div>
+            </div>
+            <div class="meter-box">
+              <div class="meter-title">THREAT INDEX (&rho;)</div>
+              <div class="meter-bar-container">
+                <div class="meter-bar rho" id="meter-rho-bar"></div>
+              </div>
+              <div class="meter-num" id="inspect-rho">0.25</div>
+            </div>
+            <div class="meter-box">
+              <div class="meter-title">ALERT SEVERITY</div>
+              <div class="alert-pill" id="inspect-alert-sev">LOW</div>
+            </div>
+          </div>
+
+          <div class="evidence-section">
+            <h3>Retrieved Evidence Passages & Net Contribution</h3>
+            <div class="evidence-list" id="inspect-evidence-list">
+              <!-- Evidence items populated dynamically -->
+            </div>
+          </div>
+
+          <div class="audit-link-card">
+            <div class="audit-link-header">
+              <span class="lock-icon">🔒</span>
+              <span class="audit-link-title">Cryptographic Tamper-Evident Block Anchor</span>
+            </div>
+            <div class="audit-hash-row">
+              <span class="hash-label">Block Index:</span>
+              <span class="hash-val" id="inspect-block-index">#0</span>
+            </div>
+            <div class="audit-hash-row">
+              <span class="hash-label">Block SHA-256:</span>
+              <span class="hash-val mono" id="inspect-block-hash">0000000000000000...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 3: Operational Threat Map & Audit Log -->
+    <section class="panel intel-panel">
+      <!-- Panel A: Regional Threat Heatmap T(r) (Claim C082) -->
+      <div class="sub-panel heatmap-panel">
+        <div class="panel-header">
+          <h2>Regional Threat Intensity T(r)</h2>
+          <span class="sub-badge">Fig. 19 Replacement</span>
+        </div>
+        <p class="panel-desc">Calculated regional threat hazard $T(r) = f(\rho, \text{velocity})$ across replayed districts:</p>
+        <div class="district-grid" id="district-grid-container">
+          <!-- District heatmap cells -->
+        </div>
+      </div>
+
+      <!-- Panel B: Cryptographic Audit Log Stream (Claim C084) -->
+      <div class="sub-panel audit-panel">
+        <div class="panel-header">
+          <h2>Tamper-Evident Audit Chain</h2>
+          <button id="btn-verify-audit" class="btn btn-sm btn-cyan">Verify Chain</button>
+        </div>
+        <div class="audit-stream" id="audit-stream-container">
+          <!-- Live audit blocks -->
+        </div>
+      </div>
+
+      <!-- Panel C: Operational Safeguards Console -->
+      <div class="sub-panel safeguards-panel">
+        <div class="panel-header">
+          <h2>Operational Safeguards Console</h2>
+          <span class="sub-badge">Section XIV</span>
+        </div>
+        <div class="safeguards-list">
+          <div class="safeguard-item">
+            <div class="sg-icon sg-active">✓</div>
+            <div class="sg-text">
+              <div class="sg-title">PII Scrubbing Engine (RF2)</div>
+              <div class="sg-desc">Emails, Phones, SSNs, IPs sanitized before public logs</div>
+            </div>
+            <span class="badge badge-active">ENFORCED</span>
+          </div>
+          <div class="safeguard-item">
+            <div class="sg-icon sg-active">✓</div>
+            <div class="sg-text">
+              <div class="sg-title">Cryptographic Hash Chain (RF3)</div>
+              <div class="sg-desc">SHA-256 Merkle chain replacing legacy blockchain claim</div>
+            </div>
+            <span class="badge badge-active">IMMUTABLE</span>
+          </div>
+          <div class="safeguard-item">
+            <div class="sg-icon sg-active">✓</div>
+            <div class="sg-text">
+              <div class="sg-title">Calibrated Posterior Confidence (RF5)</div>
+              <div class="sg-desc">Platt-scaled true P(Y|x), uncalibrated softmax banned</div>
+            </div>
+            <span class="badge badge-active">CALIBRATED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>ARES 2.0 Operational Platform &bull; Milestone M14 &bull; Verified on NVIDIA GeForce RTX 4060 Laptop GPU &bull; Replaying Genuine CoAID and X-FACT Public Datasets</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
