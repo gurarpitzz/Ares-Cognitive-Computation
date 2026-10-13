@@ -1,0 +1,50 @@
+% Distribution Shift Bound & Generalization Error Correction
+\section{Distribution Shift Bound and Generalization Theory}
+\label{sec:shift}
+
+The manuscript (Claim C073, Eq. 29; Claim C098, Eq. 62) made two unsupported theoretical claims:
+\begin{enumerate}
+    \item That \emph{"ARES explicitly minimizes the discrepancy term in the Ben-David shift bound."}
+    \item That the generalization risk satisfies $R_{D_r}(f) \propto 1/|D_r|$ (Eq. 62).
+\end{enumerate}
+We correct both formulations to conform to standard statistical learning theory.
+
+\subsection{Rigorous Formulation of the Domain Shift Bound}
+Let $\mathcal{D}_S$ and $\mathcal{D}_T$ denote probability distributions over the input space $\mathcal{X}$, representing the source (training) and target (test / cross-domain) environments, respectively. Let $\mathcal{H}$ be a hypothesis class of binary decision rules $h: \mathcal{X} \to \{0, 1\}$.
+
+\begin{theorem}[Domain Adaptation Bound (Ben-David et al., 2010)]
+\label{thm:ben_david}
+For any hypothesis $h \in \mathcal{H}$, the target generalization error $\epsilon_T(h) \triangleq \mathbb{P}_{(x, y) \sim \mathcal{D}_T}(h(x) \ne y)$ is bounded by:
+\begin{equation}
+\label{eq:ben_david_bound}
+\epsilon_T(h) \le \epsilon_S(h) + \frac{1}{2} d_{\mathcal{H}\Delta\mathcal{H}}(\mathcal{D}_S, \mathcal{D}_T) + \lambda^*,
+\end{equation}
+where:
+\begin{itemize}
+    \item $\epsilon_S(h) \triangleq \mathbb{P}_{(x, y) \sim \mathcal{D}_S}(h(x) \ne y)$ is the source risk.
+    \item $d_{\mathcal{H}\Delta\mathcal{H}}(\mathcal{D}_S, \mathcal{D}_T) \triangleq 2 \sup_{h, h' \in \mathcal{H}} |\mathbb{P}_{\mathcal{D}_S}(h(x) \ne h'(x)) - \mathbb{P}_{\mathcal{D}_T}(h(x) \ne h'(x))|$ is the $\mathcal{H}\Delta\mathcal{H}$-divergence.
+    \item $\lambda^* \triangleq \inf_{h \in \mathcal{H}} [\epsilon_S(h) + \epsilon_T(h)]$ represents the joint risk of the optimal hypothesis.
+\end{itemize}
+\end{theorem}
+
+\paragraph{Correction of the Optimization Claim (C073):}
+The supervised learning loss optimized by ARES is empirical cross-entropy on labeled source training datasets:
+\begin{equation}
+\mathcal{L}_{\text{train}}(\theta) = \frac{1}{N} \sum_{i=1}^N \ell_{\text{CE}}(f_\theta(x_i), y_i).
+\end{equation}
+This objective does not include an adversarial domain-confusion loss or Maximum Mean Discrepancy (MMD) penalty. Therefore, the assertion that the architecture \emph{"explicitly minimizes discrepancy"} is retracted. 
+
+In the reconstituted framework, ARES empirically estimates the proxy $\mathcal{A}$-distance:
+\begin{equation}
+\label{eq:proxy_a_distance}
+\hat{d}_{\mathcal{A}} \triangleq 2(1 - 2 \cdot \operatorname{err}_{\text{domain-clf}}),
+\end{equation}
+where $\operatorname{err}_{\text{domain-clf}}$ is the error rate of an auxiliary linear classifier trained to distinguish source instances from target instances. Milestone M12 evaluates whether $\hat{d}_{\mathcal{A}}$ predicts the empirical performance drop $\Delta F_1 = F_1^{(\text{in-domain})} - F_1^{(\text{out-of-domain})}$.
+
+\subsection{Correction of the Sample Complexity Rate (C098)}
+Equation 62 of the manuscript asserted a convergence rate of $R_{D_r}(f) \propto 1 / |D_r|$. In standard statistical learning theory for agnostic learning without realizability assumptions, the uniform convergence rate is bounded by empirical Rademacher complexity:
+\begin{equation}
+\label{eq:rademacher_bound}
+\mathbb{E}[R(h)] \le \hat{R}_m(h) + 2 \mathcal{R}_m(\mathcal{H}) + \sqrt{\frac{\ln(2/\delta)}{2m}},
+\end{equation}
+which exhibits the standard asymptotic rate of $\mathcal{O}(m^{-1/2})$ rather than $\mathcal{O}(m^{-1})$. The rate $\mathcal{O}(m^{-1})$ is achievable only under strictly realizable conditions with separable margins. Equation 62 is therefore replaced by the standard Rademacher generalization bound.

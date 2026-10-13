@@ -1,0 +1,42 @@
+% Notation and Mathematical Setting for ARES Theoretical Rebuild
+\section{Notation and Mathematical Setting}
+\label{sec:notation}
+
+Let $\mathcal{C}$ denote the space of atomic natural language claims. At discrete observation index $t \in \mathbb{N}$, a claim $c_t \in \mathcal{C}$ is represented by a tuple:
+\begin{equation}
+c_t = (x_t, \mathcal{E}_t, \mathcal{S}_t),
+\end{equation}
+where:
+\begin{itemize}
+    \item $x_t \in \mathbb{R}^d$ denotes the dense semantic representation produced by an encoder $\mathcal{E}_{\text{text}}: \mathcal{C} \to \mathbb{R}^d$ with dimension $d \ge 2$.
+    \item $\mathcal{E}_t = \{e_{t,1}, \dots, e_{t,M}\}$ represents the discrete pool of $M$ retrieved evidence passages with associated credibility weights $W(e_{t,m}) \in [0, 1]$.
+    \item $\mathcal{S}_t \in \mathbb{R}^{d_s}$ captures auxiliary behavioral, temporal, and geopolitical context.
+\end{itemize}
+
+\paragraph{Embedding Norms and Hyperspherical Normalization.}
+Let $r = \|x_t\|_2 > 0$ denote the Euclidean norm of the base claim representation. We distinguish two operational regimes:
+\begin{enumerate}
+    \item \textbf{Unnormalized Euclidean Embeddings:} $x_t \in \mathbb{R}^d$ with arbitrary norm $r = \|x_t\|_2$.
+    \item \textbf{Unit-Sphere Normalized Embeddings:} Modern sentence transformers (e.g., DeBERTa-v3, MiniLM) typically project representations onto the unit hypersphere $\mathbb{S}^{d-1}$ via $\hat{x}_t = x_t / \|x_t\|_2$, fixing $r = 1$.
+\end{enumerate}
+
+\paragraph{Semantic Mutation Process.}
+A claim evolves temporally through mutations (syntactic paraphrasing, lexical replacement, adversarial distortion, or truth-value reversal). We model semantic mutation as a stochastic vector perturbation:
+\begin{equation}
+x_{t+1} = x_t + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \Sigma),
+\end{equation}
+where $\Sigma \in \mathbb{R}^{d \times d}$ is positive semi-definite. For unit-normalized representations, the post-mutation claim is projected back onto the sphere:
+\begin{equation}
+x_{t+1}^{(\text{sphere})} = \frac{x_t + \epsilon_t}{\|x_t + \epsilon_t\|_2}.
+\end{equation}
+
+\paragraph{The Stability Statistic.}
+The primary indicator of semantic preservation across narrative drift is the cosine similarity:
+\begin{equation}
+\Delta_t \triangleq \cos(x_t, x_{t+1}) = \frac{\langle x_t, x_{t+1} \rangle}{\|x_t\|_2 \|x_{t+1}\|_2}.
+\end{equation}
+Because cosine similarity is strictly scale-invariant with respect to both arguments, for any scalar $\gamma > 0$:
+\begin{equation}
+\cos(x_t, \gamma(x_t + \epsilon_t)) = \cos(x_t, x_t + \epsilon_t).
+\end{equation}
+Consequently, $\Delta_t = \cos(x_t, x_t + \epsilon_t)$ holds identically for unnormalized representations with norm $r$, and for normalized spherical representations with $r = 1$.

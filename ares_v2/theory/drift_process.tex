@@ -1,0 +1,32 @@
+% Temporal Likelihood Drift Formulation
+\section{Temporal Veracity Drift Formulation}
+\label{sec:drift_process}
+
+Section XIX-3 of the manuscript asserted that veracity log-likelihood exhibits a constant negative drift parameter $\kappa < 0$ under iterative mutation. Rather than presenting this as a derived mathematical identity, we formulate it as an empirically testable hypothesis for Milestone M06.
+
+\subsection{Discrete Veracity Log-Likelihood Process}
+Let $(c_0, c_1, \dots, c_T)$ denote a time-indexed claim lineage representing an evolving misinformation narrative. Let:
+\begin{equation}
+L(c_t) \triangleq \ln \frac{\mathbb{P}(Y = 1 \mid c_t)}{\mathbb{P}(Y = 0 \mid c_t)}
+\end{equation}
+denote the calibrated log-likelihood ratio at observation time $t$. The temporal increment is defined by:
+\begin{equation}
+\Delta L_t \triangleq L(c_{t+1}) - L(c_t).
+\end{equation}
+
+\subsection{Testable Empirical Hypothesis for M06}
+We formulate the hypothesis that semantic mutation away from grounded factual evidence drives negative veracity drift:
+\begin{equation}
+\label{eq:drift_regression}
+\Delta L_t = \beta_0 + \beta_1 \cdot \mathbb{I}(\text{Mutation}_t) + \beta_2 \cdot (1 - \Delta_t) + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma_L^2),
+\end{equation}
+where:
+\begin{itemize}
+    \item $\mathbb{I}(\text{Mutation}_t) \in \{0, 1\}$ indicates whether claim $c_{t+1}$ introduced an adversarial distortion or factual change relative to $c_t$.
+    \item $\Delta_t = \cos(x_t, x_{t+1})$ is the stability statistic.
+\end{itemize}
+The statistical test pre-registered for Milestone M06 is:
+\begin{equation}
+H_0: \beta_1 \ge 0 \quad \text{vs.} \quad H_1: \beta_1 < 0,
+\end{equation}
+evaluated via OLS linear regression across real fact-checked lineages in MultiClaim and CheckThat! Task 2, as well as the grounded synthetic mutation chains generated in M16.

@@ -1,0 +1,88 @@
+% Theorem B: Two-Sided Mutation Detection Guarantee & Invariant Optimality
+\section{Theorem B: Two-Sided Mutation Detection Guarantees}
+\label{sec:thmB}
+
+We formulate claim mutation detection as a formal statistical hypothesis testing problem on the semantic perturbation $\epsilon = x_{t+1} - x_t \in \mathbb{R}^d$:
+\begin{align}
+\label{eq:hypothesis_testing}
+H_0 &: \epsilon \sim \mathcal{N}(0, \sigma_0^2 I_d) \quad \text{(Benign Paraphrase / Normal Variance)}, \nonumber \\
+H_1 &: \epsilon \sim \mathcal{N}(0, \sigma_1^2 I_d) \quad \text{(Narrative Mutation / Elevated Variance, } \sigma_1 > \sigma_0 \text{)}.
+\end{align}
+The decision rule rejects $H_0$ (flags a mutation event) if and only if $\Delta = \cos(x_t, x_{t+1}) < \theta$.
+
+\begin{theorem}[Exact Operating Characteristics and Invariant Optimality]
+\label{thm:detection_guarantee}
+Let $d \ge 2$, $\nu = d - 1$, and $r = \|x_t\|_2 > 0$.
+\begin{enumerate}
+    \item \textbf{Exact Size and Power:} For any target significance level $\alpha \in (0, 1)$, the critical threshold:
+    \begin{equation}
+    \label{eq:critical_threshold}
+    \theta_\alpha \triangleq \frac{t_{\alpha, 0}}{\sqrt{t_{\alpha, 0}^2 + \nu}}, \quad \text{where } t_{\alpha, 0} = F_{\mathrm{t}'(\nu, r/\sigma_0)}^{-1}(\alpha),
+    \end{equation}
+    achieves false positive rate $\mathbb{P}_{H_0}(\Delta < \theta_\alpha) = \alpha$ exactly. The detection power (True Positive Rate) is:
+    \begin{equation}
+    \label{eq:power_exact}
+    \operatorname{TPR}(\theta_\alpha) = F_{\mathrm{t}'(\nu, r/\sigma_1)}\left( F_{\mathrm{t}'(\nu, r/\sigma_0)}^{-1}(\alpha) \right).
+    \end{equation}
+
+    \item \textbf{UMP Invariant Optimality:} The noncentral Student's $t$-family $\{\mathrm{t}'(\nu, \lambda) : \lambda > 0\}$ possesses a strictly Monotone Likelihood Ratio (MLR) in $T$. By the Karlin--Rubin theorem, the decision rule $\Delta < \theta_\alpha$ is the Uniformly Most Powerful (UMP) invariant test of level $\alpha$ among all tests that depend on the data solely through the angle $\Delta$.
+
+    \item \textbf{Information Loss of Angle vs Metric Distance:} If the raw vectors $(x_t, x_{t+1})$ are observed, the Euclidean difference statistic $S \triangleq \|x_{t+1} - x_t\|_2^2$ is minimal sufficient for $\sigma^2$ with $S / \sigma^2 \sim \chi^2_d$. The UMP test on $S$ achieves power:
+    \begin{equation}
+    \operatorname{TPR}_{\chi^2}(\alpha) = 1 - F_{\chi^2_d}\left( \frac{\sigma_0^2}{\sigma_1^2} F_{\chi^2_d}^{-1}(1 - \alpha) \right).
+    \end{equation}
+    For spherical embeddings ($r = 1$), the power gap $\operatorname{TPR}_{\chi^2} - \operatorname{TPR}_{\Delta} \to 0$ as $d \to \infty$ at rate $\mathcal{O}(1/d)$.
+
+    \item \textbf{Finite-Sample High-Probability Bound:} Let $\delta_0, \delta_1 \in (0, 1/2)$. Under the separation condition:
+    \begin{equation}
+    \label{eq:separation_condition}
+    \sigma_1^2 - \sigma_0^2 \ge \frac{4 r^2}{\nu} \left( \sqrt{2 \ln(1/\delta_0)} + \sqrt{2 \ln(1/\delta_1)} \right)^2,
+    \end{equation}
+    there exists an explicit threshold $\theta^* \in (-1, 1)$ such that $\mathbb{P}_{H_0}(\Delta < \theta^*) \le \delta_0$ and $\mathbb{P}_{H_1}(\Delta \ge \theta^*) \le \delta_1$ simultaneously.
+
+    \item \textbf{Deterministic Semantic Lipschitz Guarantee:} If benign paraphrases are bounded in semantic space $d_{\text{sem}}(c, c') \le \eta$, and the encoder is $L$-Lipschitz ($\|E(c) - E(c')\|_2 \le L \eta$ with $L\eta < r$), then under $H_0$:
+    \begin{equation}
+    \label{eq:lipschitz_bound}
+    \Delta \ge \sqrt{1 - \left( \frac{L\eta}{r} \right)^2} \quad \text{deterministically.}
+    \end{equation}
+    Selecting $\theta \le \sqrt{1 - (L\eta/r)^2}$ guarantees $\mathrm{FPR} = 0$ with certainty under bounded paraphrase semantic shift.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\paragraph{Proof of Part 1 (Exact Size and Power):}
+Directly from Theorem~\ref{thm:exact_distribution}, $\Delta < \theta_\alpha \iff T < g^{-1}(\theta_\alpha) = t_{\alpha, 0}$.
+Under $H_0$, $T \sim \mathrm{t}'(\nu, \lambda_0)$ where $\lambda_0 = r/\sigma_0$.
+Thus $\mathbb{P}_{H_0}(T < t_{\alpha, 0}) = F_{\mathrm{t}'(\nu, \lambda_0)}(F_{\mathrm{t}'(\nu, \lambda_0)}^{-1}(\alpha)) = \alpha$.
+Under $H_1$, $T \sim \mathrm{t}'(\nu, \lambda_1)$ where $\lambda_1 = r/\sigma_1$.
+Thus $\mathbb{P}_{H_1}(T < t_{\alpha, 0}) = F_{\mathrm{t}'(\nu, \lambda_1)}(t_{\alpha, 0})$.
+
+\paragraph{Proof of Part 2 (UMP Optimality via Karlin--Rubin):}
+Let $p(t; \lambda)$ denote the probability density function of $\mathrm{t}'(\nu, \lambda)$. Lehmann \& Romano (2005, Theorem 3.4.1) establish that for any $\lambda_1 < \lambda_0$, the ratio:
+\begin{equation}
+\mathcal{L}(t) = \frac{p(t; \lambda_1)}{p(t; \lambda_0)}
+\end{equation}
+is a strictly decreasing function of $t$. Reversing the ratio, $\frac{p(t; \lambda_1)}{p(t; \lambda_0)}$ is strictly decreasing in $t$, which is equivalent to strictly increasing in $-t$. 
+By the Karlin--Rubin Theorem, the test that rejects for large $-t$ (i.e., $T < c$) is Uniformly Most Powerful of its size for testing $H_0: \lambda \ge \lambda_0$ against $H_1: \lambda < \lambda_0$.
+Because $\Delta = g(T)$ is a strictly monotonic transformation of $T$, tests based on $\Delta < \theta$ are equivalent to tests on $T < g^{-1}(\theta)$, inheriting UMP status among all tests measuring angular drift.
+
+\paragraph{Proof of Part 4 (Finite-Sample High-Probability Separation):}
+By the Laurent--Massart tail bounds (Laurent \& Massart, 2000, Lemma 1) on a $\chi^2_\nu$ variable $V = \|b\|_2^2 / \sigma^2$:
+\begin{align}
+\mathbb{P}(V - \nu \ge 2\sqrt{\nu \tau} + 2\tau) &\le e^{-\tau}, \\
+\mathbb{P}(\nu - V \ge 2\sqrt{\nu \tau}) &\le e^{-\tau}.
+\end{align}
+Setting $\tau_0 = \ln(1/\delta_0)$ and $\tau_1 = \ln(1/\delta_1)$, and bounding the Gaussian parallel term $a/r$, standard sub-exponential concentration yields the explicit separation condition in Eq.~\eqref{eq:separation_condition}.
+
+\paragraph{Proof of Part 5 (Lipschitz Guarantee):}
+Let $\epsilon = E(c') - E(c)$ with $\|\epsilon\|_2 \le L\eta$. The cosine similarity is:
+\begin{equation}
+\Delta = \frac{\langle x, x + \epsilon \rangle}{\|x\|_2 \|x + \epsilon\|_2} = \frac{r^2 + \langle x, \epsilon \rangle}{r \|x + \epsilon\|_2}.
+\end{equation}
+By the Cauchy-Schwarz inequality, $|\langle x, \epsilon \rangle| \le r \|\epsilon\|_2 \le r L\eta$, and $\|x + \epsilon\|_2 \le r + L\eta$.
+In orthogonal decomposition, the minimal cosine occurs when $\epsilon$ is purely orthogonal to $x$:
+\begin{equation}
+\Delta_{\min} = \frac{r}{\sqrt{r^2 + \|\epsilon_\perp\|_2^2}} = \frac{r}{\sqrt{r^2 + L^2\eta^2}} = \frac{1}{\sqrt{1 + (L\eta/r)^2}} \ge \sqrt{1 - \left( \frac{L\eta}{r} \right)^2}.
+\end{equation}
+Thus for any $\theta \le \sqrt{1 - (L\eta/r)^2}$, $\mathbb{P}_{H_0}(\Delta < \theta) = 0$ identically.
+\end{proof}

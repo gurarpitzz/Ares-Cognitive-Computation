@@ -1,0 +1,98 @@
+% Theorem A: Exact Distribution of Cosine Stability under Isotropic Mutation
+\section{Theorem A: Exact Distribution of the Stability Statistic}
+\label{sec:thmA}
+
+\begin{theorem}[Exact Distribution of Cosine Stability]
+\label{thm:exact_distribution}
+Let $x \in \mathbb{R}^d$ be a fixed claim representation with Euclidean norm $r = \|x\|_2 > 0$ in dimension $d \ge 2$. Let $\epsilon \sim \mathcal{N}(0, \sigma^2 I_d)$ be an isotropic Gaussian semantic perturbation with variance $\sigma^2 > 0$. Define the degrees of freedom $\nu = d - 1$ and noncentrality parameter $\lambda = r / \sigma$. 
+
+Then the stability statistic $\Delta = \cos(x, x + \epsilon)$ satisfies:
+\begin{equation}
+\label{eq:delta_noncentral_t}
+\Delta = \frac{T}{\sqrt{T^2 + \nu}}, \quad \text{where } T \sim \mathrm{t}'(\nu, \lambda),
+\end{equation}
+and $\mathrm{t}'(\nu, \lambda)$ denotes the noncentral Student's $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\lambda$.
+
+Furthermore, for any threshold $\theta \in (-1, 1)$, the cumulative distribution function of $\Delta$ is given in closed form by:
+\begin{equation}
+\label{eq:delta_cdf}
+\mathbb{P}(\Delta < \theta) = F_{\mathrm{t}'(\nu, \lambda)}\left( \frac{\theta \sqrt{\nu}}{\sqrt{1 - \theta^2}} \right),
+\end{equation}
+where $F_{\mathrm{t}'(\nu, \lambda)}(\cdot)$ is the cumulative distribution function of the noncentral Student's $t$-distribution.
+\end{theorem}
+
+\begin{proof}
+The proof proceeds in six systematic steps.
+
+\paragraph{Step 1: Orthogonal Decomposition.}
+Let $\hat{x} = x / r$ be the unit vector along $x$. We decompose the perturbation $\epsilon$ into a parallel scalar projection along $\hat{x}$ and an orthogonal vector $b$ perpendicular to $\hat{x}$:
+\begin{equation}
+\epsilon = a \hat{x} + b, \quad \text{where } a = \hat{x}^\top \epsilon \in \mathbb{R}, \quad b = (I_d - \hat{x}\hat{x}^\top)\epsilon \in \mathbb{R}^d.
+\end{equation}
+By construction, $\hat{x}^\top b = \hat{x}^\top (I_d - \hat{x}\hat{x}^\top)\epsilon = (\hat{x}^\top - \hat{x}^\top)\epsilon = 0$, so $b \perp \hat{x}$.
+
+\paragraph{Step 2: Distribution and Independence of Components.}
+Because $\epsilon$ is a zero-mean Gaussian random vector, the scalar $a$ and vector $b$ are jointly Gaussian. Their cross-covariance is:
+\begin{equation}
+\operatorname{Cov}(a, b) = \mathbb{E}[a b^\top] = \mathbb{E}[\hat{x}^\top \epsilon \epsilon^\top (I_d - \hat{x}\hat{x}^\top)] = \hat{x}^\top (\sigma^2 I_d)(I_d - \hat{x}\hat{x}^\top) = \sigma^2 (\hat{x}^\top - \hat{x}^\top) = 0.
+\end{equation}
+For jointly Gaussian variables, uncorrelatedness implies statistical independence. Thus:
+\begin{equation}
+a \sim \mathcal{N}(0, \sigma^2) \quad \text{and} \quad a \perp b.
+\end{equation}
+
+\paragraph{Step 3: Distribution of the Orthogonal Energy $\|b\|_2^2$.}
+The orthogonal projection operator $P_\perp = I_d - \hat{x}\hat{x}^\top$ is a symmetric idempotent matrix ($P_\perp^2 = P_\perp$) with trace:
+\begin{equation}
+\operatorname{Tr}(P_\perp) = \operatorname{Tr}(I_d) - \operatorname{Tr}(\hat{x}\hat{x}^\top) = d - \|\hat{x}\|_2^2 = d - 1 = \nu.
+\end{equation}
+By Cochran's theorem on quadratic forms of Gaussian vectors:
+\begin{equation}
+\frac{\|b\|_2^2}{\sigma^2} = \frac{\epsilon^\top P_\perp \epsilon}{\sigma^2} \sim \chi^2_\nu, \quad \text{with } \nu = d - 1.
+\end{equation}
+
+\paragraph{Step 4: Algebraic Expression of Cosine Similarity.}
+The inner product between $x$ and the perturbed vector $x + \epsilon$ is:
+\begin{equation}
+\langle x, x + \epsilon \rangle = \langle r \hat{x}, (r + a)\hat{x} + b \rangle = r(r + a) \|\hat{x}\|_2^2 + r \langle \hat{x}, b \rangle = r(r + a).
+\end{equation}
+The squared Euclidean norm of $x + \epsilon$ expands as:
+\begin{equation}
+\|x + \epsilon\|_2^2 = \|(r + a)\hat{x} + b\|_2^2 = (r + a)^2 \|\hat{x}\|_2^2 + \|b\|_2^2 + 2(r + a)\langle \hat{x}, b \rangle = (r + a)^2 + \|b\|_2^2.
+\end{equation}
+Substituting into the definition of cosine similarity yields:
+\begin{equation}
+\Delta = \frac{r(r + a)}{\|x\|_2 \|x + \epsilon\|_2} = \frac{r(r + a)}{r \sqrt{(r + a)^2 + \|b\|_2^2}} = \frac{r + a}{\sqrt{(r + a)^2 + \|b\|_2^2}}.
+\end{equation}
+
+\paragraph{Step 5: Reduction to the Noncentral Student's $t$-Distribution.}
+Divide both the numerator and the denominator by $\sigma \sqrt{\|b\|_2^2 / (\nu \sigma^2)}$:
+\begin{equation}
+\Delta = \frac{ \frac{r + a}{\sigma} \Big/ \sqrt{\frac{\|b\|_2^2}{\nu \sigma^2}} }{ \sqrt{ \left( \frac{r + a}{\sigma} \Big/ \sqrt{\frac{\|b\|_2^2}{\nu \sigma^2}} \right)^2 + \nu } }.
+\end{equation}
+Let $Z = a / \sigma \sim \mathcal{N}(0, 1)$ and $V = \|b\|_2^2 / \sigma^2 \sim \chi^2_\nu$, where $Z \perp V$ by Step 2. We define the random variable:
+\begin{equation}
+T \triangleq \frac{Z + \frac{r}{\sigma}}{\sqrt{V / \nu}} = \frac{(r + a)/\sigma}{\sqrt{\|b\|_2^2 / (\nu \sigma^2)}}.
+\end{equation}
+By the standard definition of the noncentral Student's $t$-distribution, a standard normal variate plus a noncentrality shift $\lambda$, divided by the square root of an independent chi-square variate divided by its degrees of freedom, follows $\mathrm{t}'(\nu, \lambda)$. Here $\lambda = r / \sigma$ and $\nu = d - 1$. Therefore:
+\begin{equation}
+T \sim \mathrm{t}'(\nu, \lambda), \quad \text{and} \quad \Delta = g(T) \triangleq \frac{T}{\sqrt{T^2 + \nu}}.
+\end{equation}
+
+\paragraph{Step 6: Inversion of the Monotonic Function.}
+Consider the transformation $g: \mathbb{R} \to (-1, 1)$ defined by $g(t) = \frac{t}{\sqrt{t^2 + \nu}}$. Differentiating with respect to $t$:
+\begin{equation}
+g'(t) = \frac{\sqrt{t^2 + \nu} - t \cdot \frac{t}{\sqrt{t^2 + \nu}}}{t^2 + \nu} = \frac{t^2 + \nu - t^2}{(t^2 + \nu)^{3/2}} = \frac{\nu}{(t^2 + \nu)^{3/2}} > 0 \quad (\forall t \in \mathbb{R}).
+\end{equation}
+Because $g'(t) > 0$ strictly for all $t$, $g(t)$ is strictly monotonically increasing on $(-\infty, \infty)$. 
+
+For any $\theta \in (-1, 1)$, we solve $\theta = g(t) = \frac{t}{\sqrt{t^2 + \nu}}$:
+\begin{equation}
+\theta^2 (t^2 + \nu) = t^2 \implies t^2(1 - \theta^2) = \nu \theta^2 \implies t = \frac{\theta \sqrt{\nu}}{\sqrt{1 - \theta^2}}.
+\end{equation}
+Because $g$ is strictly increasing, the event $\{\Delta < \theta\}$ is identical to the event $\{g(T) < \theta\} = \{T < g^{-1}(\theta)\}$:
+\begin{equation}
+\mathbb{P}(\Delta < \theta) = \mathbb{P}\left( T < \frac{\theta \sqrt{\nu}}{\sqrt{1 - \theta^2}} \right) = F_{\mathrm{t}'(\nu, \lambda)}\left( \frac{\theta \sqrt{\nu}}{\sqrt{1 - \theta^2}} \right).
+\end{equation}
+This completes the proof.
+\end{proof}

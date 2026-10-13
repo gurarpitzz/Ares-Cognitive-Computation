@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!80!black
+}
+
+% Theorem Environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{\textbf{Rigorous Mathematical Foundations and Statistical Correction of ARES Cognitive Computation}}
+\author{\textbf{ARES Core Engineering \& Verification Team}}
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This monograph establishes the corrected mathematical foundations for the Autonomous Real-time Evaluation System (ARES). We audit and resolve foundational theoretical claims in the original manuscript (\textit{Ares: Cognitive Computation}):
+\begin{enumerate}
+    \item We replace the heuristic and non-physical cosine stability approximation ($1 - \operatorname{Tr}(\Sigma)/(2r^2)$) with an exact finite-dimensional characterization: the cosine stability statistic $\Delta = \cos(x, x+\epsilon)$ under isotropic Gaussian perturbation $\epsilon \sim \mathcal{N}(0, \sigma^2 I_d)$ follows a noncentral-$t$ distribution transformation $T / \sqrt{T^2 + \nu}$ where $T \sim t'(\nu = d-1, \lambda = \|x\|/\sigma)$. This is validated via Kolmogorov--Smirnov tests ($p > 0.01$) across $5 \times 10^6$ Monte Carlo samples.
+    \item We replace the vacuous mutation guarantee (Proposition 1) with an exact two-sided hypothesis test proved to be Uniformly Most Powerful (UMP) among all orthogonal-invariant cosine tests by the Karlin--Rubin theorem.
+    \item We formulate the three-way verifier decision problem (True, False, HITL Escalation) under asymmetric cost matrices, deriving Chow's optimal decision boundaries and proving that unweighted source addition is sub-optimal under correlated evidence.
+    \item We correct the transformer FLOP complexity derivation ($24nd^2 + 4n^2d$), demonstrating that the quadratic attention term does not dominate until sequence length $n^* = 6d$ ($4{,}608$ tokens for $d=768$), refuting the manuscript's claim that attention dominates for $n < d$.
+    \item We ground distribution shift via Ben-David et al.'s $\mathcal{H}\Delta\mathcal{H}$-divergence and Rademacher generalization bounds, providing an explicit provenance trail for all theoretical ledger claims.
+\end{enumerate}
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Summary Mapping of Theoretical Ledger Claims}
+\label{sec:ledger_mapping}
+
+Table~\ref{tab:theory_claims} summarizes the resolution of all theoretical claims from the audited manuscript.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{lp{3.2cm}p{4.2cm}p{3.5cm}l}
+\toprule
+\textbf{ID} & \textbf{Original Manuscript Claim} & \textbf{Mathematical Flaw} & \textbf{Corrected Formulation} & \textbf{Status} \\
+\midrule
+C070 & Mutation detection guarantee $1 - \delta$ & Proposition 1 vacuous; unbounded type-I error; no Lipschitz bound & Theorem B: Exact $\alpha$-level UMP invariant test via noncentral-$t$ & CORRECTED \\
+C071 & $\mathbb{E}[\Delta_t] \approx 1 - \frac{\operatorname{Tr}(\Sigma)}{2r^2}$ & Ignores parallel component; yields negative cosine when $\kappa \ge 1$ & Theorem A \& Corollaries 1--3: Exact $t'$, $1 - \frac{(d-1)\sigma^2}{2r^2}$, limit $1/\sqrt{1+\kappa}$ & CORRECTED \\
+C072 & Neyman--Pearson optimal Bayesian verifier & Assumes independent evidence; vacuous under correlated inputs & Theorem C: Chow cost-optimal thresholds; logistic regression weighting & CORRECTED \\
+C073 & Continuous Bayesian likelihood updating & Real updates are discrete batches & Discrete log-likelihood drift model $\Delta L_t$ & CORRECTED \\
+C075 & Transformer attention dominates for $n < d$ & Inversion of linear vs quadratic terms; $24nd^2$ dominates for $n < 6d$ & Crossover $n^* = 6d$; attention $<10\%$ FLOPs for $n \le 512$ & CORRECTED \\
+C077 & Linear cosine approximation $\Delta \approx 1 - 0.5\|\epsilon\|^2$ & Taylor expansion breaks down for high $d$ and standard noise & Corollary 2: Laurent--Massart concentration $\Delta \xrightarrow{p} 1/\sqrt{1+\kappa}$ & CORRECTED \\
+C098 & Continuous SDE drift $dL_t = \mu dt + \sigma dW_t$ & Misrepresents discrete verification rounds & Discrete renewal drift process $\Delta L_t$ & CORRECTED \\
+\bottomrule
+\end{tabular}
+\caption{Systematic audit and correction of formal theoretical claims in ARES.}
+\label{tab:theory_claims}
+\end{table}
+
+\newpage
+\input{notation.tex}
+\newpage
+\input{thmA.tex}
+\newpage
+\input{corollaries.tex}
+\newpage
+\input{thmB.tex}
+\newpage
+\input{thmC.tex}
+\newpage
+\input{complexity.tex}
+\newpage
+\input{shift.tex}
+\newpage
+\input{drift_process.tex}
+
+\section{Conclusion and Integration into ARES Pipeline}
+\label{sec:conclusion}
+The corrected theoretical framework provides an exact, empirically verifiable mathematical foundation for ARES:
+\begin{itemize}
+    \item In Milestone M03 (Multi-Modal Reasoning & Retrieval), representation stability will use the exact noncentral-$t$ cumulative distribution rather than heuristic thresholds.
+    \item In Milestone M04 (Representation & Encoders), inference budgets and FLOP scaling will follow the verified $24nd^2 + 4n^2d$ crossover rather than erroneous quadratic assumptions.
+    \item In Milestone M05 (Belief Updating & Decision Engine), decision boundaries will enforce Chow's optimal cost thresholds $\tau_0, \tau_1$ with calibrated multi-source logistic regression.
+    \item In Milestone M06 (Temporal Dynamics), sequential evidence drift will be modeled via discrete log-likelihood transitions with verified stopping times.
+\end{itemize}
+
+\end{document}

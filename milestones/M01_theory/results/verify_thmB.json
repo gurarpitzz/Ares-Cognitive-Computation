@@ -1,0 +1,49 @@
+{
+  "experiment_id": "M01-verify-thmB-detection-guarantee",
+  "milestone": "M01",
+  "ledger_ids": [
+    "C070"
+  ],
+  "data_kind": "simulated",
+  "git_commit": "e2c9b186061765da9b2bbc6e8cd84c043d3a15c8",
+  "dirty_worktree": false,
+  "config_path": "configs/theory/verify_thmB.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "val",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T11:06:35Z",
+  "finished_at": "2026-10-13T11:06:36Z",
+  "wall_clock_s": 0.7807209491729736,
+  "n_examples": 200000,
+  "metrics": {
+    "all_fpr_within_ci": 1.0,
+    "power_at_alpha_0_05": 1.0,
+    "chi2_power_at_alpha_0_05": 1.0,
+    "power_gap_chi2_minus_cos": 0.0
+  },
+  "ci95": {},
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Verified Theorem B: Exact operating characteristic at pre-specified alpha and UMP detection power."
+}

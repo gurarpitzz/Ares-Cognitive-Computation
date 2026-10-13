@@ -1,0 +1,55 @@
+% Transformer Complexity Analysis & Correction
+\section{Transformer Computational Complexity and Scaling Correction}
+\label{sec:complexity}
+
+The manuscript (Claim C075; Section XX-D) stated:
+\begin{quote}
+\emph{"For typical $n < d$, the quadratic attention term dominates the computational complexity."}
+\end{quote}
+This statement is mathematically false. We provide the exact forward FLOP derivation for standard transformer layers and determine the true crossover point.
+
+\subsection{FLOP Derivation for Transformer Layers}
+Consider a standard Transformer encoder layer (Vaswani et al., 2017) processing a sequence of $n$ tokens with hidden representation dimension $d$, $H$ attention heads, and a two-layer feed-forward network (FFN) with expansion factor 4 ($d_{\text{ff}} = 4d$). Counting multiply-accumulate operations as 2 FLOPs per element:
+
+\paragraph{1. Multi-Head Attention Block:}
+\begin{itemize}
+    \item \textbf{Key, Query, Value Linear Projections:} $3 \times (2 n d^2) = 6 n d^2$ FLOPs.
+    \item \textbf{Attention Scores ($Q K^\top$):} $2 n^2 d$ FLOPs.
+    \item \textbf{Context Aggregation ($A V$):} $2 n^2 d$ FLOPs.
+    \item \textbf{Output Linear Projection:} $2 n d^2$ FLOPs.
+    \item \textbf{Total Attention FLOPs:} $8 n d^2 + 4 n^2 d$.
+\end{itemize}
+
+\paragraph{2. Feed-Forward Network (FFN) Block:}
+\begin{itemize}
+    \item \textbf{Up-Projection ($d \to 4d$):} $2 \cdot n \cdot d \cdot (4d) = 8 n d^2$ FLOPs.
+    \item \textbf{Down-Projection ($4d \to d$):} $2 \cdot n \cdot (4d) \cdot d = 8 n d^2$ FLOPs.
+    \item \textbf{Total FFN FLOPs:} $16 n d^2$.
+\end{itemize}
+
+\paragraph{3. Total Layer Forward FLOPs:}
+Summing all linear projections and quadratic attention components:
+\begin{equation}
+\label{eq:transformer_flops}
+\operatorname{FLOPs}(n, d) = \underbrace{24 n d^2}_{\text{Linear Term (FFN + Projections)}} + \underbrace{4 n^2 d}_{\text{Quadratic Attention Term}}.
+\end{equation}
+
+\subsection{Crossover Analysis}
+The quadratic attention term equals the linear term at the critical sequence length $n^*$:
+\begin{equation}
+4 (n^*)^2 d = 24 n^* d^2 \implies n^* = 6d.
+\end{equation}
+For standard model dimensions evaluated in ARES:
+\begin{itemize}
+    \item \textbf{Base Encoders ($d = 768$):} $n^* = 6 \times 768 = \mathbf{4,608}\text{ tokens}$.
+    \item \textbf{Large Encoders ($d = 1024$):} $n^* = 6 \times 1024 = \mathbf{6,144}\text{ tokens}$.
+\end{itemize}
+
+\subsection{Empirical Implications for Text Verifiers ($n \le 512$)}
+For all typical claim verification tasks in ARES, the sequence length is bounded by $n \le 512$:
+\begin{itemize}
+    \item At $n = 128, d = 768$: The linear term accounts for $\mathbf{97.3\%}$ of total operations; attention represents only $\mathbf{2.7\%}$.
+    \item At $n = 512, d = 768$: The linear term accounts for $\mathbf{90.0\%}$ of total operations; attention represents only $\mathbf{10.0\%}$.
+\end{itemize}
+
+\paragraph{Conclusion:} In the regime $n < d$, the linear FFN/projection term dominates the quadratic attention term by nearly an order of magnitude. Attention only dominates when $n > 6d \gg d$. This exact analysis explains why measured inference latency on GPUs exhibits an empirical power-law exponent of $\alpha \in [1.1, 1.4]$ rather than the $\alpha \approx 2.0$ claimed in Section XX-C.

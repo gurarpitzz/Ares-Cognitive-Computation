@@ -1,0 +1,71 @@
+% Corollaries: Moments, Asymptotics, and General Covariance
+\section{Corollaries: Moments, Asymptotics, and Anisotropic Mutation}
+\label{sec:corollaries}
+
+\begin{corollary}[Small-Noise Moment Expansion]
+\label{cor:small_noise}
+Under the assumptions of Theorem~\ref{thm:exact_distribution}, when the dimensionless variance ratio satisfies $\kappa \triangleq \frac{(d-1)\sigma^2}{r^2} \ll 1$, the expected stability statistic expands as:
+\begin{equation}
+\label{eq:corrected_expansion}
+\mathbb{E}[\Delta] = 1 - \frac{(d-1)\sigma^2}{2r^2} + \mathcal{O}\left( \frac{\sigma^4}{r^4} \right).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Recall from Theorem~\ref{thm:exact_distribution} that $\Delta = \frac{r + a}{\sqrt{(r + a)^2 + \|b\|_2^2}} = \frac{1 + a/r}{\sqrt{1 + 2a/r + a^2/r^2 + \|b\|_2^2/r^2}}$.
+Expanding $f(u, v) = \frac{1 + u}{\sqrt{(1 + u)^2 + v}} = (1 + u)(1 + 2u + u^2 + v)^{-1/2}$ in a bivariate Taylor series about $(u, v) = (0, 0)$ where $u = a/r$ and $v = \|b\|_2^2/r^2$:
+\begin{align}
+(1 + 2u + u^2 + v)^{-1/2} &= 1 - \frac{1}{2}(2u + u^2 + v) + \frac{3}{8}(2u + u^2 + v)^2 + \mathcal{O}(\|(u, v)\|^3) \nonumber \\
+&= 1 - u - \frac{1}{2}u^2 - \frac{1}{2}v + \frac{3}{2}u^2 + \mathcal{O}(\|(u, v)\|^3) \nonumber \\
+&= 1 - u + u^2 - \frac{1}{2}v + \mathcal{O}(\|(u, v)\|^3).
+\end{align}
+Multiplying by $(1 + u)$:
+\begin{align}
+f(u, v) &= (1 + u)\left( 1 - u + u^2 - \frac{1}{2}v + \dots \right) \nonumber \\
+&= 1 - \frac{1}{2}v + \mathcal{O}(\|(u, v)\|^3).
+\end{align}
+Notice that the first-order linear terms in $u$ cancel identically: $(1+u)(1-u) = 1 - u^2$, and the $u^2$ term cancels with $+u^2 - u^2 = 0$.
+Taking the expectation:
+Since $\mathbb{E}[a] = 0$ and $\mathbb{E}[v] = \frac{\mathbb{E}[\|b\|_2^2]}{r^2} = \frac{(d-1)\sigma^2}{r^2}$:
+\begin{equation}
+\mathbb{E}[\Delta] = 1 - \frac{1}{2}\mathbb{E}[v] + \mathcal{O}\left( \frac{\sigma^4}{r^4} \right) = 1 - \frac{(d-1)\sigma^2}{2r^2} + \mathcal{O}\left( \frac{\sigma^4}{r^4} \right).
+\end{equation}
+\end{proof}
+
+\paragraph{Comparison with the Audited Manuscript Formula.}
+The manuscript (Claim C071, Eq. XVII-E; Claim C077, Eq. XXI-F) stated:
+\begin{equation}
+\mathbb{E}[\cos(x, x+\epsilon)] \approx 1 - \frac{\operatorname{Tr}(\Sigma)}{2\|x\|_2^2} = 1 - \frac{d\sigma^2}{2r^2}.
+\end{equation}
+This formula suffers from two decisive mathematical errors:
+\begin{enumerate}
+    \item \textbf{Incorrect Coefficient (Missing Parallel Projection):} The paper uses $d\sigma^2 = \operatorname{Tr}(\Sigma)$ instead of $(d-1)\sigma^2$. The noise component along the direction of $x$ ($a = \hat{x}^\top \epsilon$) merely scales the vector's length and does not rotate the vector. Only the orthogonal subspace of dimension $d-1$ causes angular degradation.
+    \item \textbf{Catastrophic Breakdown for $\kappa \ge 1$:} In typical high-dimensional sentence embedding spaces ($d = 384$ or $768$), even modest perturbations (e.g. $s = 0.06, r = 1$) yield $(d-1)s^2/r^2 \approx 1.38$. The manuscript's formula predicts an impossible negative similarity: $1 - 1.38/2 = 0.31$, or for $s = 0.08$ predicts $\approx -0.22$. The true expectation (Corollary~\ref{cor:high_dim}) is bounded and strictly positive: $\mathbb{E}[\Delta] \approx \frac{1}{\sqrt{1 + 1.38}} \approx 0.648$.
+\end{enumerate}
+
+\begin{corollary}[High-Dimensional Concentration Limit]
+\label{cor:high_dim}
+Suppose $d \to \infty$ with the noise-to-signal parameter converging to a constant: $\kappa_d \triangleq \frac{(d-1)\sigma^2}{r^2} \to \kappa \in (0, \infty)$. Then:
+\begin{equation}
+\Delta \xrightarrow{p} \frac{1}{\sqrt{1 + \kappa}}.
+\end{equation}
+Furthermore, by the Laurent--Massart tail bounds for $\chi^2$ distributions, for any $\tau > 0$:
+\begin{equation}
+\mathbb{P}\left( \left| \Delta - \frac{1}{\sqrt{1 + \kappa_d}} \right| > \epsilon(\tau) \right) \le 2e^{-\tau},
+\end{equation}
+where $\epsilon(\tau) = \mathcal{O}(\sqrt{\tau / d})$.
+\end{corollary}
+
+\begin{corollary}[Anisotropic Mutation Model]
+\label{cor:anisotropic}
+Let $\epsilon \sim \mathcal{N}(0, \Sigma)$ where $\Sigma$ is an arbitrary positive semi-definite matrix. Let $\hat{x} = x / r$. The orthogonal projection has expected energy:
+\begin{equation}
+\mathbb{E}[\|b\|_2^2] = \operatorname{Tr}(\Sigma(I_d - \hat{x}\hat{x}^\top)) = \operatorname{Tr}(\Sigma) - \hat{x}^\top \Sigma \hat{x}.
+\end{equation}
+The small-noise expectation satisfies:
+\begin{equation}
+\label{eq:anisotropic_mean}
+\mathbb{E}[\Delta] = 1 - \frac{\operatorname{Tr}(\Sigma) - \hat{x}^\top \Sigma \hat{x}}{2r^2} + \mathcal{O}(\|\Sigma\|_F^2 / r^4).
+\end{equation}
+The exact cumulative distribution of $\Delta$ is non-central only under isotropic $\Sigma$. For anisotropic $\Sigma$, $\|b\|_2^2 = \sum_{i=1}^{d-1} \mu_i Z_i^2$ is a weighted sum of independent $\chi_1^2$ variates (where $\mu_i$ are the non-zero eigenvalues of $P_\perp \Sigma P_\perp$), whose distribution is computed via Imhof's inversion method or Monte Carlo sampling.
+\end{corollary}

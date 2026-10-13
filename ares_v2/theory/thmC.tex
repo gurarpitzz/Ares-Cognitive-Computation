@@ -1,0 +1,82 @@
+% Theorem C: Decision-Theoretic Verifier and Chow Abstention with Explicit Costs
+\section{Theorem C: Decision-Theoretic Verifier and Chow's Rule}
+\label{sec:thmC}
+
+The manuscript (Claim C072; Sections XVI, XXI-C/D) asserted that the ARES decision rule forms a "classical Neyman--Pearson test" that is "decision-theoretically optimal". We provide the precise decision-theoretic derivation, identify the exact necessary and sufficient conditions for optimality, and formulate the three-way decision problem via Chow's rule with explicit operational costs.
+
+\subsection{Formal Decision Model}
+Let $Y \in \{0, 1\}$ denote the binary veracity state of an evaluated claim ($Y=1$ for True, $Y=0$ for False). An autonomous system selects an action from a ternary action space:
+\begin{equation}
+\mathcal{A} = \{ a_{\text{T}} \text{ (Assert True)}, \; a_{\text{F}} \text{ (Assert False)}, \; a_{\text{abstain}} \text{ (Abstain / Escalate to HITL)} \}.
+\end{equation}
+Let the cost matrix $C(a, y)$ be defined by:
+\begin{align}
+C(a_{\text{T}}, 1) &= 0, & C(a_{\text{T}}, 0) &= c_{\text{FP}} > 0 \quad \text{(Cost of verifying false content)}, \nonumber \\
+C(a_{\text{F}}, 0) &= 0, & C(a_{\text{F}}, 1) &= c_{\text{FN}} > 0 \quad \text{(Cost of flagging authentic content)}, \nonumber \\
+C(a_{\text{abstain}}, 1) &= c_a > 0, & C(a_{\text{abstain}}, 0) &= c_a > 0 \quad \text{(Cost of human review / analyst queue delay)}.
+\end{align}
+
+\begin{theorem}[Bayes-Optimal Decision Rule under Cost Matrix]
+\label{thm:chow_rule}
+Let $p(c) \triangleq \mathbb{P}(Y = 1 \mid c) \in [0, 1]$ be the well-calibrated posterior probability that claim $c$ is true, and let $\ell(c) \triangleq \ln \frac{p(c)}{1 - p(c)}$ denote the posterior log-odds.
+\begin{enumerate}
+    \item \textbf{Optimal Decision Rule:} The decision that minimizes the conditional expected Bayes risk $\mathcal{R}(a \mid c) = \mathbb{E}[C(a, Y) \mid c]$ is:
+    \begin{equation}
+    \label{eq:chow_prob_rule}
+    a^*(c) = \begin{cases}
+    a_{\text{T}} & \text{if } p(c) \ge 1 - \frac{c_a}{c_{\text{FP}}}, \\
+    a_{\text{F}} & \text{if } p(c) \le \frac{c_a}{c_{\text{FN}}}, \\
+    a_{\text{abstain}} & \text{if } \frac{c_a}{c_{\text{FN}}} < p(c) < 1 - \frac{c_a}{c_{\text{FP}}}.
+    \end{cases}
+    \end{equation}
+
+    \item \textbf{Thresholds in Log-Odds Space:} Expressed on the log-odds scale $\ell(c)$, the optimal decision boundaries are:
+    \begin{equation}
+    \label{eq:chow_logodds_rule}
+    \tau_1 \triangleq \ln \left( \frac{c_{\text{FP}} - c_a}{c_a} \right), \quad \tau_0 \triangleq \ln \left( \frac{c_a}{c_{\text{FN}} - c_a} \right),
+    \end{equation}
+    yielding the decision rule: assert True if $\ell(c) \ge \tau_1$, assert False if $\ell(c) \le \tau_0$, and escalate to HITL if $\tau_0 < \ell(c) < \tau_1$.
+
+    \item \textbf{Non-Triviality Condition:} The abstention region $(\tau_0, \tau_1)$ is non-empty if and only if the human review cost is strictly strictly less than the harmonic mean cost of error:
+    \begin{equation}
+    \label{eq:nontrivial_abstain}
+    c_a < \frac{c_{\text{FP}} \cdot c_{\text{FN}}}{c_{\text{FP}} + c_{\text{FN}}}.
+    \end{equation}
+    If $c_a \ge \frac{c_{\text{FP}} c_{\text{FN}}}{c_{\text{FP}} + c_{\text{FN}}}$, human escalation is cost-ineffective and the optimal policy collapses to a binary threshold.
+
+    \item \textbf{Scope of Neyman--Pearson Optimality:}
+    \begin{itemize}
+        \item When evidence sources $e_1, \dots, e_K$ are \emph{conditionally independent} given $Y$, the posterior log-odds decomposes linearly as $\ell(c) = \ell_{\text{prior}} + \sum_{k=1}^K \operatorname{LLR}_k(e_k)$. In this case, for fixed type-I error rate $\alpha$, thresholding $\ell(c)$ yields the Neyman--Pearson optimal test.
+        \item In general multi-modal settings where sources exhibit statistical dependence, a linear combination $\sum_{k=1}^K w_k \operatorname{LLR}_k$ optimized via logistic regression minimizes cross-entropy loss within the linear class, but is \emph{not} uniformly most powerful or Neyman--Pearson optimal across arbitrary non-linear joint likelihoods.
+    \end{itemize}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The expected costs of the three actions given posterior probability $p = \mathbb{P}(Y = 1 \mid c)$ are:
+\begin{align}
+\mathcal{R}(a_{\text{T}} \mid c) &= c_{\text{FP}} \mathbb{P}(Y = 0 \mid c) = c_{\text{FP}} (1 - p), \\
+\mathcal{R}(a_{\text{F}} \mid c) &= c_{\text{FN}} \mathbb{P}(Y = 1 \mid c) = c_{\text{FN}} p, \\
+\mathcal{R}(a_{\text{abstain}} \mid c) &= c_a.
+\end{align}
+Action $a_{\text{T}}$ is preferred over $a_{\text{abstain}}$ if and only if:
+\begin{equation}
+c_{\text{FP}}(1 - p) \le c_a \iff 1 - p \le \frac{c_a}{c_{\text{FP}}} \iff p \ge 1 - \frac{c_a}{c_{\text{FP}}}.
+\end{equation}
+Similarly, action $a_{\text{F}}$ is preferred over $a_{\text{abstain}}$ if and only if:
+\begin{equation}
+c_{\text{FN}} p \le c_a \iff p \le \frac{c_a}{c_{\text{FN}}}.
+\end{equation}
+Converting $p = \frac{e^\ell}{1 + e^\ell}$ to the log-odds threshold for $a_{\text{T}}$:
+\begin{equation}
+\frac{e^{\tau_1}}{1 + e^{\tau_1}} = 1 - \frac{c_a}{c_{\text{FP}}} = \frac{c_{\text{FP}} - c_a}{c_{\text{FP}}} \implies e^{\tau_1} = \frac{c_{\text{FP}} - c_a}{c_a} \implies \tau_1 = \ln\left( \frac{c_{\text{FP}} - c_a}{c_a} \right).
+\end{equation}
+For $a_{\text{F}}$:
+\begin{equation}
+\frac{e^{\tau_0}}{1 + e^{\tau_0}} = \frac{c_a}{c_{\text{FN}}} \implies e^{\tau_0} = \frac{c_a}{c_{\text{FN}} - c_a} \implies \tau_0 = \ln\left( \frac{c_a}{c_{\text{FN}} - c_a} \right).
+\end{equation}
+The abstention interval is non-empty if and only if $\frac{c_a}{c_{\text{FN}}} < 1 - \frac{c_a}{c_{\text{FP}}}$:
+\begin{equation}
+c_a\left( \frac{1}{c_{\text{FN}}} + \frac{1}{c_{\text{FP}}} \right) < 1 \iff c_a < \frac{1}{\frac{1}{c_{\text{FP}}} + \frac{1}{c_{\text{FN}}}} = \frac{c_{\text{FP}} c_{\text{FN}}}{c_{\text{FP}} + c_{\text{FN}}}.
+\end{equation}
+\end{proof}

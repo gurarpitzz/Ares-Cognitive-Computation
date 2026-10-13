@@ -1,0 +1,52 @@
+{
+  "experiment_id": "M01-verify-thmC-decision-fusion",
+  "milestone": "M01",
+  "ledger_ids": [
+    "C072",
+    "C073"
+  ],
+  "data_kind": "simulated",
+  "git_commit": "e2c9b186061765da9b2bbc6e8cd84c043d3a15c8",
+  "dirty_worktree": false,
+  "config_path": "configs/theory/verify_thmC.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "val",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T11:07:18Z",
+  "finished_at": "2026-10-13T11:07:23Z",
+  "wall_clock_s": 4.462479591369629,
+  "n_examples": 300000,
+  "metrics": {
+    "theoretical_chow_risk": 1.21804,
+    "grid_minimum_risk": 1.20218,
+    "risk_discrepancy": 0.015859999999999985,
+    "naive_sum_log_loss": 0.45075885196502014,
+    "learned_logistic_log_loss": 0.3901654609473605,
+    "log_loss_reduction": 0.06059339101765965
+  },
+  "ci95": {},
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Verified Theorem C: Chow optimal thresholds minimize expected Bayes risk and calibrated weights beat unweighted summation under correlation."
+}
