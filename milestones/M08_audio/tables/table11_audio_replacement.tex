@@ -1,0 +1,8 @@
+\begin{tabular}{lllllrrrrll}
+\toprule
+model & manuscript_tpr & measured_tpr & manuscript_fpr & measured_fpr & manuscript_f1 & measured_f1_balanced_r1 & measured_f1_asv_ratio_r032 & measured_eer & measured_auc & class_ratio_note \\
+\midrule
+ARES (Voice Embedding) & 97.0% & 100.00% & 3.0% & 2.78% & 0.980000 & 0.986301 & 0.995579 & 0.000000 & 1.0000 [1.0000, 1.0000] & F1=0.98 mathematically impossible under r=1.0 (I-14); requires r=0.32 \\
+Traditional Audio ML & 83.0% & 100.00% & 12.0% & 0.00% & 0.880000 & 1.000000 & 1.000000 & 0.000000 & 1.0000 [1.0000, 1.0000] & F1=0.88 mathematically impossible under r=1.0 (I-14); requires r=0.47 \\
+\bottomrule
+\end{tabular}

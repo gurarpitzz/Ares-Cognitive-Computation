@@ -1,0 +1,3 @@
+condition,mean_offset_sec,mean_offset_ms,tampering_flagged_pct
+Synchronized (Original),0.0,0.0,0.0
+Desynchronized (+160ms Lag Tampering),0.16,160.0,100.0
