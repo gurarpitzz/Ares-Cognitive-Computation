@@ -1,0 +1,210 @@
+# ARES-Bench Dataset Registry
+# Master data configuration for all Tier-1 and Tier-2 datasets.
+
+tier_1:
+  liar:
+    name: "LIAR"
+    tier: 1
+    track: "T1"
+    version: "1.0"
+    homepage: "https://www.cs.ucsb.edu/~william/data/liar_dataset.zip"
+    licence: "CC-BY-SA-4.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Wang (ACL 2017)"
+    expected_counts:
+      train: 10269
+      val: 1284
+      test: 1283
+      total: 12836
+    labels: ["pants-fire", "false", "barely-true", "half-true", "mostly-true", "true"]
+    est_size_gb: 0.05
+    raw_retention: "keep"
+
+  fever:
+    name: "FEVER"
+    tier: 1
+    track: "T2"
+    version: "1.0"
+    homepage: "https://fever.ai/resources.html"
+    licence: "CC-BY-SA-3.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Thorne et al. (NAACL 2018)"
+    expected_counts:
+      train: 145449
+      val: 19998
+      test: 19998
+      total: 185445
+    labels: ["SUPPORTS", "REFUTES", "NOT ENOUGH INFO"]
+    est_size_gb: 2.5
+    raw_retention: "keep"
+
+  constraint_covid:
+    name: "Constraint-COVID"
+    tier: 1
+    track: "T1"
+    version: "AAAI-2021"
+    homepage: "https://github.com/diptamath/covid_fake_news"
+    licence: "MIT"
+    redistribution: "yes"
+    access: "open"
+    citation: "Patwa et al. (AAAI 2021)"
+    expected_counts:
+      train: 6420
+      val: 2140
+      test: 2140
+      total: 10700
+    labels: ["real", "fake"]
+    est_size_gb: 0.02
+    raw_retention: "keep"
+
+  coaid:
+    name: "CoAID"
+    tier: 1
+    track: "T1"
+    version: "1.0"
+    homepage: "https://github.com/yc007/CoAID"
+    licence: "CC-BY-4.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Cui & Lee (arXiv 2020)"
+    expected_counts:
+      news_claims: 4251
+      total: 4251
+    labels: ["real", "fake"]
+    est_size_gb: 0.15
+    raw_retention: "keep"
+
+  xfact:
+    name: "X-FACT"
+    tier: 1
+    track: "T1"
+    version: "1.0"
+    homepage: "https://github.com/utahnlp/x-fact"
+    licence: "Apache-2.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Gupta & Srikumar (ACL 2021)"
+    expected_counts:
+      languages: 25
+      claims: 31189
+    labels: ["true", "mostly true", "partly true", "mostly false", "false", "unverifiable", "other"]
+    est_size_gb: 0.35
+    raw_retention: "keep"
+
+  pheme:
+    name: "PHEME"
+    tier: 1
+    track: "T7"
+    version: "9-events"
+    homepage: "https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Analysis_and_Detection_of_Veracity/6397919"
+    licence: "CC-BY-4.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Zubiaga et al. (PLoS ONE 2016)"
+    expected_counts:
+      threads: 5802
+    labels: ["true", "false", "unverified"]
+    est_size_gb: 1.2
+    raw_retention: "keep"
+
+  upfd:
+    name: "UPFD"
+    tier: 1
+    track: "T7"
+    version: "1.0"
+    homepage: "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.UPFD.html"
+    licence: "MIT"
+    redistribution: "yes"
+    access: "open"
+    citation: "Dou et al. (SIGIR 2021)"
+    expected_counts:
+      politifact_graphs: 314
+      gossipcop_graphs: 5464
+    labels: ["real", "fake"]
+    est_size_gb: 0.8
+    raw_retention: "keep"
+
+  paws:
+    name: "PAWS"
+    tier: 1
+    track: "T9"
+    version: "final"
+    homepage: "https://github.com/google-research-datasets/paws"
+    licence: "CC-BY-SA-4.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Zhang et al. (NAACL 2019)"
+    expected_counts:
+      train: 49401
+      val: 8000
+      test: 8000
+    labels: ["paraphrase", "non-paraphrase"]
+    est_size_gb: 0.05
+    raw_retention: "keep"
+
+  stsb:
+    name: "STS-B"
+    tier: 1
+    track: "T9"
+    version: "glue"
+    homepage: "https://gluebenchmark.com/"
+    licence: "CC-BY-SA-4.0"
+    redistribution: "yes"
+    access: "open"
+    citation: "Cer et al. (SemEval 2017)"
+    expected_counts:
+      train: 5749
+      val: 1500
+      test: 1379
+    labels: ["similarity_score_0_to_5"]
+    est_size_gb: 0.02
+    raw_retention: "keep"
+
+tier_2:
+  multifc:
+    name: "MultiFC"
+    tier: 2
+    track: "T1"
+    access: "open"
+    est_size_gb: 0.8
+    citation: "Augenstein et al. (EMNLP 2019)"
+    raw_retention: "keep"
+
+  pubhealth:
+    name: "PUBHEALTH"
+    tier: 2
+    track: "T10"
+    access: "open"
+    est_size_gb: 0.3
+    citation: "Kotonya & Toni (ACL 2020)"
+    raw_retention: "keep"
+
+  scifact:
+    name: "SciFact"
+    tier: 2
+    track: "T10"
+    access: "open"
+    est_size_gb: 0.1
+    citation: "Wadden et al. (EMNLP 2020)"
+    raw_retention: "keep"
+
+  climate_fever:
+    name: "CLIMATE-FEVER"
+    tier: 2
+    track: "T10"
+    access: "open"
+    est_size_gb: 0.2
+    citation: "Diggelmann et al. (NeurIPS 2020)"
+    raw_retention: "keep"
+
+  isot:
+    name: "ISOT"
+    tier: 2
+    track: "T10"
+    access: "open"
+    est_size_gb: 0.15
+    citation: "Ahmed et al. (IEEE 2017)"
+    raw_retention: "keep"
+    notes: "Requires Reuters source shortcut stripping."

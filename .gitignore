@@ -1,6 +1,6 @@
-# Data & Cache directories
-data/
-cache/
+# Data & Cache directories (root only)
+/data/
+/cache/
 *.tar
 *.tar.gz
 *.zip

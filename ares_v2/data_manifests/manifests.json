@@ -1,0 +1,30 @@
+{
+  "coaid.csv": {
+    "sha256": "b6416d0ac57ff3047742cddfc254d7b3ea1ff058c6be0e364a7d014c01460f8e",
+    "bytes": 583843
+  },
+  "constraint.csv": {
+    "sha256": "eb1e623f3d30b8c29996ef1a8cfe0c5f494eacb523fad38197c632fbb52cf455",
+    "bytes": 1011075
+  },
+  "fever.csv": {
+    "sha256": "6a048ea39aa17b1ccbcb163b60c9506130867d898a7963af90bd154c3c443a2f",
+    "bytes": 15244957
+  },
+  "liar.csv": {
+    "sha256": "cf73e499aa736fcdcce24d8a1b60224fccb42af6158d3f082e8bd92134c052b4",
+    "bytes": 1214087
+  },
+  "paws.csv": {
+    "sha256": "0e6f054fd3bc973878f1bb1610664d24f7a39dd1802af350bde34f39d11ca882",
+    "bytes": 5874207
+  },
+  "stsb.csv": {
+    "sha256": "a0a910998fd949d156b4a7079e7469234117002cb5c545253c7d2634f2a94b33",
+    "bytes": 848301
+  },
+  "xfact.csv": {
+    "sha256": "f1be0ef241bffe7720bfe75f69823b46eba5d2e7cbc1aabe311644d255d046af",
+    "bytes": 3985019
+  }
+}

@@ -1,0 +1,89 @@
+# Pre-registered label mappings and collapse definitions for ARES benchmarks
+
+liar:
+  binary_primary:
+    true_classes: ["true", "mostly-true", "half-true"]
+    false_classes: ["barely-true", "false", "pants-fire"]
+    mapping:
+      true: 1
+      mostly-true: 1
+      half-true: 1
+      barely-true: 0
+      false: 0
+      pants-fire: 0
+  binary_sensitivity:
+    true_classes: ["true", "mostly-true"]
+    false_classes: ["barely-true", "false", "pants-fire"]
+    exclude: ["half-true"]
+    mapping:
+      true: 1
+      mostly-true: 1
+      barely-true: 0
+      false: 0
+      pants-fire: 0
+  native_6way:
+    mapping:
+      pants-fire: 0
+      false: 1
+      barely-true: 2
+      half-true: 3
+      mostly-true: 4
+      true: 5
+
+fever:
+  native_3way:
+    mapping:
+      SUPPORTS: 0
+      REFUTES: 1
+      NOT ENOUGH INFO: 2
+
+constraint_covid:
+  binary:
+    mapping:
+      real: 1
+      fake: 0
+
+coaid:
+  binary:
+    mapping:
+      real: 1
+      fake: 0
+
+xfact:
+  native_7way:
+    mapping:
+      true: 0
+      mostly true: 1
+      partly true: 2
+      mostly false: 3
+      false: 4
+      unverifiable: 5
+      other: 6
+  binary_collapse:
+    true_classes: ["true", "mostly true"]
+    false_classes: ["false", "mostly false"]
+    exclude: ["partly true", "unverifiable", "other"]
+    mapping:
+      true: 1
+      mostly true: 1
+      mostly false: 0
+      false: 0
+
+pheme:
+  native_3way:
+    mapping:
+      true: 1
+      false: 0
+      unverified: 2
+
+upfd:
+  binary:
+    mapping:
+      real: 1
+      fake: 0
+
+paws:
+  binary:
+    mapping:
+      1: 1  # paraphrase
+      0: 0  # non-paraphrase

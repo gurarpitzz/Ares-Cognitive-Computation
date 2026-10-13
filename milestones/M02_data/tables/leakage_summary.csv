@@ -1,0 +1,8 @@
+dataset,train_size,test_size,exact_train_test_overlap,exact_train_val_overlap,exact_val_test_overlap,sampled_test_items,near_dup_count_sampled,near_dup_rate_sampled,leakage_status
+coaid,4403,403,5,0,0,403,2,0.004962779156327543,FLAGGED
+constraint,6420,2140,41,45,17,500,7,0.014,FLAGGED
+fever,145449,9999,2,1,0,500,0,0.0,FLAGGED
+liar,10269,1283,5,6,0,500,0,0.0,FLAGGED
+paws,49401,8000,0,0,0,500,0,0.0,PASS
+stsb,5749,1379,7,6,2,500,2,0.004,FLAGGED
+xfact,31313,3825,26,13,5,500,0,0.0,FLAGGED
