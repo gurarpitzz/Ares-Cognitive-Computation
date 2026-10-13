@@ -1,0 +1,2 @@
+theoretical_auc,empirical_cosine_auc,delta_auc,h6_2_confirmed,empirical_euclidean_auc,delta_dist_vs_cos,h6_3_confirmed,mean_cos_h0,mean_cos_h1
+1.0,0.9,0.1,False,0.9,-0.0,True,0.9749,0.6884

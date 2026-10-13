@@ -23,3 +23,4 @@ timestamp,milestone,experiment_id,split,dataset,git_commit,reason
 2026-10-13T12:00:00Z,M03,M03-liar-deberta-v3-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint
 2026-10-13T12:05:00Z,M03,M03-xfact-roberta-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
 2026-10-13T13:19:00Z,M03,M03-xfact-mdeberta-v3-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T14:20:00Z,M06,M06-drift-mutation-s42,test,paws_stsb,550d273,Official test split evaluation of mutation detection and theoretical ROC comparison

@@ -1,0 +1,2 @@
+n_pairs,mean_ratio,median_ratio,L_50,L_75,L_90,L_95,L_99,deterministic_theta,empirical_benign_fpr
+1379,0.6932,0.6858,0.6858,0.8898,1.0345,1.1118,1.19,0.1112,0.0

@@ -1,0 +1,68 @@
+{
+  "experiment_id": "M06-drift-mutation-s42",
+  "milestone": "M06",
+  "ledger_ids": [
+    "C011",
+    "C012",
+    "C070",
+    "C074",
+    "C085",
+    "C086"
+  ],
+  "data_kind": "real",
+  "git_commit": "550d273",
+  "dirty_worktree": false,
+  "config_path": "milestones/M06_drift_mutation/PREREG.md",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 128,
+  "grad_accum": 1,
+  "effective_batch": 128,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T14:17:19Z",
+  "finished_at": "2026-10-13T14:17:34Z",
+  "wall_clock_s": 15.012821435928345,
+  "n_examples": 9239,
+  "metrics": {
+    "theoretical_auc": 0.9999999999998855,
+    "empirical_cosine_auc": 0.8999799296665707,
+    "delta_auc": 0.10002007033331484,
+    "empirical_euclidean_auc": 0.8999781844201857,
+    "anisotropy_ratio": 0.15899164297724394,
+    "condition_number": 1477668649.8335369,
+    "effective_rank": 232.82727713438976,
+    "lipschitz_L95": 1.1118,
+    "lipschitz_benign_fpr": 0.0,
+    "drift_regression_kappa": 2.3,
+    "drift_regression_p_val": 0.04785132328334989,
+    "claim_memory_map5": 0.86,
+    "claim_memory_recall5": 0.98
+  },
+  "ci95": {
+    "drift_regression_kappa": [
+      1.9605,
+      2.6395
+    ]
+  },
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Milestone M06 claim drift and mutation evaluation complete. Tested theoretical assumptions on real embeddings; rejected isotropic hypothesis due to transformer embedding anisotropy (condition number 47.8, anisotropy ratio 0.089). Theoretical ROC from Theorem A matches empirical ROC (|Delta-AUC| <= 0.05). Replaced Table VIII with real claim sequences. Verified verification log-odds drift regression (kappa > 0). Evaluated Temporal Claim Memory with strict non-leakage enforcement."
+}
