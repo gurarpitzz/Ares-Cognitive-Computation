@@ -1,0 +1,3 @@
+model,reported_tpr,reported_fpr,reported_f1,balanced_precision,balanced_implied_f1,balanced_error,ffpp_test_ratio_f1,implied_real_fake_ratio,implied_fake_prior
+ARES (ResNet-50),95.0%,2.5%,0.9700,0.9744,0.9620,+0.0080,0.9712,0.3505,74.05%
+CNN Baseline (Xception),89.0%,8.0%,0.9200,0.9175,0.9036,+0.0164,0.9319,0.5598,64.11%

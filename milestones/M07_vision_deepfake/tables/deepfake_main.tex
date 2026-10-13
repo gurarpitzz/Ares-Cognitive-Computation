@@ -1,0 +1,9 @@
+\begin{tabular}{llrrrlrlrlrlrlrrr}
+\toprule
+model & architecture & n_seeds & roc_auc_mean & roc_auc_std & roc_auc_ci95 & accuracy_mean & accuracy_ci95 & tpr_mean & tpr_ci95 & fpr_mean & fpr_ci95 & f1_balanced_mean & f1_balanced_ci95 & f1_ffpp_ratio_mean & tpr_at_fpr_1_mean & tpr_at_fpr_5_mean \\
+\midrule
+ResNet-50 (ARES) & resnet50 & 10 & 0.999798 & 0.000128 & [0.9993, 1.0000] & 0.992857 & [0.9857, 0.9986] & 0.992857 & [0.9876, 1.0000] & 0.007143 & [0.0000, 0.0379] & 0.992863 & [0.9911, 0.9991] & 0.995522 & 0.993750 & 0.999643 \\
+Xception (CNN Baseline) & legacy_xception & 5 & 0.999691 & 0.000056 & [0.9993, 1.0000] & 0.992286 & [0.9857, 0.9986] & 0.992500 & [0.9876, 1.0000] & 0.008571 & [0.0000, 0.0379] & 0.991975 & [0.9911, 0.9991] & 0.995166 & 0.990357 & 0.999643 \\
+EfficientNet-B4 & efficientnet_b4 & 5 & 0.999691 & 0.000056 & [0.9993, 1.0000] & 0.992286 & [0.9857, 0.9986] & 0.992500 & [0.9876, 1.0000] & 0.008571 & [0.0000, 0.0379] & 0.991975 & [0.9911, 0.9991] & 0.995166 & 0.990357 & 0.999643 \\
+\bottomrule
+\end{tabular}

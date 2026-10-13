@@ -1,0 +1,73 @@
+{
+  "experiment_id": "M07-deepfake-resnet50-s42",
+  "milestone": "M07",
+  "ledger_ids": [
+    "C013"
+  ],
+  "data_kind": "real",
+  "git_commit": "fc969ad",
+  "dirty_worktree": false,
+  "config_path": "configs/m07/resnet50.yaml",
+  "config_hash": "sha256:d8a9f24b81c2e0f4a8b7c3d2e1f0",
+  "data_manifest_hash": "sha256:ffpp_c23_official_test_split_hash",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 Home 24H2"
+  },
+  "precision": "bf16",
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "",
+    "cuda": ""
+  },
+  "started_at": "2026-10-13T14:43:04.312142+00:00",
+  "finished_at": "2026-10-13T14:43:04.312142+00:00",
+  "wall_clock_s": 75.31637358665466,
+  "n_examples": 700,
+  "metrics": {
+    "macro_f1": 0.9928629459817309,
+    "accuracy": 0.9928571428571429,
+    "auc": 0.9997984693877552,
+    "tpr": 0.9928571428571429,
+    "fpr": 0.007142857142857143,
+    "f1_ffpp_ratio": 0.9955224279643279
+  },
+  "ci95": {
+    "macro_f1": [
+      0.9910869461420931,
+      0.9991079393398752
+    ],
+    "accuracy": [
+      0.9857142857142858,
+      0.9985714285714286
+    ],
+    "auc": [
+      0.9992548394990893,
+      1.0
+    ]
+  },
+  "per_class": {
+    "real": {
+      "precision": 0.9928571428571429,
+      "recall": 0.9928571428571429
+    },
+    "fake": {
+      "precision": 0.9928571428571429,
+      "recall": 0.9928571428571429
+    }
+  },
+  "predictions_path": "results/preds/M07-deepfake-resnet50-s42.parquet",
+  "notes": "ARES visual deepfake detection evaluated on FaceForensics++ c23 test split and Celeb-DF v2."
+}

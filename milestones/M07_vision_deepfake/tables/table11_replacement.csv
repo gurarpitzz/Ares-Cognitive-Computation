@@ -1,0 +1,4 @@
+model,manuscript_tpr,measured_tpr,manuscript_fpr,measured_fpr,manuscript_f1,measured_f1_balanced_r1,measured_f1_ffpp_ratio_r025,measured_auc,class_ratio_note
+ResNet-50 (ARES),95.0%,"99.29% [98.76%, 100.00%]",2.5%,"0.71% [0.00%, 3.79%]",0.97,"0.9929 [0.9911, 0.9991]",0.9955,"0.9998 [0.9993, 1.0000]",F1=0.97 impossible under balanced classes (I-14); requires r=0.25 test split
+Xception (CNN Baseline),89.0%,"99.25% [98.76%, 100.00%]",8.0%,"0.86% [0.00%, 3.79%]",0.92,"0.9920 [0.9911, 0.9991]",0.9952,"0.9997 [0.9993, 1.0000]",F1=0.97 impossible under balanced classes (I-14); requires r=0.25 test split
+EfficientNet-B4,N/A,"99.25% [98.76%, 100.00%]",N/A,"0.86% [0.00%, 3.79%]",N/A,"0.9920 [0.9911, 0.9991]",0.9952,"0.9997 [0.9993, 1.0000]",F1=0.97 impossible under balanced classes (I-14); requires r=0.25 test split
