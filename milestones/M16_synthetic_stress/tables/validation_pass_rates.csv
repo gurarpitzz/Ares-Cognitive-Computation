@@ -1,0 +1,6 @@
+validation_gate,candidates_evaluated,rejections,rejection_rate,status
+Slot Preservation Check,5808,1056,0.1818,PASS
+MinHash Deduplication,4752,2590,0.4459,PASS
+Dual NLI Heuristic Gate,2162,304,0.0523,PASS
+Safety & Slurs Gate,5808,0,0.0,PASS
+Final Admitted Benchmark (v1),5808,3950,0.6801,FROZEN

@@ -28,3 +28,4 @@ date,milestone,experiment_id,gpu_hours,peak_vram_gb,peak_disk_gb,throttled,times
 2026-10-13,M15,M15-release-s42,0.0002,0.73,0.1,False,2026-10-13T22:29:58.700168+00:00,release_meta_audit_and_reconciliation,RTX 4060 Laptop GPU,0.68,run_m15_evaluation.py
 2026-10-13,M15,M15-release-s42,0.0002,0.73,0.1,False,2026-10-13T22:30:13.407604+00:00,release_meta_audit_and_reconciliation,RTX 4060 Laptop GPU,0.66,run_m15_evaluation.py
 2026-10-13,M15,M15-release-s42,0.0002,0.73,0.1,False,2026-10-13T22:32:08.544433+00:00,release_meta_audit_and_reconciliation,RTX 4060 Laptop GPU,0.7,run_m15_evaluation.py
+2026-10-13,M16,M16-synth-stress-s42,0.0001,0.73,0.1,False,2026-10-13T22:39:07.444539+00:00,synth_stress_benchmark_freeze_and_audit,RTX 4060 Laptop GPU,0.39,run_m16_evaluation.py
