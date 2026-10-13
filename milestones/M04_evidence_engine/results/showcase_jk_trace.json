@@ -1,0 +1,47 @@
+{
+  "claim": "8 terrorist bombs dropped in Jammu and Kashmir on 1st February 2026",
+  "date_evaluated": "2026-10-13T13:38:33.091289+00:00",
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "evidence_passages_retrieved": 3,
+  "raw_truth_score": -0.3329072384054258,
+  "symbolic_logic": {
+    "logic_flag": "NEUTRAL",
+    "logic_adjustment": 0.0,
+    "numeric_conflicts": 1,
+    "numeric_confirmations": 2
+  },
+  "adjusted_truth_score": -0.3329072384054258,
+  "legacy_uncalibrated_confidence": 0.46150742737743683,
+  "legacy_confidence_exceeds_one": false,
+  "calibrated_posterior_confidence": 0.3031657068916188,
+  "final_verdict": "REFUTES (DISINFORMATION)",
+  "traces": [
+    {
+      "id": "reuters_jk_01",
+      "text": "Indian defence authorities and state police confirm zero aerial bomb drops or major explosions occurred in Jammu and Kashmir on February 1, 2026. Claims of 8 bombs circulating on social media are unverified and false.",
+      "source": "reuters.com",
+      "similarity": 0.88,
+      "nli_soft_stance": -0.10759559192229062,
+      "credibility": 0.95,
+      "contribution": -0.08994991484703496
+    },
+    {
+      "id": "bbc_jk_02",
+      "text": "Independent monitors in Srinagar reported no artillery or aerial ordnance explosions across the Kashmir valley on February 1. Regional normalcy was observed with routine security operations.",
+      "source": "bbc.com",
+      "similarity": 0.84,
+      "nli_soft_stance": -0.9753682940499857,
+      "credibility": 0.93,
+      "contribution": -0.7619577113118489
+    },
+    {
+      "id": "pti_jk_03",
+      "text": "PIB Fact Check and official state releases refuted viral reports alleging 8 bombs were dropped in J&K, confirming the social media narrative is fabricated disinformation.",
+      "source": "apnews.com",
+      "similarity": 0.89,
+      "nli_soft_stance": -0.020083105948287994,
+      "credibility": 0.95,
+      "contribution": -0.0169802660792775
+    }
+  ]
+}

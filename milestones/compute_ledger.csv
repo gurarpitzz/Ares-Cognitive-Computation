@@ -7,3 +7,4 @@ date,milestone,experiment_id,gpu_hours,peak_vram_gb,peak_disk_gb,throttled
 2026-10-13,M03,M03-liar-deberta-v3-base-s42,0.174,7.1,0.5,false
 2026-10-13,M03,M03-xfact-roberta-base-s42,0.107,5.8,0.5,false
 2026-10-13,M03,M03-xfact-mdeberta-v3-base-s42,0.289,7.6,0.5,false
+2026-10-13,M04,M04-evidence-engine-eval,0.010,1.8,0.5,false

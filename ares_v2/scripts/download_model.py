@@ -29,6 +29,19 @@ MODEL_FILES = {
         "spm.model",
         "pytorch_model.bin",
     ],
+    "typeform/distilbert-base-uncased-mnli": [
+        "config.json",
+        "tokenizer_config.json",
+        "vocab.txt",
+        "model.safetensors",
+    ],
+    "sentence-transformers/all-MiniLM-L6-v2": [
+        "config.json",
+        "tokenizer_config.json",
+        "vocab.txt",
+        "modules.json",
+        "model.safetensors",
+    ],
 }
 
 

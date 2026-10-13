@@ -1,0 +1,5 @@
+layer,precision,recall,macro_f1,benchmark
+1. Text Filtering (Veracity Classification),0.975,0.975,0.975,Constraint & CoAID
+2. Evidence Extraction (Passage Retrieval),0.667,0.667,0.667,FEVER 1.0
+3. Contextual Reasoning (Oracle NLI),0.231,0.325,0.268,FEVER + BART-large-MNLI
+4. Cross-Source Verification (Full Pipeline),0.25,0.325,0.278,FEVER End-to-End Pipeline
