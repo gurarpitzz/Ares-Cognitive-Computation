@@ -1,6 +1,77 @@
 {
+  "experiment_id": "M04-evidence-engine-full-eval",
   "milestone": "M04",
+  "ledger_ids": [
+    "C018",
+    "C040",
+    "C067",
+    "C078"
+  ],
+  "data_kind": "real",
+  "git_commit": "9a937b5",
+  "dirty_worktree": false,
+  "config_path": "milestones/M04_evidence_engine/configs_used/thresholds.json",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "val",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T12:00:00Z",
+  "finished_at": "2026-10-13T12:01:18Z",
   "wall_clock_s": 78.6,
+  "n_examples": 450,
+  "metrics": {
+    "accuracy_soft_n": 0.4133,
+    "macro_f1_soft_n": 0.251,
+    "accuracy_hard_n": 0.4022,
+    "macro_f1_hard_n": 0.2464,
+    "recall_at_1_dense": 0.6622,
+    "recall_at_5_dense": 0.6667,
+    "recall_at_10_dense": 0.6689,
+    "mrr_dense": 0.6648,
+    "recall_at_5_bm25": 0.6667,
+    "recall_at_5_hybrid": 0.6667,
+    "credibility_weighted_macro_f1": 0.2628,
+    "credibility_weighted_accuracy": 0.42,
+    "unweighted_macro_f1": 0.139,
+    "unweighted_accuracy": 0.2044,
+    "table15_layer1_f1": 0.975,
+    "table15_layer2_f1": 0.667,
+    "table15_layer3_f1": 0.251,
+    "table15_layer4_f1": 0.263
+  },
+  "ci95": {
+    "macro_f1_soft_n": [
+      0.2294,
+      0.2726
+    ],
+    "macro_f1_hard_n": [
+      0.2234,
+      0.2698
+    ]
+  },
+  "per_class": null,
+  "predictions_path": "milestones/M04_evidence_engine/results/preds/m04_evidence_features.parquet",
+  "notes": "Full evidence engine evaluation: 450 FEVER claims, R-S-N-W operators, soft vs hard N, credibility weighting, and Table XV replacement.",
   "n_claims_evaluated": 450,
   "optimal_thresholds": {
     "tau_true": 0.25,

@@ -1,7 +1,57 @@
 {
+  "experiment_id": "M04-showcase-jk-trace",
+  "milestone": "M04",
+  "ledger_ids": [
+    "C040",
+    "C067",
+    "C078"
+  ],
+  "data_kind": "real",
+  "git_commit": "9a937b5",
+  "dirty_worktree": false,
+  "config_path": "configs/evidence/showcase.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "val",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 1,
+  "grad_accum": 1,
+  "effective_batch": 1,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T13:47:19Z",
+  "finished_at": "2026-10-13T13:47:20Z",
+  "wall_clock_s": 1.2,
+  "n_examples": 1,
+  "metrics": {
+    "truth_score": -0.3329072384054258,
+    "adjusted_truth_score": -0.3329072384054258,
+    "legacy_confidence": 0.46150742737743683,
+    "calibrated_posterior": 0.3031657068916188,
+    "numeric_conflicts": 1.0,
+    "numeric_confirmations": 2.0
+  },
+  "ci95": {},
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "J&K claim showcase trace with full per-evidence attribution, symbolic logic extraction, and calibrated posterior.",
   "claim": "8 terrorist bombs dropped in Jammu and Kashmir on 1st February 2026",
   "date_evaluated": "2026-10-13T13:47:19.135971+00:00",
-  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
   "evidence_passages_retrieved": 3,
   "raw_truth_score": -0.3329072384054258,
   "symbolic_logic": {

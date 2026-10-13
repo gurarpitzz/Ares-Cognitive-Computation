@@ -1,8 +1,20 @@
 timestamp,milestone,experiment_id,split,dataset,git_commit,reason
-2026-10-13T10:45:00Z,M03,M03-coaid-classical-s42,test,coaid,b7a801f,Official test split evaluation of classical baselines
-2026-10-13T10:45:00Z,M03,M03-constraint-classical-s42,test,constraint,b7a801f,Official test split evaluation of classical baselines
-2026-10-13T10:45:00Z,M03,M03-liar-classical-s42,test,liar,b7a801f,Official test split evaluation of classical baselines
-2026-10-13T10:45:00Z,M03,M03-xfact-classical-s42,test,xfact,b7a801f,Official test split evaluation of classical baselines
+2026-10-13T10:45:00Z,M03,M03-coaid-majority-s42,test,coaid,b7a801f,Official test split evaluation of majority baseline
+2026-10-13T10:45:00Z,M03,M03-coaid-stratified_random-s42,test,coaid,b7a801f,Official test split evaluation of stratified random baseline
+2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_linear_svm-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
+2026-10-13T10:45:00Z,M03,M03-coaid-tfidf_logistic_regression-s42,test,coaid,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
+2026-10-13T10:45:00Z,M03,M03-constraint-majority-s42,test,constraint,b7a801f,Official test split evaluation of majority baseline
+2026-10-13T10:45:00Z,M03,M03-constraint-stratified_random-s42,test,constraint,b7a801f,Official test split evaluation of stratified random baseline
+2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_linear_svm-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
+2026-10-13T10:45:00Z,M03,M03-constraint-tfidf_logistic_regression-s42,test,constraint,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
+2026-10-13T10:45:00Z,M03,M03-liar-majority-s42,test,liar,b7a801f,Official test split evaluation of majority baseline
+2026-10-13T10:45:00Z,M03,M03-liar-stratified_random-s42,test,liar,b7a801f,Official test split evaluation of stratified random baseline
+2026-10-13T10:45:00Z,M03,M03-liar-tfidf_linear_svm-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
+2026-10-13T10:45:00Z,M03,M03-liar-tfidf_logistic_regression-s42,test,liar,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
+2026-10-13T10:45:00Z,M03,M03-xfact-majority-s42,test,xfact,b7a801f,Official test split evaluation of majority baseline
+2026-10-13T10:45:00Z,M03,M03-xfact-stratified_random-s42,test,xfact,b7a801f,Official test split evaluation of stratified random baseline
+2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_linear_svm-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF linear SVM baseline
+2026-10-13T10:45:00Z,M03,M03-xfact-tfidf_logistic_regression-s42,test,xfact,b7a801f,Official test split evaluation of TF-IDF logistic regression baseline
 2026-10-13T11:15:00Z,M03,M03-coaid-roberta-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
 2026-10-13T11:22:00Z,M03,M03-coaid-deberta-v3-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
 2026-10-13T11:35:00Z,M03,M03-constraint-roberta-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint

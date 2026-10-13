@@ -297,8 +297,8 @@ def main():
             # Remove previous runs for this dataset to avoid duplicates
             prev_records = prev_df[prev_df["dataset"] != args.dataset].to_dict(orient="records")
             all_records.extend(prev_records)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Could not read previous CSV {csv_path}: {e}")
 
     for dname in datasets:
         recs = run_classical_baselines(dname, seed=args.seed)
