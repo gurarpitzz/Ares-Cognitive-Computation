@@ -1,0 +1,71 @@
+{
+  "experiment_id": "M03-constraint-deberta-v3-base-s42",
+  "milestone": "M03",
+  "ledger_ids": [
+    "C038",
+    "C050",
+    "C065"
+  ],
+  "data_kind": "real",
+  "git_commit": "b7a801f083639bb2492da14070c9b75d00be6709",
+  "dirty_worktree": false,
+  "config_path": "configs/m03/transformer_deberta-v3-base.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cpu": "Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T12:12:28Z",
+  "finished_at": "2026-10-13T12:50:57Z",
+  "wall_clock_s": 2309.018395423889,
+  "n_examples": 2140,
+  "metrics": {
+    "accuracy": 0.9672897196261683,
+    "macro_f1": 0.9671966301435377,
+    "val_macro_f1": 0.9671722749920232,
+    "val_loss": 0.09855864336278951,
+    "test_loss": 0.10683804452419281,
+    "auc": 0.9948135504201681
+  },
+  "ci95": {
+    "macro_f1": [
+      0.9596641180749937,
+      0.9747044634416051
+    ]
+  },
+  "per_class": {
+    "0": {
+      "precision": 0.9721669980119284,
+      "recall": 0.9588235294117647,
+      "f1": 0.9654491609081934,
+      "support": 1020.0
+    },
+    "1": {
+      "precision": 0.9629629629629629,
+      "recall": 0.975,
+      "f1": 0.968944099378882,
+      "support": 1120.0
+    }
+  },
+  "predictions_path": "milestones\\M03_text_verifiers\\results\\preds\\M03-constraint-deberta-v3-base-s42.parquet",
+  "notes": "Fine-tuned microsoft/deberta-v3-base on constraint veracity."
+}

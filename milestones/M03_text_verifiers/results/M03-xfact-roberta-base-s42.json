@@ -1,0 +1,71 @@
+{
+  "experiment_id": "M03-xfact-roberta-base-s42",
+  "milestone": "M03",
+  "ledger_ids": [
+    "C038",
+    "C050",
+    "C065"
+  ],
+  "data_kind": "real",
+  "git_commit": "b7a801f083639bb2492da14070c9b75d00be6709",
+  "dirty_worktree": false,
+  "config_path": "configs/m03/transformer_roberta-base.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cpu": "Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T11:55:18Z",
+  "finished_at": "2026-10-13T12:01:42Z",
+  "wall_clock_s": 383.906494140625,
+  "n_examples": 2774,
+  "metrics": {
+    "accuracy": 0.7307137707281903,
+    "macro_f1": 0.7273304695842344,
+    "val_macro_f1": 0.7365339070119672,
+    "val_loss": 0.5324430028727372,
+    "test_loss": 0.5313519600620352,
+    "auc": 0.8021396915431036
+  },
+  "ci95": {
+    "macro_f1": [
+      0.7100013999443038,
+      0.744141129274941
+    ]
+  },
+  "per_class": {
+    "0": {
+      "precision": 0.8,
+      "recall": 0.7196549599507086,
+      "f1": 0.7577035355173533,
+      "support": 1623.0
+    },
+    "1": {
+      "precision": 0.6537290715372908,
+      "recall": 0.7463075586446568,
+      "f1": 0.6969574036511156,
+      "support": 1151.0
+    }
+  },
+  "predictions_path": "milestones\\M03_text_verifiers\\results\\preds\\M03-xfact-roberta-base-s42.parquet",
+  "notes": "Fine-tuned roberta-base on xfact veracity."
+}

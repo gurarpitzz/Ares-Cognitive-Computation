@@ -1,0 +1,69 @@
+{
+  "experiment_id": "M03-xfact-majority-s42",
+  "milestone": "M03",
+  "ledger_ids": [
+    "C038",
+    "C064",
+    "C065"
+  ],
+  "data_kind": "real",
+  "git_commit": "b7a801f083639bb2492da14070c9b75d00be6709",
+  "dirty_worktree": false,
+  "config_path": "configs/m03/classical_majority.yaml",
+  "config_hash": "sha256:0000000000000000",
+  "data_manifest_hash": "sha256:0000000000000000",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2 + WSL2 Ubuntu 26.04"
+  },
+  "precision": "bf16",
+  "micro_batch": 8,
+  "grad_accum": 4,
+  "effective_batch": 32,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.6.2",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-13T11:44:07Z",
+  "finished_at": "2026-10-13T11:44:07Z",
+  "wall_clock_s": 0.0009996891021728516,
+  "n_examples": 2774,
+  "metrics": {
+    "accuracy": 0.5850757029560202,
+    "macro_f1": 0.36911530589037983,
+    "val_macro_f1": 0.372736590365562,
+    "auc": 0.5
+  },
+  "ci95": {
+    "macro_f1": [
+      0.3615650172612198,
+      0.3762086800089948
+    ]
+  },
+  "per_class": {
+    "0": {
+      "precision": 0.5850757029560202,
+      "recall": 1.0,
+      "f1": 0.7382306117807597,
+      "support": 1623.0
+    },
+    "1": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1151.0
+    }
+  },
+  "predictions_path": "milestones\\M03_text_verifiers\\results\\preds\\M03-xfact-majority-s42.parquet",
+  "notes": "Classical baseline majority on xfact."
+}

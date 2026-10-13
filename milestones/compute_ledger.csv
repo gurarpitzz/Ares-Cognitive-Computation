@@ -1,1 +1,9 @@
 date,milestone,experiment_id,gpu_hours,peak_vram_gb,peak_disk_gb,throttled
+2026-10-13,M03,M03-coaid-roberta-base-s42,0.019,4.2,0.5,false
+2026-10-13,M03,M03-coaid-deberta-v3-base-s42,0.060,6.8,0.5,false
+2026-10-13,M03,M03-constraint-roberta-base-s42,0.037,4.8,0.5,false
+2026-10-13,M03,M03-constraint-deberta-v3-base-s42,0.641,7.2,0.5,false
+2026-10-13,M03,M03-liar-roberta-base-s42,0.077,5.1,0.5,false
+2026-10-13,M03,M03-liar-deberta-v3-base-s42,0.174,7.1,0.5,false
+2026-10-13,M03,M03-xfact-roberta-base-s42,0.107,5.8,0.5,false
+2026-10-13,M03,M03-xfact-mdeberta-v3-base-s42,0.289,7.6,0.5,false

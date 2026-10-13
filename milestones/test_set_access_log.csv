@@ -1,1 +1,13 @@
 timestamp,milestone,experiment_id,split,dataset,git_commit,reason
+2026-10-13T10:45:00Z,M03,M03-coaid-classical-s42,test,coaid,b7a801f,Official test split evaluation of classical baselines
+2026-10-13T10:45:00Z,M03,M03-constraint-classical-s42,test,constraint,b7a801f,Official test split evaluation of classical baselines
+2026-10-13T10:45:00Z,M03,M03-liar-classical-s42,test,liar,b7a801f,Official test split evaluation of classical baselines
+2026-10-13T10:45:00Z,M03,M03-xfact-classical-s42,test,xfact,b7a801f,Official test split evaluation of classical baselines
+2026-10-13T11:15:00Z,M03,M03-coaid-roberta-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T11:22:00Z,M03,M03-coaid-deberta-v3-base-s42,test,coaid,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T11:35:00Z,M03,M03-constraint-roberta-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T11:45:00Z,M03,M03-constraint-deberta-v3-base-s42,test,constraint,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T11:50:00Z,M03,M03-liar-roberta-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T12:00:00Z,M03,M03-liar-deberta-v3-base-s42,test,liar,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T12:05:00Z,M03,M03-xfact-roberta-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
+2026-10-13T13:19:00Z,M03,M03-xfact-mdeberta-v3-base-s42,test,xfact,b7a801f,Official test split evaluation of best validation checkpoint
