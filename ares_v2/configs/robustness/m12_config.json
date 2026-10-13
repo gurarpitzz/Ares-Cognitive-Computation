@@ -1,0 +1,25 @@
+{
+  "milestone": "M12",
+  "attacks": [
+    "TextFooler",
+    "DeepWordBug",
+    "Homoglyphs"
+  ],
+  "sample_size": 1000,
+  "budgets": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3
+  ],
+  "vat_lambda": 0.3,
+  "loso_scenarios": [
+    "S_COVID",
+    "S_ELECTION",
+    "S_CRISIS",
+    "S_DISASTER"
+  ],
+  "ares_synth_benchmark": "ares_synth_v1"
+}

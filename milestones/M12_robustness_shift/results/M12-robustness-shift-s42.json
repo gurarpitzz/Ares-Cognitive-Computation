@@ -1,0 +1,96 @@
+{
+  "experiment_id": "M12-robustness-shift-s42",
+  "milestone": "M12",
+  "ledger_ids": [
+    "C003",
+    "C019",
+    "C020",
+    "C021",
+    "C022",
+    "C023",
+    "C037",
+    "C044",
+    "C045",
+    "C056",
+    "C059",
+    "C060",
+    "C066",
+    "C073",
+    "C091"
+  ],
+  "data_kind": "synthetic_grounded",
+  "git_commit": "5652ae8",
+  "dirty_worktree": false,
+  "config_path": "ares_v2/configs/robustness/m12_config.json",
+  "config_hash": "56b7eca69dfd19f1776adbd7e815a09d157675b5a16c800a994a3d93cea7d9b0",
+  "data_manifest_hash": "sha256:3821f1194fefde6640c4974f762740bcbaef60662d98a032890538a7cba8c6d1",
+  "split": "test",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "ram_gb": 16,
+    "wsl_mem_limit_gb": 12,
+    "os": "Windows 11 24H2"
+  },
+  "precision": "fp32",
+  "micro_batch": 64,
+  "grad_accum": 1,
+  "effective_batch": 64,
+  "resumed_from_checkpoint": false,
+  "gpu_telemetry_path": null,
+  "thermal_throttle_detected": false,
+  "software": {
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.49.0",
+    "cuda": "12.4"
+  },
+  "started_at": "2026-10-14T00:04:01.554472+00:00",
+  "finished_at": "2026-10-14T00:07:27.000000+00:00",
+  "wall_clock_s": 205.45,
+  "n_examples": 2858,
+  "metrics": {
+    "textfooler_delta_adv": 0.08713176926149602,
+    "deepwordbug_delta_adv": 0.0647010414597462,
+    "homoglyphs_delta_adv": 0.29684785423942495,
+    "textfooler_asr": 0.077,
+    "vat_robustness_gain": -0.005304647106642668,
+    "cross_domain_spearman_r": 0.30443669992405914,
+    "loso_mean_delta_f1": 0.04897130043966145,
+    "loso_covid_f1": 0.8798613256444583,
+    "loso_election_f1": 0.4808030246552,
+    "ares_synth_tf_f1": 0.9369461346578052,
+    "ares_synth_s1_border_f1": 0.898159619355418,
+    "ares_synth_s2_floods_f1": 0.9497458658458015,
+    "ares_synth_s3_election_f1": 0.9742529048608966,
+    "ares_synth_geotag_error_km": 6.204285703975355,
+    "ares_synth_logic_detection": 0.915,
+    "wall_time_s": 205.45
+  },
+  "ci95": {
+    "textfooler_delta_adv": [
+      0.0687,
+      0.1062
+    ],
+    "loso_mean_delta_f1": [
+      0.0077,
+      0.0894
+    ],
+    "cross_domain_spearman_r": [
+      -0.4728,
+      0.8132
+    ],
+    "vat_robustness_gain": [
+      -0.0073,
+      -0.0035
+    ],
+    "ares_synth_tf_f1": [
+      0.9146,
+      0.9591
+    ]
+  },
+  "per_class": null,
+  "predictions_path": null,
+  "notes": "Milestone M12 full robustness, distribution shift, stress scenarios, and ARES-Synth v1 evaluation."
+}

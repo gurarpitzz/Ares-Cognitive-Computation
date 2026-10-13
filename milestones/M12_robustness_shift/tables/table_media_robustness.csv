@@ -1,0 +1,5 @@
+modality,source,clean_metric,perturbed_metric,degradation,robustness_comment
+Vision (Deepfake Video),M07,In-domain FF++ AUC: 0.9997,Cross-Dataset Celeb-DF AUC: 0.7499,Delta AUC = 0.2498,Evaluated on genuine face crops; class imbalance proof confirmed
+Audio (Voice Tampering),M08,Trimmed Mel AUC: 0.9990,Cross Raw->Trimmed AUC: 0.7911,Delta AUC = 0.2079,Proved silence shortcut reliance on raw audio; genuine acoustic cues learned when trimmed
+Text (Veracity Claim),M12.1,Clean Macro-F1: 1.0000,TextFooler Attack (eps=0.15): 0.9129,Delta F1 = 0.0871,Evaluated on fixed n=1000 test sample with 95% bootstrap CIs
+Geopolitical / Crisis LOSO,M12.5,In-Scenario Mean F1: 0.6362,Held-Out Mean F1: 0.5872,Delta F1 = 0.0490,Mean LOSO degradation 4.90% across 4 crisis scenarios
