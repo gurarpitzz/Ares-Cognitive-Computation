@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-10-13T22:32:09Z",
+  "auditor_seed": 20261013,
+  "clean_room_env": {
+    "os": "Windows 11 24H2 / WSL2 Ubuntu 26.04",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8 GB)",
+    "cpu": "13th Gen Intel Core i7-13620H",
+    "python": "3.11.9",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4"
+  },
+  "all_milestone_smokes_pass": true,
+  "milestone_smokes": [
+    {
+      "milestone": "M00",
+      "test": "Integrity infrastructure & git hygiene",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M01",
+      "test": "Non-central t mutation theorem proofs",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M02",
+      "test": "Data manifests & leakage audit",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M03",
+      "test": "DeBERTa-v3 text verifier inference",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M04",
+      "test": "Evidence retrieval R*S*N*W & Truth'",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M05",
+      "test": "Calibrated LLR & Chow abstention",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M06",
+      "test": "Semantic mutation drift Delta_t",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M07",
+      "test": "ResNet-50 visual deepfake detector",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M08",
+      "test": "Spectrogram CNN audio spoof detector",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M09",
+      "test": "TwiBot-20 bot detection pipeline",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M10",
+      "test": "GeoNames & GDELT event risk scoring",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M11",
+      "test": "Multimodal track fusion & ablation",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M12",
+      "test": "Adversarial shift & ARES-Synth v1",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M13",
+      "test": "Systems latency, throughput & FLOP scaling",
+      "status": "PASS"
+    },
+    {
+      "milestone": "M14",
+      "test": "FastAPI service, hash audit chain & PII scrubber",
+      "status": "PASS"
+    }
+  ],
+  "audited_experiments": [
+    {
+      "milestone": "M05",
+      "experiment_id": "M05-decision-layer-s42",
+      "primary_metric": "learned_llr_macro_f1",
+      "stored_value": 0.8725174449812132,
+      "reproduced_value": 0.8725174449812132,
+      "delta": 0.0,
+      "tolerance": 0.005,
+      "verdict": "PASS"
+    },
+    {
+      "milestone": "M09",
+      "experiment_id": "M09-bot-detection-s42",
+      "primary_metric": "macro_f1",
+      "stored_value": 0.9991490879848778,
+      "reproduced_value": 0.9991490879848778,
+      "delta": 0.0,
+      "tolerance": 0.005,
+      "verdict": "PASS"
+    },
+    {
+      "milestone": "M11",
+      "experiment_id": "M11-fusion-ablation-s42",
+      "primary_metric": "unweighted_macro_f1_all_tracks",
+      "stored_value": 0.8401600086957508,
+      "reproduced_value": 0.8401600086957508,
+      "delta": 0.0,
+      "tolerance": 0.005,
+      "verdict": "PASS"
+    }
+  ],
+  "cleanroom_verdict": "PASS"
+}

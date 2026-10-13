@@ -1,0 +1,5 @@
+source_domain,target_domain,in_domain_f1,out_domain_f1,drop_delta,proxy_a_distance,mitigated_f1
+Health (CoAID),Politics (LIAR),"0.901 [0.892, 0.910]","0.724 [0.710, 0.738]",-0.177,1.24,"0.812 [0.801, 0.823]"
+US Politics (PolitiFact),Multilingual (X-FACT),"0.885 [0.874, 0.896]","0.689 [0.675, 0.703]",-0.196,1.41,"0.795 [0.783, 0.807]"
+Lab Video (FF++ c23),Wild Video (Celeb-DF v2),"0.952 [0.944, 0.960]","0.731 [0.718, 0.744]",-0.221,1.58,"0.824 [0.812, 0.836]"
+Clean Audio (ASVspoof 2019),In-the-Wild Audio,"0.976 [0.969, 0.983]","0.805 [0.792, 0.818]",-0.171,1.18,"0.889 [0.878, 0.900]"
