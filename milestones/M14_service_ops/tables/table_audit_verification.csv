@@ -1,5 +1,0 @@
-test_scenario,total_blocks,tamper_injected,detected,detection_rate,h14_1_status
-Clean Genesis-to-Head Chain,40,None,N/A (Chain Valid),100.0%,PASS
-Single-Byte Verdict Modification,10,1 byte in random past block,Detected,100.0%,PASS
-Block Deletion / Missing Block,10,1 block excised from chain,Detected,100.0%,PASS
-Reordered Historical Records,10,2 blocks swapped,Detected,100.0%,PASS

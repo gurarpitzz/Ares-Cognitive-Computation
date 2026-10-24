@@ -1,5 +1,0 @@
-step,claim,date,step_cosine,step_distance,cumulative_drift,is_mutation
-1,Clinical trials show Pfizer COVID-19 vaccine is over 90% effective in preventing severe illness.,T+0,1.0,0.0,0.0,0
-2,Studies indicate Pfizer coronavirus vaccine offers high protection against severe hospitalizations.,T+1,0.7323,0.7316,0.2677,0
-3,Pfizer vaccine protection against transmission wanes significantly after six months.,T+2,0.5496,0.9491,0.718,1
-4,Pfizer vaccine causes severe immune deficiency and destroys white blood cells within six months.,T+3,0.6922,0.7846,1.0259,1

@@ -1,2 +1,0 @@
-metric,sequential_pipeline_ms,parallel_pipeline_ms,latency_reduction_delta,ci95_bootstrap,manuscript_claimed_reduction
-Mean Latency,57.08,29.30,0.4866 (48.7%),"[0.4845, 0.4886]",40.0%

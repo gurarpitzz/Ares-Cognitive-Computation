@@ -1,4 +1,0 @@
-modality,cross_auc,delta_vs_cnn,notes
-Pure Spatial CNN (ResNet-50),0.7498823993566106,0.0,Baseline visual model
-Forensic Frequency + Temporal Dynamics (Standalone),0.4383696757257098,-0.3115127236309008,32 azimuthal FFT bins + 32 temporal variance features
-Late Fusion (CNN + Forensics),0.7493512996767878,-0.0005310996798227885,Validation-optimal alpha=0.05

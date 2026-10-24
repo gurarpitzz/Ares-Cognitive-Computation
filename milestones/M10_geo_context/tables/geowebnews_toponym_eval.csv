@@ -1,2 +1,0 @@
-benchmark,total_toponyms,resolved_toponyms,resolution_rate,accuracy_at_161km,accuracy_at_50km,median_error_km,mean_error_km
-"GeoWebNews (Gritta et al., 2018)",400,100,0.25,0.66,0.6,4.36,910.48

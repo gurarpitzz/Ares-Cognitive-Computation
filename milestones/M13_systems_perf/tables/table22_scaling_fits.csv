@@ -1,3 +1,0 @@
-model_architecture,seq_len_range,fitted_alpha_slope,alpha_ci95,fitted_beta,r_squared,theoretical_crossover_n_star
-DeBERTa-v3-base (GPU fp32),16-512,0.040,"[-0.044, 0.127]",2.836,0.1787,4608 (6d)
-Multi-Head Self-Attention,512-4096,1.802,"[1.754, 1.857]",-11.762,0.9999,4608 (6d)

@@ -1,8 +1,0 @@
-endpoint,method,purpose,p50_latency_ms,security_scope,status
-/health,GET,"System, hardware & GPU telemetry",0.25,Public,ONLINE
-/models,GET,Pinned model registry with SHA256 hashes,0.30,Public,ONLINE
-/verify,POST,Multi-modal cognitive claim verification,23.8,Authenticated,ONLINE
-/trace/{id},GET,Explainable Truth' evidence graph,0.45,Authenticated,ONLINE
-/alerts,GET,Operational priority alert stream,0.35,Analyst Only,ONLINE
-/transparency/decisions,GET,PII-scrubbed public transparency feed,0.55,Public Rate-Limited,ONLINE
-/admin/killswitch,POST,Emergency operational pause switch,0.20,Admin Key Required,ONLINE

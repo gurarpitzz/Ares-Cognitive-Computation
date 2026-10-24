@@ -1,4 +1,0 @@
-Source Training,Target Evaluation,N Samples,ROC-AUC [%],Macro-F1 [%]
-TwiBot-20 Profiles,TwiBot-20 Test (In-domain),1183,"82.93 [80.42, 85.41]",78.05
-Cresci-2017 Profiles,Cresci-2017 Test (In-domain),1749,"100.00 [100.00, 100.00]",100.00
-Cresci-2017 Profiles,Twitter-Human-Bots (Zero-Shot Transfer),37438,"79.61 [79.11, 80.08]",72.53

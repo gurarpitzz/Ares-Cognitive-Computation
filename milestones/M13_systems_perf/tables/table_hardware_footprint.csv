@@ -1,5 +1,0 @@
-scope_name,description,peak_vram_mb,peak_ram_gb,gpu_p50_ms,cpu_p50_ms,speedup_gpu_cpu,viable_8gb_vram,viable_16gb_ram
-Scope A (Text Verifier Alone),DeBERTa-v3-base forward pass at n=128 tokens,731.6,15.07,14.67,181.31,12.4x,True,True
-Scope C (Vision Deepfake Pipeline),ResNet-50 8-frame feature extraction + pooling,183.6,15.18,12.75,225.53,17.7x,True,True
-Scope D (Audio Spoofing Pipeline),Declared Audio CNN on 80x400 log-mel spectrogram,57.8,15.23,3.83,17.31,4.5x,True,True
-Scope E (Late Fusion Head),1024-d 2-layer GELU MLP + Chow abstention,15.4,15.18,0.20,0.43,2.2x,True,True

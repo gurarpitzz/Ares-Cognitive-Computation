@@ -1,2 +1,0 @@
-n_claims,n_true_events,n_false_events,roc_auc,ci95_low,ci95_high,h10_3_passed
-16,8,8,1.0,1.0,1.0,True

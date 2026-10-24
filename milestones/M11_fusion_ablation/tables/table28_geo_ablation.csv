@@ -1,4 +1,0 @@
-Track,Condition,Precision,Recall,Macro-F1,Full P/R/F1,Delta Drop
-T1,Without Geopolitical Layer,0.8764,0.8773,0.8768,0.8560/0.8542/0.8551,-0.0218
-T2,Without Geopolitical Layer,0.4755,0.5543,0.5105,0.4732/0.5512/0.5078,-0.0027
-T7,Without Geopolitical Layer,0.8579,0.8518,0.8543,0.8483/0.8360/0.8402,-0.0141

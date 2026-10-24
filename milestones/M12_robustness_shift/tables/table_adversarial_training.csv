@@ -1,2 +1,0 @@
-comparison,k_seeds,clean_f1_erm,clean_f1_adv,adv_f1_erm,adv_f1_adv,robustness_gain_mean,robustness_gain_sem,robustness_gain_ci95,paired_t_pval,wilcoxon_pval
-lambda_adv = 0.30 vs 0.00,10,0.9030143086778081,0.9116946430488099,0.8891308885858358,0.8838262414791931,-0.005304647106642668,0.0010599130438838041,"[-0.0073, -0.0035]",0.0007341490578589905,0.001953125

@@ -41,3 +41,16 @@ desktop.ini
 scratch/
 tmp/
 logs/*.log
+
+# Unpublished manuscripts, confidential letters, and reviewer materials
+*.pdf
+*.docx
+ARES_Cover_Letter*
+ARES_response_to_reviewers*
+reviewer_comments.txt
+laptop_spec_sheet.md
+
+# Internal development, milestone ledgers, and manuscript build scripts
+manuscript/
+plan/
+milestones/

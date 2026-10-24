@@ -1,4 +1,0 @@
-model,recall@1,recall@5,recall@10,mrr
-BM25 (Okapi),0.6667,0.6667,0.6667,0.6667
-Dense (all-MiniLM-L6-v2),0.6622,0.6667,0.6689,0.6648
-Hybrid (BM25 + Dense RRF),0.6667,0.6667,0.6667,0.6667

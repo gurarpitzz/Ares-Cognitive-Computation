@@ -1,6 +1,0 @@
-component,formula_term,weight,weight_nature,calibration_basis
-Misinformation Risk,R_m,0.45,Heuristic / Proxy-Fitted,Platt posterior probability * domain hazard
-Audience Exposure / Reach,I,0.30,Heuristic / Proxy-Fitted,Logarithmic audience scale up to 1M users
-Escalation Velocity,E,0.25,Heuristic / Proxy-Fitted,Sharing velocity up to 100 shares/min
-Low Priority Threshold,tau_low,0.40,Policy Threshold,Score < 0.40 -> Passive Monitoring
-Critical Priority Threshold,tau_crit,0.70,Policy Threshold,Score >= 0.70 -> Immediate Human Escalation

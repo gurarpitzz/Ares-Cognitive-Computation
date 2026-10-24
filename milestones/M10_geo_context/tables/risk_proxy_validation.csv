@@ -1,2 +1,0 @@
-n_samples,spearman_rho,spearman_pvalue,pearson_r,pearson_pvalue,h10_4_passed,weights_provenance,ledger_claim_C083_status
-250,0.7619,1.1221367480636875e-48,0.8244,3.086099132839e-63,True,heuristic_proxy_fitted,"REVISED (Honest documentation: heuristic proxy-fitted parameters, refuting unverified 'learned' claim)"

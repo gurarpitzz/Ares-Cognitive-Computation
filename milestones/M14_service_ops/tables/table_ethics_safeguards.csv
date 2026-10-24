@@ -1,8 +1,0 @@
-section_xiv_safeguard,category,implementation_status,implementation_file,manuscript_action
-Tamper-Evident Audit Logging,Transparency,IMPLEMENTED,src/ares/service/auditlog.py,REVISE: Replaced blockchain with SHA-256 hash chain
-PII Sanitisation,Privacy,IMPLEMENTED,src/ares/service/pii.py,VERIFIED: Regex + NER redaction before logs
-Public Transparency API,Transparency,IMPLEMENTED,GET /transparency/decisions,VERIFIED: Rate-limited scrubbed feed
-Analyst Kill Switch,Safety,IMPLEMENTED,POST /admin/killswitch,VERIFIED: Emergency operational freeze
-Federated Edge Learning,Privacy,PROPOSED,N/A (Theoretical Architecture),REVISE: Labeled as future research proposal
-Independent Oversight Board,Governance,PROPOSED,N/A (Policy Framework),REVISE: Labeled as governance recommendation
-Ethical Data Licensing,Policy,PROPOSED,N/A (Policy Framework),REVISE: Labeled as licensing proposal

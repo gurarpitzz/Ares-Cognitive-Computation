@@ -1,6 +1,0 @@
-scope_id,scope_description,p50_ms,p90_ms,ci95_bootstrap
-Scope A,Text Verifier Alone (DeBERTa-v3-base n=128),14.82,18.88,"[15.42, 16.24]"
-Scope B,Full T2 Local Verification (Text + BM25 + NLI + Logic + Fusion),23.76,28.42,"[22.58, 24.95]"
-Scope C,Visual Deepfake Pipeline (ResNet-50 16-frame Video),27.15,27.24,"[27.16, 27.19]"
-Scope D,Audio Spoofing Pipeline (4-sec Waveform -> Log-Mel -> CNN),1.30,1.76,"[1.37, 1.49]"
-Scope E,Detection-to-Alert Pipeline (Ingest -> Verdict -> Alert Queue),24.96,30.92,"[23.72, 26.21]"
