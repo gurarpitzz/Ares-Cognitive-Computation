@@ -1,0 +1,93 @@
+ARES PROPRIETARY RESEARCH & EVALUATION LICENSE
+====================================================================
+Copyright (c) 2026 Gurarpit Singh. All Rights Reserved.
+
+Author: Gurarpit Singh
+Institutional Affiliation: Department of Computer Applications,
+Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC),
+Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India
+Institutional Email: bca_04817702024_gurarpit@vipstc.edu.in
+ORCID: 0009-0002-8610-3885
+
+====================================================================
+TERMS AND CONDITIONS FOR ACCESS, EVALUATION, AND USE
+====================================================================
+
+1. PROPRIETARY OWNERSHIP & INTELLECTUAL PROPERTY
+-------------------------------------------------
+The ARES (Autonomous Real-Time Evaluation System) software repository,
+including but not limited to source code, algorithms, model architectures,
+synthetic evaluation benchmarks (ARES-Synth v1), mathematical implementations,
+data pipelines, documentation, and design assets, is the sole and exclusive
+proprietary intellectual property of Gurarpit Singh ("Author / Licensor").
+
+2. LIMITED LICENSE FOR ACADEMIC & PEER-REVIEW EVALUATION ONLY
+-------------------------------------------------------------
+Subject to the terms and conditions of this License, the Author hereby grants
+to academic researchers, journal editors, peer reviewers, and non-commercial
+educational institutions a limited, non-exclusive, non-transferable, revocable,
+royalty-free license to:
+  (a) View, download, and inspect the source code;
+  (b) Compile and execute the software locally for the sole purpose of
+      scientific peer review, academic evaluation, and reproducibility auditing
+      of the empirical claims reported in the associated research manuscript;
+  (c) Inspect benchmark manifests and verify cryptographic integrity.
+
+3. STRICT PROHIBITIONS & COMMERCIAL RESTRICTIONS
+-------------------------------------------------
+Except as expressly authorized under Section 2 above, any other use of the
+Software is strictly prohibited. Without limiting the generality of the foregoing,
+you SHALL NOT:
+  (a) COMMERCIAL USE: Exploit, use, deploy, or integrate the Software, in whole
+      or in part, for any commercial purpose, commercial service (SaaS), paid
+      consulting, commercial fact-checking deployment, or for-profit enterprise
+      application without prior written consent and an explicit commercial license
+      from the Author.
+  (b) REDISTRIBUTION & SUBLICENSING: Distribute, publish, sub-license, rent, lease,
+      loan, mirror, or otherwise transfer the Software or any modified versions,
+      derivatives, or forks to any third party or public registry without prior
+      written authorization from the Author.
+  (c) CODE APPROPRIATION: Extract, incorporate, or rebrand the core algorithmic
+      routines (including the multimodal verification cascade, mutation tracking
+      manifolds, and decision-theoretic abstention rules) into competing products
+      or publications without formal attribution and written permission.
+  (d) REMOVAL OF NOTICES: Alter, obscure, or remove any copyright notices,
+      author attributions, licensing headers, or disclaimer statements from any
+      source file or document.
+
+4. MANDATORY ACADEMIC CITATION
+------------------------------
+Any academic publication, preprint, technical report, benchmark comparison, or
+scholarly work that references, evaluates, or utilizes the ARES framework or its
+derived concepts must cite the primary research work and acknowledge the author:
+  Author: Gurarpit Singh
+  Title: ARES: Autonomous Real-Time Evaluation System — An AI-Driven
+         Multi-Modal Truth Infrastructure for Misinformation Defense
+  Institution: Vivekananda Institute of Professional Studies – Technical Campus
+               (VIPS-TC / GGSIPU), Delhi, India.
+
+5. DISCLAIMER OF WARRANTIES
+---------------------------
+THE SOFTWARE AND ALL ASSOCIATED RESEARCH MATERIALS ARE PROVIDED BY THE COPYRIGHT
+HOLDER "AS IS", AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+ACCURACY, INTEGRITY, TITLE, AND NON-INFRINGEMENT ARE ENTIRELY DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR, COPYRIGHT HOLDER, OR AFFILIATED INSTITUTIONS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, REVENUE, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF OR INABILITY
+TO USE THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+6. GOVERNING LAW & JURISDICTION
+-------------------------------
+This License shall be governed by and construed in accordance with the laws of India,
+without regard to its conflict of law principles. Any legal action or proceeding
+arising out of or related to this License shall be subject to the exclusive
+jurisdiction of the competent courts in Delhi, India.
+
+====================================================================
+FOR COMMERCIAL INQUIRIES, COLLABORATIONS, OR PERMISSION REQUESTS:
+Contact: Gurarpit Singh (bca_04817702024_gurarpit@vipstc.edu.in)
+====================================================================
