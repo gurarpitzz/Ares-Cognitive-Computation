@@ -271,8 +271,9 @@ def build_insert_pages():
     story.append(Paragraph("XXXI-B. EMPIRICAL BENCHMARK TRACKS & CALIBRATION (RELEASE V2.0)", styles["sec_head"]))
     story.append(Paragraph(
         "To establish reproducible scientific integrity, ARES 2.0 reports unweighted performance metrics across nine dedicated "
-        "benchmark tracks (T1–T9) evaluated under frozen evaluation scripts with five random seeds (42, 1337, 2026). "
-        "Table 07 summarizes the calibrated track metrics, baseline comparisons, and Holm-corrected p-values.",
+        "verification tracks (T1–T9) evaluated under frozen evaluation scripts with five random seeds (42, 101, 202, 303, 404). "
+        "Each track evaluates decoupled modality classifiers on established public benchmark test splits. Table 07 summarizes the "
+        "calibrated track metrics, baseline comparisons, and Holm-corrected p-values.",
         styles["body"]
     ))
 
@@ -297,7 +298,7 @@ def build_insert_pages():
         ('BOTTOMPADDING', (0,0), (-1,-1), 1.5),
     ]))
     story.append(t7)
-    story.append(Paragraph("TABLE 07: Empirical performance across pre-registered verification tracks. All improvements statistically significant (p < 0.001, Holm-corrected).", styles["caption"]))
+    story.append(Paragraph("TABLE 07: Empirical performance across pre-registered decoupled verification tracks. All improvements statistically significant (p < 0.001, Holm-corrected).", styles["caption"]))
 
     story.append(FrameBreak())  # Switch to Column 2
 
@@ -343,8 +344,9 @@ def build_insert_pages():
     story.append(Paragraph("XXXI-C. EMPIRICAL DEEPFAKE & SPEECH FORENSICS PORTFOLIO", styles["sec_head"]))
     story.append(Paragraph(
         "Visual and auditory manipulation detection in ARES 2.0 is supported by rigorous ROC and Equal Error Rate (EER) "
-        "evaluations on genuine GPU hardware (NVIDIA RTX 4060 Laptop GPU, 8 GB VRAM). Fig. 11-B and Fig. 11-C demonstrate "
-        "cross-dataset generalization and acoustic anti-spoofing resilience.",
+        "evaluations on genuine GPU hardware (NVIDIA RTX 4060 Laptop GPU, 8 GB VRAM). Fig. 11-B demonstrates cross-dataset transfer "
+        "from FaceForensics++ to the Celeb-DF v2 test split (2,030 videos, 98.4% fake prevalence) using a linear probe over "
+        "ImageNet-pretrained representations, achieving video-level ROC-AUC = 0.7184 [0.702, 0.734].",
         styles["body"]
     ))
 
@@ -357,8 +359,9 @@ def build_insert_pages():
     story.append(Paragraph("A. Silence Shortcut Control in Audio Anti-Spoofing", styles["subsec_head"]))
     story.append(Paragraph(
         "To test whether speech spoofing classifiers exploit silence boundary artifacts, we evaluated models trained under dual regimes: "
-        "raw audio vs. aggressively trimmed silence. The model trained on silence-trimmed speech retains 96.8% of its baseline accuracy, "
-        "formally proving that acoustic feature representations learn authentic vocoder and phase anomalies rather than trivial silence cues.",
+        "raw audio vs. aggressively trimmed silence. Evaluated on a stratified benchmark of 600 clips from ASVspoof 2019 LA across 5 attack "
+        "systems (A01, A03–A06) and 8+ speakers, the model trained on silence-trimmed speech retains 96.8% of baseline accuracy, "
+        "proving that acoustic representations capture authentic vocoder and phase anomalies rather than trivial silence cues.",
         styles["body"]
     ))
 
@@ -370,11 +373,13 @@ def build_insert_pages():
         story.append(Image(img_audio, width=248, height=130))
         story.append(Paragraph("Fig. 11-C: DET curve and EER distribution on ASVspoof 2019 LA (EER = 2.41% [2.12%, 2.70%]).", styles["caption"]))
 
-    story.append(Paragraph("B. Shapley Multimodal Attribution Analysis", styles["subsec_head"]))
+    story.append(Paragraph("B. Simulated Multi-Track Shapley Attribution [SIMULATED PORTFOLIO]", styles["subsec_head"]))
     story.append(Paragraph(
-        "Using Game-Theoretic Shapley values computed across 500 heterogeneous multimodal claims (Fig. 39-B), we quantified "
-        "the marginal contribution of each verification track. Text stance verification provides the primary truth signal (Shapley value +0.38), "
-        "followed by dense evidence retrieval (+0.29), facial deepfake forensics (+0.18), and behavioral bot metrics (+0.15).",
+        "Because no single publicly available real-world dataset simultaneously provides aligned, synchronized text, video, speech, "
+        "and social network graphs for identical claims, we evaluate theoretical multi-track feature contributions over a calibrated "
+        "simulation portfolio (n=500 composite synthetic claims parameterizing verified module accuracies and latent correlation factors "
+        "via Monte Carlo sampling in assemble.py). Game-Theoretic Shapley values (Fig. 39-B) quantify marginal contributions: "
+        "Text Stance (+0.38), Dense Evidence (+0.29), Visual Forensics (+0.18), and Behavioral Metrics (+0.15).",
         styles["body"]
     ))
 
@@ -382,7 +387,7 @@ def build_insert_pages():
     img_shap = os.path.join(PROJECT_ROOT, "milestones", "M11_fusion_ablation", "figures", "fig39_shapley_attribution.png")
     if os.path.exists(img_shap):
         story.append(Image(img_shap, width=248, height=115))
-        story.append(Paragraph("Fig. 39-B: Cross-modal Shapley value attribution across verification layers.", styles["caption"]))
+        story.append(Paragraph("Fig. 39-B: Cross-modal Shapley value attribution across verification layers [SIMULATED].", styles["caption"]))
 
     doc.build(story)
     print(f"Successfully generated insert pages PDF: {OUTPUT_INSERTS_PDF}")
