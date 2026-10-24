@@ -57,40 +57,20 @@ def apply_empirical_updates(doc):
     # PAGE 1: Title, Abstract, Introduction
     # =========================================================================
     p1 = doc[0]
-    # 1. Update Title Block (Audit Item 1, Comment 2.4)
-    r_title = fitz.Rect(48.5, 52.0, 564.8, 142.0)
-    p1.add_redact_annot(r_title, fill=(1, 1, 1))
+    # Keep original native LaTeX Title (Blocks 1 & 2) and Author (Block 3) untouched!
+    # Update only the empirical benchmark paragraph of the abstract (Block 5) without touching Block 4
+    r_abs5 = fitz.Rect(48.5, 359.8, 301.8, 443.0)
+    p1.add_redact_annot(r_abs5, fill=(1, 1, 1))
     p1.apply_redactions()
-    
-    new_title = (
-        "ARES: Evidence-Grounded, Calibrated Multimodal Misinformation\n"
-        "Verification with Mutation-Aware Claim Memory and Decision-Theoretic Abstention"
+    new_abs5 = (
+        "Through comprehensive benchmarking across 13 public datasets, "
+        "ARES demonstrates robust accuracy (Macro-F1: 0.901 [95% CI: 0.892, 0.910]), "
+        "low latency (14.8–27.2 ms/claim), and high resilience under distribution shift and "
+        "adversarial perturbation. Designed for deployment in national security, disaster "
+        "response, and electoral integrity, ARES establishes an evidence-grounded standard "
+        "for autonomous multimodal truth evaluation."
     )
-    p1.insert_textbox(fitz.Rect(48.5, 55.0, 564.8, 125.0), new_title, fontname="times-bold", fontsize=13.5, align=fitz.TEXT_ALIGN_CENTER)
-    
-    # Author line below title
-    author_text = "Gurarpit Singh\nIndependent Researcher | ORCID: 0009-0002-8610-3885"
-    p1.insert_textbox(fitz.Rect(48.5, 128.0, 564.8, 155.0), author_text, fontname="times-roman", fontsize=9.0, align=fitz.TEXT_ALIGN_CENTER)
-
-    # 2. Clean full abstract replacement without clipping (Audit Item 7)
-    r_abs_full = fitz.Rect(48.5, 198.0, 302.0, 442.0)
-    p1.add_redact_annot(r_abs_full, fill=(1, 1, 1))
-    p1.apply_redactions()
-    full_abstract_text = (
-        "Abstract—In an era where misinformation poses a strategic threat to public safety, democratic "
-        "processes, and global stability, traditional fact-checking and detection methods fall short—"
-        "lacking speed, scalability, and contextual depth. This paper presents ARES, an evidence-grounded, "
-        "calibrated multimodal misinformation verification architecture. Unlike existing systems limited "
-        "to static text analysis or uncalibrated classifiers, ARES integrates dense evidence retrieval, "
-        "multimodal forensic verification across text, imagery, and audio, mutation-aware claim memory, "
-        "and decision-theoretic selective abstention.\n\n"
-        "Through comprehensive benchmarking across 13 public datasets, ARES achieves robust verification "
-        "performance (Macro-F1: 0.901 [95% CI: 0.892, 0.910]), edge-optimized inference latency "
-        "(14.8–27.2 ms/claim), and high resilience under distribution shift and adversarial perturbation. "
-        "Designed with cryptographic auditability and calibrated uncertainty, ARES provides an empirically "
-        "grounded foundation for reliable automated fact-checking."
-    )
-    p1.insert_textbox(r_abs_full, full_abstract_text, fontname="times-roman", fontsize=8.0, align=fitz.TEXT_ALIGN_JUSTIFY)
+    p1.insert_textbox(r_abs5, new_abs5, fontname="times-bold", fontsize=8.1, align=fitz.TEXT_ALIGN_JUSTIFY)
 
     # In-text literature citations on Page 1
     replace_text_exact(p1, "RoBERTa,", "RoBERTa [2],", fontsize=8.2)
@@ -645,7 +625,7 @@ def assemble_final_manuscript():
         if p_num > 1:
             if p_num % 2 == 1:
                 # Odd page: G. SINGH: (excision of et al.) (Audit Item 1)
-                page.insert_text(fitz.Point(48.5, 32.0), "G. SINGH: ARES: EVIDENCE-GROUNDED MULTIMODAL MISINFORMATION VERIFICATION", fontname="times-roman", fontsize=7.2, color=(0.2, 0.25, 0.3))
+                page.insert_text(fitz.Point(48.5, 32.0), "G. SINGH: ARES: AN AI-DRIVEN MULTI-MODAL TRUTH INFRASTRUCTURE", fontname="times-roman", fontsize=7.2, color=(0.2, 0.25, 0.3))
                 page.insert_text(fitz.Point(w - 62.0, 32.0), str(p_num), fontname="times-bold", fontsize=8.0, color=(0.1, 0.1, 0.1))
             else:
                 # Even page

@@ -184,8 +184,7 @@ def build_response_pdf():
     meta_text = (
         "<b>Manuscript Reference:</b> Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
         "<b>Submission Status:</b> Revised Technical Rebuttal -- Tracking ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
-        "<b>Revised Article Title:</b> <i>ARES: Evidence-Grounded, Calibrated Multimodal Misinformation Verification with "
-        "Mutation-Aware Claim Memory and Decision-Theoretic Abstention</i><br/>"
+        "<b>Article Title:</b> <i>ARES: Autonomous Real-Time Evaluation System — An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense</i><br/>"
         "<b>Corresponding Author:</b> Gurarpit Singh (ORCID: 0009-0002-8610-3885)<br/>"
         "<b>Permanent Archive DOI:</b> <font color='#1e3a8a'><u>10.5281/zenodo.10826492</u></font> | "
         "<b>Open-Source Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (v2.0.0)<br/>"
@@ -365,10 +364,12 @@ def build_response_pdf():
     ))
 
     story.extend(make_comment_response(
-        "2.4", "Paper title generality",
+        "2.4", "Paper title scope and methodological alignment",
         "4. The paper title is overly general and fails to clearly reflect the core technical contribution or methodological innovation of this study.",
-        "We agree and have revised the paper title to explicitly reflect the system's core technical and theoretical innovations:<br/>"
-        "<b>\"ARES: Evidence-Grounded, Calibrated Multimodal Misinformation Verification with Mutation-Aware Claim Memory and Decision-Theoretic Abstention\"</b>"
+        "We have retained the overarching platform title (<b>\"ARES: Autonomous Real-Time Evaluation System — An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense\"</b>) "
+        "to maintain indexing and citation continuity with our permanent open-source release (<code>v2.0.0</code>) and Zenodo archive (DOI: <code>10.5281/zenodo.10826492</code>). "
+        "Simultaneously, we have made the core technical innovations—dense evidence retrieval grounding, multimodal forensic calibration (ECE = 0.0312), mutation-aware claim memory, and decision-theoretic selective abstention—"
+        "explicit throughout the Abstract, Introduction, Section headers, and experimental benchmarks across all 43 pages."
     ))
 
     # Reviewer 3 Section
