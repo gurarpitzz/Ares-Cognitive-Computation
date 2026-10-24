@@ -10,7 +10,7 @@
     "C093"
   ],
   "data_kind": "real",
-  "git_commit": "806a3faeaaef66fd59b7343d2b85d833133a83c7",
+  "git_commit": "6b51f6be6e7a775872992eae4bf58af4f644ccea",
   "dirty_worktree": true,
   "config_path": "ares_v2/configs/service/residency.yaml",
   "config_hash": "sha256:m14_residency_config_hash",
@@ -37,9 +37,9 @@
     "transformers": "5.6.2",
     "cuda": "12.4"
   },
-  "started_at": "2026-10-13T22:19:41.676143+00:00",
-  "finished_at": "2026-10-13T22:19:42.933547+00:00",
-  "wall_clock_s": 1.26,
+  "started_at": "2026-10-24T09:17:12.830307+00:00",
+  "finished_at": "2026-10-24T09:17:15.120143+00:00",
+  "wall_clock_s": 2.29,
   "n_examples": 40,
   "metrics": {
     "pii_recall": 1.0,

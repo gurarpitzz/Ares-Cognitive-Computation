@@ -112,65 +112,65 @@ def build_response_pdf():
     h1_style = ParagraphStyle(
         'Heading1_Custom',
         fontName='Helvetica-Bold',
-        fontSize=13,
-        leading=17,
+        fontSize=12.0,
+        leading=15,
         textColor=colors.HexColor("#1e3a8a"),
-        spaceBefore=14,
-        spaceAfter=8,
+        spaceBefore=10,
+        spaceAfter=5,
         keepWithNext=True
     )
     h2_style = ParagraphStyle(
         'Heading2_Custom',
         fontName='Helvetica-Bold',
-        fontSize=10.5,
-        leading=14,
+        fontSize=9.8,
+        leading=13,
         textColor=colors.HexColor("#0f172a"),
-        spaceBefore=12,
-        spaceAfter=6,
+        spaceBefore=8,
+        spaceAfter=4,
         keepWithNext=True
     )
     body_style = ParagraphStyle(
         'Body_Custom',
         fontName='Times-Roman',
-        fontSize=9.2,
-        leading=13.5,
+        fontSize=9.0,
+        leading=12.8,
         textColor=colors.HexColor("#1e293b"),
-        spaceAfter=6
+        spaceAfter=4
     )
     body_bold = ParagraphStyle(
         'Body_Bold',
         fontName='Times-Bold',
-        fontSize=9.2,
-        leading=13.5,
+        fontSize=9.0,
+        leading=12.8,
         textColor=colors.HexColor("#0f172a"),
-        spaceAfter=4
+        spaceAfter=3
     )
     comment_box_style = ParagraphStyle(
         'CommentBox',
         fontName='Times-Italic',
-        fontSize=8.8,
-        leading=13,
+        fontSize=8.5,
+        leading=12.0,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell = ParagraphStyle(
         'TableCell',
         fontName='Helvetica',
-        fontSize=7.5,
-        leading=10.5,
+        fontSize=7.2,
+        leading=9.8,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell_bold = ParagraphStyle(
         'TableCellBold',
         fontName='Helvetica-Bold',
-        fontSize=7.5,
-        leading=10.5,
+        fontSize=7.2,
+        leading=9.8,
         textColor=colors.HexColor("#0f172a")
     )
     table_header = ParagraphStyle(
         'TableHeader',
         fontName='Helvetica-Bold',
-        fontSize=7.8,
-        leading=11,
+        fontSize=7.5,
+        leading=10.5,
         textColor=colors.white
     )
 
@@ -396,7 +396,7 @@ def build_response_pdf():
         "3.2", "Training details, statistical significance, and open-source code",
         "Training details (e.g., hyperparameters, loss functions) are superficial. Benchmarks compare favorably to baselines (Table XIII) but lack statistical "
         "significance tests or open-source code for verification.",
-        "1. <b>Rigorous Statistical Protocol:</b> All model comparisons strictly follow a pre-registered statistical protocol across K = 10 random seeds: "
+        "1. <b>Rigorous Statistical Protocol:</b> All model comparisons strictly follow a pre-registered statistical protocol across K = 5 random seeds: "
         "paired percentile bootstrap (B = 10,000) for delta metrics with 95% confidence intervals, exact two-sided McNemar tests, and family-wise Holm-Bonferroni corrections.<br/>"
         "2. <b>Exhaustive Hyperparameter Transparency (Appendix B, Page 43):</b> Full optimizer configurations: AdamW (lr = 2e-5, weight decay = 0.01, "
         "beta1 = 0.9, beta2 = 0.999, eps = 1e-8), 15 epochs, batch size 32, 10% linear warmup, cosine learning rate decay, and explicit loss weights.<br/>"
@@ -478,8 +478,8 @@ def build_response_pdf():
         [Paragraph("Section XXXI: Track Benchmarks", table_cell_bold), Paragraph("Pages 33-37", table_cell), Paragraph("Table XXXI-B Calibrated Track Metrics (Table 7); Table XXXI-C Forensic Portfolio Analysis (Table 8) with explicit simulation disclosures.", table_cell), Paragraph("Rev 2 (C2.3), Rev 3 (C3.2, C3.3)", table_cell)],
         [Paragraph("Section XXXII: Walkthrough", table_cell_bold), Paragraph("Pages 34-35", table_cell), Paragraph("<b>Page 34 raw listing replaced with Figure 38</b>; <b>Page 35 raw Mermaid code replaced with Figure 37</b>.", table_cell), Paragraph("Rev 1 (C1.2)", table_cell)],
         [Paragraph("Section XXXIII: Multi-Baseline", table_cell_bold), Paragraph("Page 40", table_cell), Paragraph("<b>Table XXXVII empirical multi-baseline comparison</b>; <b>Algorithm 3 (Decision Abstention)</b> replacing duplicate algorithm.", table_cell), Paragraph("Rev 1 (C1.2), Rev 3 (C3.2)", table_cell)],
-        [Paragraph("Appendices & Hyperparameters", table_cell_bold), Paragraph("Pages 41-43", table_cell), Paragraph("Exhaustive training hyperparameters (Table XXXVIII); multi-task loss formulation with explicit line breaking; zero overflow.", table_cell), Paragraph("Rev 1 (C1.1), Rev 3 (C3.2)", table_cell)],
-        [Paragraph("Bibliography", table_cell_bold), Paragraph("Pages 38-40", table_cell), Paragraph("65 verified references with DOIs; zero [?] placeholders.", table_cell), Paragraph("Rev 2 (C2.1), Rev 3 (C3.1)", table_cell)]
+        [Paragraph("Bibliography", table_cell_bold), Paragraph("Page 42", table_cell), Paragraph("65 verified references with DOIs; zero [?] placeholders.", table_cell), Paragraph("Rev 2 (C2.1), Rev 3 (C3.1)", table_cell)],
+        [Paragraph("Appendices & Hyperparameters", table_cell_bold), Paragraph("Page 43", table_cell), Paragraph("Exhaustive training hyperparameters (Table XXXVIII); multi-task loss formulation with explicit line breaking; zero overflow.", table_cell), Paragraph("Rev 1 (C1.1), Rev 3 (C3.2)", table_cell)]
     ]
 
     map_table = Table(mapping_data, colWidths=[110, 50, 224, 120])

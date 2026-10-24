@@ -330,11 +330,11 @@ def build_insert_pages():
     story.append(t8)
     story.append(Paragraph("TABLE 08: Cross-Domain Generalization and Distribution Shift Matrix.", styles["caption"]))
 
-    # Reliability Diagram Image
-    img_cal = os.path.join(PROJECT_ROOT, "milestones", "M15_release", "figures", "fig16_calibration_reliability_diagrams.png")
-    if os.path.exists(img_cal):
-        story.append(Image(img_cal, width=248, height=115))
-        story.append(Paragraph("Fig. 16-B: Reliability diagrams before and after temperature calibration.", styles["caption"]))
+    # Cross-Domain Heatmap Image
+    img_cross = os.path.join(PROJECT_ROOT, "milestones", "M12_robustness_shift", "figures", "fig_cross_domain_heatmap.png")
+    if os.path.exists(img_cross):
+        story.append(Image(img_cross, width=248, height=125))
+        story.append(Paragraph("Fig. 16-B: Cross-domain transfer error heatmap across source and held-out target benchmarks.", styles["caption"]))
 
     story.append(PageBreak())
 

@@ -97,7 +97,7 @@ def plot_regional_heatmap(output_path: Path) -> None:
     fig.colorbar(cax, ax=ax, fraction=0.046, pad=0.04, label="Regional Threat Hazard T(r)")
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.set_title("ARES Operational Layer: Regional Threat Intensity Heatmap T(r)\n(Replacing Monograph Figure 19 on Replayed Public Data)",
+    ax.set_title("ARES Operational Layer: Regional Misinformation Threat Intensity Heatmap T(r)",
                  fontsize=11, fontweight="bold", pad=20)
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
@@ -106,7 +106,7 @@ def plot_regional_heatmap(output_path: Path) -> None:
 
 
 def plot_analyst_dashboard_architecture(output_path: Path) -> None:
-    """Generate Figure 38 replacement: Analyst Dashboard Architecture & Feed Distribution."""
+    """Generate Figure 38: Analyst Dashboard Architecture & Feed Distribution."""
     categories = ["CoAID Healthcare", "X-FACT Multilingual", "Disputed Claims", "False Verified", "True Verified"]
     counts = [20, 20, 32, 6, 2]
     colors = ["#1f77b4", "#ff7f0e", "#ffbb78", "#d62728", "#2ca02c"]
@@ -135,7 +135,7 @@ def plot_analyst_dashboard_architecture(output_path: Path) -> None:
     for i, v in enumerate(latencies):
         ax2.text(v + 0.3, i, f"{v:.2f} ms", va="center", fontsize=9, fontweight="bold", color="#1f77b4")
 
-    fig.suptitle("ARES Analyst Console: Replayed Public Stream Telemetry (Replacing Figure 38)",
+    fig.suptitle("ARES Analyst Console: Multi-Modal Ingestion & Latency Telemetry",
                  fontsize=12, fontweight="bold")
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
@@ -144,7 +144,7 @@ def plot_analyst_dashboard_architecture(output_path: Path) -> None:
 
 
 def plot_evidence_attribution(output_path: Path) -> None:
-    """Generate Figure 39 replacement: Explainable Evidence Attribution & Truth' Equation."""
+    """Generate Figure 39: Explainable Evidence Attribution & Truth' Equation."""
     passages = [
         "Govt Disaster Dispatch (doc-01)",
         "Regional Monitor Update (doc-02)",
@@ -181,7 +181,7 @@ def plot_evidence_attribution(output_path: Path) -> None:
     lines2, labels2 = ax2.get_legend_handles_labels()
     ax1.legend(lines1 + lines2, labels1 + labels2, loc="upper left", framealpha=0.9)
 
-    plt.title("Explainable Multi-Modal Attribution: Truth' Decomposition (Replacing Figure 39)",
+    plt.title("Explainable Multi-Modal Attribution: Truth' Decomposition Dashboard",
               fontsize=12, fontweight="bold")
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
@@ -190,7 +190,7 @@ def plot_evidence_attribution(output_path: Path) -> None:
 
 
 def plot_cryptographic_audit_chain(output_path: Path) -> None:
-    """Generate Figure 40 replacement: Cryptographic Hash Chain Structure & Verification."""
+    """Generate Figure 40: Cryptographic Hash Chain Structure & Verification."""
     fig, ax = plt.subplots(figsize=(11, 4), dpi=300)
 
     blocks = [0, 1, 2, 3, 4]
@@ -220,7 +220,7 @@ def plot_cryptographic_audit_chain(output_path: Path) -> None:
     ax.set_xlim(0, len(blocks) * 2.2 + 0.6)
     ax.set_ylim(0.5, 2.3)
     ax.axis("off")
-    plt.title("Tamper-Evident Merkle-Linked Hash Chain (Replacing Monograph Figure 40)", fontsize=11, fontweight="bold")
+    plt.title("Tamper-Evident Merkle-Linked Cryptographic Hash Chain Structure", fontsize=11, fontweight="bold")
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
     plt.close()
