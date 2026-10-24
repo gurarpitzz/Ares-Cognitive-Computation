@@ -1,5 +1,5 @@
 # ARES: Autonomous Real-Time Evaluation System
-### *An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense*
+### *An Evidence-Grounded, Calibrated Multimodal Misinformation Defense Infrastructure*
 
 <div align="center">
 
@@ -10,6 +10,8 @@
 [![Status](https://img.shields.io/badge/Peer%20Review-Under%20Submission-blueviolet.svg?style=flat-square)](https://link.springer.com/)
 [![License](https://img.shields.io/badge/License-Proprietary%20%2F%20Research%20Only-red.svg?style=flat-square)](./LICENSE)
 
+<br/>
+
 **Lead Researcher & Author:** [Gurarpit Singh](https://orcid.org/0009-0002-8610-3885)  
 **Institution:** Department of Computer Applications, Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC),  
 Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India  
@@ -19,7 +21,7 @@ Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India
 
 </div>
 
-## 📌 Executive Summary & Research Profile
+## Executive Summary & Research Profile
 
 Modern digital disinformation campaigns operate as dynamic, cross-modal narratives combining synthetic speech, deepfake video manipulation, hyper-targeted social amplification, and linguistic drift across temporal manifolds. Conventional automated fact-checking architectures suffer from three fundamental vulnerabilities:
 1. **Monolithic Feature Coupling:** Artificially concatenating text, audio, and visual tensors into unified classification heads induces catastrophic failure when individual modalities are absent, noisy, or benign.
@@ -32,7 +34,7 @@ All pipeline components profile and execute on commodity edge hardware (**NVIDIA
 
 ---
 
-## 🏛️ System Architecture & Dataflow
+## System Architecture & Dataflow
 
 ARES implements a modular, triple-layered verification pipeline designed for high-throughput, forensic auditability, and verifiable grounding:
 
@@ -55,7 +57,7 @@ ARES implements a modular, triple-layered verification pipeline designed for hig
 
 ---
 
-## 📊 Empirical Benchmarks & Scientific Evaluations
+## Empirical Benchmarks & Scientific Evaluations
 
 ARES was rigorously benchmarked across 13 external public datasets (LIAR, Constraint COVID-19, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF v2, ASVspoof 2019, TwiBot-20, Cresci-2017, Snopes, and PolitiFact) and verified on dedicated physical hardware.
 
@@ -131,7 +133,7 @@ To evaluate disaster, conflict, and election crisis scenarios without unauthoriz
 
 ---
 
-## 🔬 Reproducibility & Local Test Suite
+## Reproducibility & Local Test Suite
 
 The repository includes a comprehensive, automated test harness validating all mathematical formulations, loss bounds, token scalings, calibration routines, and pipeline components.
 
@@ -171,7 +173,7 @@ pytest ares_v2/tests -q
 
 ---
 
-## 👤 Researcher Profile & Author Information
+## Researcher Profile & Author Information
 
 **Gurarpit Singh** is a computational researcher specializing in artificial intelligence, multimodal deep learning, cognitive computation, and automated truth infrastructures.
 
@@ -182,13 +184,13 @@ pytest ares_v2/tests -q
 
 ---
 
-## 📜 Citation
+## Citation
 
 If you reference, evaluate, or build upon the ARES architecture or methodology in your academic research, please cite the following scholarly work:
 
 ```bibtex
 @article{singh2026ares,
-  title     = {ARES: Autonomous Real-Time Evaluation System --- An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense},
+  title     = {ARES: Autonomous Real-Time Evaluation System --- An Evidence-Grounded, Calibrated Multimodal Misinformation Defense Infrastructure},
   author    = {Singh, Gurarpit},
   journal   = {Cognitive Computation},
   year      = {2026},
@@ -199,7 +201,7 @@ If you reference, evaluate, or build upon the ARES architecture or methodology i
 
 ---
 
-## ⚖️ Proprietary Research License & Terms of Use
+## Proprietary Research License & Terms of Use
 
 ```text
 ARES PROPRIETARY RESEARCH & EVALUATION LICENSE
