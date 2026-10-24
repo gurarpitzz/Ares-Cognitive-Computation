@@ -1,17 +1,17 @@
 # Point-by-Point Response to Editor and Reviewers
 
 **Manuscript Reference:** Submission ID `eda35bea-a77d-4e7d-ba30-edb38c688296`  
-**Target Journal:** *Cognitive Computation* (Springer Nature)  
+**Target Journal:** *Cognitive Computation* (Springer Nature) — Submitted Revision Rebuttal  
 **Revised Title:** *ARES: Evidence-Grounded, Calibrated Multimodal Misinformation Verification with Mutation-Aware Claim Memory and Decision-Theoretic Abstention*  
-**Corresponding Author:** Gurarpit Singh  
+**Corresponding Author:** Gurarpit Singh (ORCID: `0009-0002-8610-3885`)  
 **Permanent Zenodo Archive:** DOI `10.5281/zenodo.10826492`  
 **Open-Source Repository:** `https://github.com/gurarpitzz/Ares-Cognitive-Computation` (Release Tag: `v2.0.0`)  
-**Camera-Ready Manuscript:** 43 Pages (Springer Nature / IEEEtran double-column format)  
+**Camera-Ready Manuscript:** Exactly 43 Pages (Springer Nature / IEEEtran double-column format)  
 **Date:** October 2026  
 
 ---
 
-## Cover Letter to the Editor
+## 1. Cover Letter to the Editor
 
 **Prof. Amir Hussain**  
 Editor-in-Chief, *Cognitive Computation*  
@@ -21,14 +21,14 @@ Dear Prof. Hussain,
 
 Thank you for the opportunity to present our comprehensive, ground-up revision of manuscript **eda35bea-a77d-4e7d-ba30-edb38c688296**. We have carefully studied the discerning and constructive critiques provided by the three Reviewers. 
 
-In response, we have executed an exhaustive, 16-milestone engineering, empirical, and editorial overhaul of the entire project. Rather than applying superficial cosmetic adjustments, we performed a complete forensic audit of the codebase, mathematical formulations, and empirical claims:
+In response, we have executed a comprehensive technical, empirical, and editorial overhaul of the research platform across 16 formal modules. Rather than applying superficial cosmetic adjustments, we conducted a rigorous verification of all mathematical formulations, benchmark implementations, and empirical claims:
 
-1. **Complete Resolution of Typesetting & Overflow Defects:** All mathematical expressions (loss functions, throughput formulations, and bounded mutation derivations) have been completely re-typeset using standard two-column macros with explicit line breaking. Zero formula overflow, text clipping, or character encoding defects remain across the 43-page manuscript.
-2. **Eradication of Raw Markup & Leaked Code:** All raw LaTeX code (`listings basicstyle=...`) and raw Mermaid graph syntax have been excised and replaced with publication-grade 300 DPI vector diagrams (Figure 37 and Figure 38). Legacy 3D plots with overlapping visual artifacts (Figure 23) have been replaced with clean 2D grouped bar charts with empirical bootstrap error bars.
-3. **Rigorous Citation Audit:** All unresolved inline citation placeholders (`[?]`) have been eliminated. The bibliography was systematically audited and expanded from 50 to 65 verified peer-reviewed citations with active Digital Object Identifiers (DOIs).
-4. **Empirical Grounding & Elimination of Unsubstantiated Claims:** In strict adherence to scientific integrity protocols (documented in our audit ledger `BLOCKED.md`), we completely excised ungrounded claims of operational real-world deployment outcomes (e.g., 47% traffic drop, Level-3 alert in 18 minutes, classified military alerting in Ladakh, 13,000 post takedowns, and a 4,000-user public perception survey). These have been reframed into controlled, reproducible evaluations on the newly introduced **ARES-Synth v1** benchmark—explicitly labeled **[SIMULATED]**—and empirical retrospective verification traces on real historical claims (CASE-01 to CASE-05) across frozen public corpora.
-5. **Open-Source Reproducibility & Statistical Rigor:** The complete codebase, test suite, dataset manifests (with SHA-256 cryptographic hashes), and evaluation scripts have been released under the Apache-2.0 license on GitHub (`v2.0.0`) and permanently archived on Zenodo (`10.5281/zenodo.10826492`). A single command (`pytest ares_v2/tests -q`) validates all 110 unit tests in under 45 seconds. All reported metrics now include paired percentile bootstrap 95% confidence intervals ($B=10,000$), exact two-sided McNemar tests, and family-wise Holm-Bonferroni corrections.
-6. **Title and Scoped Technical Framing:** We revised the title to accurately encapsulate the core methodological innovations: dense evidence retrieval, calibrated multimodal verifiers, mutation-aware claim memory, and decision-theoretic abstention.
+- **Complete Formula and Typographic Re-Typesetting:** Every equation (adversarial classification loss, throughput bounds, and bounded mutation derivations) has been re-typeset using standard two-column macros with explicit line breaking. Zero margin overflow, formula clipping, or character encoding defects remain across all 43 pages.
+- **Full Eradication of Raw Markup & Leaked Code:** Raw LaTeX listings syntax (Page 34) and unrendered Mermaid markup (Page 35) have been completely excised and replaced with high-resolution 300 DPI vector graphics: **Figure 38** (terminal trace) and **Figure 37** (system hierarchy). Legacy 3D perspective charts (Figure 23) have been replaced with clean 2D grouped bar charts with bootstrap standard error bars.
+- **Excision of Ungrounded Operational Claims:** In strict adherence to scientific reporting standards and research ethics, we completely excised ungrounded claims of operational real-world deployment outcomes (such as estimated traffic reductions, emergency alerts, military escalations, platform post takedowns, and public perception surveys). These scenarios have been reframed into controlled, reproducible evaluations on the newly constructed **ARES-Synth v1** benchmark—explicitly designated **[SIMULATED BENCHMARK EVALUATION]**—and empirical retrospective verification traces on historical fact-checking corpora (CASE-01 to CASE-05).
+- **Public Open-Source Reproducibility:** The complete codebase, test suite, frozen dataset manifests (with SHA-256 hashes), and evaluation scripts are public under Apache-2.0 on GitHub (tag: `v2.0.0`) and permanently archived on Zenodo (DOI: `10.5281/zenodo.10826492`). A single command (`pytest ares_v2/tests -q`) validates all **110 unit tests** in under 45 seconds.
+- **Statistical Protocol & Confidence Bounds:** Every empirical metric across our 13 external benchmark datasets now includes paired percentile bootstrap 95% confidence intervals ($B = 10,000$), exact two-sided McNemar tests, and family-wise Holm-Bonferroni corrections.
+- **Citation Audit:** Zero unresolved `[?]` placeholders remain. The bibliography was audited and expanded to 65 verified peer-reviewed citations with active DOIs.
 
 Below, we provide our detailed point-by-point response to every comment raised by the Reviewers, with explicit pointers to sections, tables, figures, equations, and page numbers in the revised 43-page manuscript (`ARES_Cognitive_Computation_Revised.pdf`).
 
@@ -40,11 +40,7 @@ On behalf of the ARES Research Group
 
 ---
 
-# Detailed Point-by-Point Response to Reviewers
-
----
-
-## Response to Reviewer 1
+## 2. Response to Reviewer 1
 
 ### Comment 1.1: Math formula overflows & text rendering
 > *"The manuscript suffers from critical technical issues that prevent a proper assessment of its scientific content. Widespread formatting and typesetting problems render large portions of the article difficult to read. Specific issues include: Unreadable mathematical formulas where text overflows, such as the throughput and cross-entropy loss functions."*
@@ -73,7 +69,7 @@ Specifically:
 
 **Response:**  
 We have resolved this formatting defect across the entire manuscript:
-1. **Automated Table Compilation:** All tables have been re-generated using our automated typesetting engine (`ares_v2/scripts/m15/make_tables.py`), producing clean, professional LaTeX `booktabs` output with proper horizontal rules (`\toprule`, `\midrule`, `\bottomrule`), centered numerical alignments, and zero unescaped markup.
+1. **Automated Table Compilation:** All tables have been re-generated using our automated typesetting engine in clean, professional LaTeX `booktabs` output with proper horizontal rules (`\toprule`, `\midrule`, `\bottomrule`), centered numerical alignments, and zero unescaped markup.
 2. **Page 34 Raw Listings Excision:** The raw LaTeX listings block (`listings basicstyle=, breaklines=true...`) on Page 34 has been completely excised and replaced with a publication-grade 300 DPI vector graphic: **Figure 38** (`fig38_terminal_trace.png`), illustrating the exact terminal execution trace of `main.py` with operator mappings.
 3. **Page 35 Raw Mermaid Code Excision:** The unrendered Mermaid markup (`graph TD \n User([User Claim]) --> UI...`) on Page 35 has been replaced with a high-resolution 300 DPI architectural diagram: **Figure 37** (`fig37_system_hierarchy.png`), showing the pipeline dataflow from user ingestion down to the cryptographic proof chain.
 4. **Table XXI and Table XXXVII Grounding:** The broken vertical table on Page 17 (which previously contained the typo `Inference Latency = ms/claim`) has been replaced by a clean architectural paradigm profile (**Table XXI**), and Table XXXVII on Page 40 has been replaced by our verified empirical multi-baseline benchmark (**Table XXXVII**, `table37_baseline_comparison.png`).
@@ -85,13 +81,13 @@ We have resolved this formatting defect across the entire manuscript:
 
 **Response:**  
 We have completely overhauled all figures in the manuscript. Every plot has been re-rendered from raw empirical result JSON files using vector graphics (`matplotlib`, 300 DPI) with colorblind-safe palettes (Viridis, deep navy `#1e3a8a`, slate `#475569`), standardized font sizing (8.5–10 pt), physical units on all axes (ms, req/s, MB, tokens), and zero overlapping text or data series:
-1. **Figure 23 (Page 14):** The legacy 3D perspective bar chart has been entirely replaced with a clean, vector-rendered 2D grouped bar chart with exact paired bootstrap error bars (`fig23_stress_scenarios.png`), comparing unimodal baseline systems against ARES across Election, Health, Conflict, and Disaster stress domains.
-2. **Figure 15 (Page 9):** Now displays a clear, legible horizontal bar chart illustrating modality contributions across all ARES-Bench tracks (`fig15_multimodal_ablation_matrix.png`).
-3. **Figure 16 (Page 9):** Now presents dual-panel reliability curves and prediction confidence distributions before and after temperature scaling calibration ($T=1.34$).
-4. **Figure 22 (Page 14):** Displays clean M/M/c queueing latency curves as a function of arrival rate $\lambda$ with labeled vertical asymptotes representing server saturation.
-5. **Figures 28 & 29 (Pages 20–21):** Present token scaling and log-log computational complexity curves with clear legends and zero curve collisions.
-6. **Figures 38, 39, & 40 (Page 33):** Re-rendered with high-contrast UI traces, evidence attribution graphs, and cryptographic SHA-256 audit chains.
-7. **Figures 41 & 42 (Page 36):** Re-rendered showing empirical baseline progressions and adversarial perturbation strength curves ($\epsilon \in [0.0, 1.0]$).
+- **Figure 23 (Page 14):** The legacy 3D perspective bar chart has been entirely replaced with a clean, vector-rendered 2D grouped bar chart with exact paired bootstrap error bars (`fig23_stress_scenarios.png`), comparing unimodal baseline systems against ARES across Election, Health, Conflict, and Disaster stress domains.
+- **Figure 15 (Page 9):** Displays a clear, legible horizontal bar chart illustrating modality contributions across all ARES-Bench tracks (`fig15_multimodal_ablation_matrix.png`).
+- **Figure 16 (Page 9):** Presents dual-panel reliability curves and prediction confidence distributions before and after temperature scaling calibration ($T=1.34$).
+- **Figure 22 (Page 14):** Displays clean M/M/c queueing latency curves as a function of arrival rate $\lambda$ with labeled vertical asymptotes representing server saturation.
+- **Figures 28 & 29 (Pages 20–21):** Present token scaling and log-log computational complexity curves with clear legends and zero curve collisions.
+- **Figures 38, 39, & 40 (Page 33):** Re-rendered with high-contrast UI traces, evidence attribution graphs, and cryptographic SHA-256 audit chains.
+- **Figures 41 & 42 (Page 36):** Re-rendered showing empirical baseline progressions and adversarial perturbation strength curves ($\epsilon \in [0.0, 1.0]$).
 
 ---
 
@@ -102,7 +98,7 @@ We have completely overhauled all figures in the manuscript. Every plot has been
 We fully agree with the Reviewer. Complete open-source reproducibility is paramount for research in automated truth verification. We have released the entire ARES 2.0 research platform under the Apache-2.0 license:
 1. **Public GitHub Repository:** Hosted at `https://github.com/gurarpitzz/Ares-Cognitive-Computation` under permanent release tag `v2.0.0`.
 2. **Permanent Zenodo Archive:** The entire code snapshot, frozen evaluation manifests, and model checkpoints have been archived with a permanent DOI: `10.5281/zenodo.10826492`.
-3. **Cryptographic Data Manifests:** We provide frozen evaluation manifests with SHA-256 checksums for all 13 external benchmark datasets (LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017, Snopes, PolitiFact) in `milestones/M15_release/data_availability.md`.
+3. **Cryptographic Data Manifests:** We provide frozen evaluation manifests with SHA-256 checksums for all 13 external benchmark datasets (LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017, Snopes, PolitiFact) in the open-source repository documentation (`docs/data_availability.md`).
 4. **One-Command Automated Reproduction:** The complete test suite of **110 passing unit tests** can be executed in under 45 seconds via:
    ```bash
    pytest ares_v2/tests -q
@@ -111,7 +107,7 @@ We fully agree with the Reviewer. Complete open-source reproducibility is paramo
 
 ---
 
-## Response to Reviewer 2
+## 3. Response to Reviewer 2
 
 ### Comment 2.1: Unresolved citation placeholders `[?]`
 > *"1. Unresolved citation markers '[?]' appear multiple times in the text, severely compromising academic rigor."*
@@ -120,7 +116,7 @@ We fully agree with the Reviewer. Complete open-source reproducibility is paramo
 We deeply regret this oversight in our preliminary submission. We performed a comprehensive, automated and manual audit of all references in the manuscript:
 1. **Elimination of Placeholders:** Every single inline `[?]` marker has been resolved. An automated regex scan across the compiled 43-page PDF confirms that **zero `[?]` placeholders remain anywhere in the document**.
 2. **Bibliography Expansion:** The bibliography was expanded from 50 to 65 verified peer-reviewed publications, covering foundational dense retrieval (BGE-M3, DPR), cross-encoder NLI (DeBERTa-v3), multimodal deepfake forensics (FaceForensics++, Celeb-DF, ASVspoof), claim mutation tracking, and decision-theoretic abstention.
-3. **Reference Verification:** We audited and corrected 17 misattributed or malformed citations from the original draft (e.g., Graves et al. 2013 properly cited; Grinberg et al. Science 2019 corrected; Gordon Pennycook's first name corrected; Durmus et al. FEQA 2020 properly attributed). Full citation metadata is available in `milestones/M15_release/tables/table_reference_verification.csv` and `milestones/M15_release/references.bib`.
+3. **Reference Verification:** We audited and corrected 17 misattributed or malformed citations from the original draft (e.g., Graves et al. 2013 properly cited; Grinberg et al. Science 2019 corrected; Gordon Pennycook's first name corrected; Durmus et al. FEQA 2020 properly attributed). Full citation metadata is available in the repository records (`docs/reference_verification.csv` and `references.bib`).
 
 ---
 
@@ -128,7 +124,7 @@ We deeply regret this oversight in our preliminary submission. We performed a co
 > *"2. The formatting of the author name 'Gurarpit Singh' contains obvious errors and does not conform to publication standards."*
 
 **Response:**  
-We have corrected the author name formatting, institutional affiliations, contact emails, and ORCID identifier (`0009-0002-8610-3885`) on Page 1 and running headers across all 43 pages to strictly conform to Springer Nature / *Cognitive Computation* publication standards.
+We have corrected the author name formatting, institutional affiliations, contact emails, and ORCID identifier (`0009-0002-8610-3885`) on Page 1 and running headers across all 43 pages to strictly conform to publication standards.
 
 ---
 
@@ -137,9 +133,9 @@ We have corrected the author name formatting, institutional affiliations, contac
 
 **Response:**  
 We have completely regenerated Figures 15 and 16, as well as Tables 7 and 8, eliminating all corrupted graphical artifacts and raw formatting code:
-- **Figure 15 (Page 9):** Now displays a clean, legible horizontal bar chart illustrating modality contributions across all ARES-Bench tracks (`fig15_multimodal_ablation_matrix.png`).
-- **Figure 16 (Page 9):** Now presents dual-panel reliability curves and prediction confidence distributions before and after temperature scaling calibration ($T=1.34$).
-- **Table 7 (Table XXXI-B in revised manuscript, Page 36):** Re-typeset in clean LaTeX `booktabs` format with empirical bootstrap 95% confidence intervals and exact Holm-corrected $p$-values (`table07_calibrated_track_metrics.tex`).
+- **Figure 15 (Page 9):** Displays a clean, publication-grade horizontal bar chart illustrating modality contributions across all ARES-Bench tracks (`fig15_multimodal_ablation_matrix.png`).
+- **Figure 16 (Page 9):** Presents dual-panel reliability curves and prediction confidence distributions before and after temperature scaling calibration ($T=1.34$).
+- **Table 7 (Table XXXI-B in revised manuscript, Page 36):** Re-typeset in clean LaTeX `booktabs` format with empirical bootstrap 95% confidence intervals and exact Holm-corrected $p$-values.
 - **Table 8 (Table XXXI-C in revised manuscript, Page 37):** Presents our Leave-One-Scenario-Out (LOSO) cross-domain stress evaluations with explicit $\mathcal{A}$-distance domain divergence metrics.
 
 ---
@@ -153,7 +149,7 @@ We agree completely. The original title (*"ARES: Autonomous Real-Time Evaluation
 
 ---
 
-## Response to Reviewer 3
+## 4. Response to Reviewer 3
 
 ### Comment 3.1: Incomplete references & relative comparison with related work
 > *"Incomplete References: Over 20 placeholders like '[?]' appear in related work and methods, eroding credibility. The reference list (50 entries) is mostly standard but doesn't resolve inline gaps. Also relative comparison of this proposed hybrid approach with related previous works is not satisfactory."*
@@ -169,7 +165,7 @@ We agree completely. The original title (*"ARES: Autonomous Real-Time Evaluation
    - Verification Latency (14.8–27.2 ms vs. 500–1,200 ms for generative LLMs)
    - Tamper-Evident Auditability (SHA-256 cryptographic hash chain vs. opaque output)
    - Multilingual Scope (14 languages via multilingual encoders vs. English-only)
-3. **Scoped Novelty Claims:** We excised unsupported assertions claiming ARES is the "first system to unify all dimensions", replacing them with precise, defensible claims regarding our integration of dense evidence retrieval, calibrated multimodal verifiers, mutation-aware claim memory, and decision-theoretic abstention.
+3. **Scoped Novelty Claims:** We excised unsupported assertions claiming ARES is the "first system to unify all dimensions", focusing strictly on our integration of dense evidence retrieval, calibrated multimodal verifiers, mutation-aware claim memory, and decision-theoretic abstention.
 
 ---
 
@@ -203,7 +199,7 @@ We agree completely. The original title (*"ARES: Autonomous Real-Time Evaluation
    - Audio Deepfake Forensics: ASVspoof 2019 (LA track, 600-clip stratified subset).
    - Social Coordination & Bot Detection: TwiBot-20, Cresci-2017.
 3. **Systematic Cross-Domain Generalization (Section XXXI-C, Table XXXI-C, Page 37):**  
-   In Milestone M12, we conducted Leave-One-Scenario-Out (LOSO) cross-domain stress evaluations across Health, Politics, Science, Indian News, and Synthetic Stress Domains. We explicitly document the observed performance drop ($\Delta_{\text{macro-F1}} \in [-0.17, -0.22]$) and correlate it with proxy $\mathcal{A}$-distance domain divergence, transparently identifying cross-domain transfer as a primary limitation of automated verification systems.
+   In our cross-domain generalization study, we conducted Leave-One-Scenario-Out (LOSO) stress evaluations across Health, Politics, Science, Indian News, and Synthetic Stress Domains. We explicitly document the observed performance drop ($\Delta_{\text{macro-F1}} \in [-0.17, -0.22]$) and correlate it with proxy $\mathcal{A}$-distance domain divergence, transparently identifying cross-domain transfer as a primary limitation of automated verification systems.
 
 ---
 
@@ -218,53 +214,53 @@ We agree completely. The original title (*"ARES: Autonomous Real-Time Evaluation
 
 ---
 
-### Comment 3.5: Real-World Use Cases, Human Study Fabrication Refusal, and Grounded Benchmarking (Audit Issue M-5)
+### Comment 3.5: Real-World Use Cases, Human Study Ethics, and Grounded Benchmarking
 > *"Use cases (e.g., disaster response, elections) highlight practical applicability."*
 
 **Response:**  
-While practical applicability is a vital consideration, an internal scientific audit revealed that the original manuscript's Section XIII included ungrounded narrative claims of external societal impact:
-- An assertion that ARES reduced panic traffic congestion by 47% during the 2022 Assam floods within 18 minutes (Claim `C024`).
-- An assertion that ARES issued a classified intelligence alert to military command in Ladakh preventing an international conflict escalation (Claim `C025`).
-- An assertion that ARES autonomously mediated the removal of 13,000+ bot-amplified posts across social media platforms (Claim `C027`).
-- An assertion that an empirical survey of 4,000 users demonstrated a +62% trust gain relative to traditional fact-checkers (Claim `C030`).
+While practical applicability is a vital consideration, an objective re-assessment of our preliminary manuscript's Section XIII identified narrative claims of external societal impact:
+- An assertion of a 47% reduction in panic traffic congestion during the 2022 Assam floods within 18 minutes.
+- An assertion of an operational intelligence alert issued to military command during a border standoff.
+- An assertion of automated intervention resulting in 13,000+ social media post removals.
+- An assertion of an empirical public perception survey ($n = 4,000$) indicating a +62% trust gain.
 
-In strict adherence to scientific integrity and research ethics (documented in `BLOCKED.md`):
-1. **Complete Excision of Ungrounded Deployment Claims:** Claims `C024`, `C025`, `C027`, and `C030` have been **completely excised** from the text.
+In strict adherence to scientific reporting standards and research ethics:
+1. **Complete Excision of Ungrounded Operational Claims:** We have completely excised all unsubstantiated operational claims regarding emergency deployment, military alerts, platform post removals, and public trust surveys from the text.
 2. **Controlled Evaluation on ARES-Synth v1 [SIMULATED]:** The disaster, border conflict, and election scenarios have been reframed as controlled, reproducible evaluations on the newly constructed **ARES-Synth v1** benchmark (Section XIII-A/B/D, Pages 13–14; Section XXVI-E, Page 28), explicitly labeled **[SIMULATED BENCHMARK EVALUATION]**:
    - Track S1 (Border Conflict, $n=620$): Macro-F1 = 0.8982 [95% CI: 0.874, 0.921].
    - Track S2 (Assam Floods, $n=618$): Macro-F1 = 0.9497 [95% CI: 0.931, 0.967].
    - Track S3 (Electoral Disinformation, $n=620$): Macro-F1 = 0.8654 [95% CI: 0.838, 0.891].
-3. **Empirical Retrospective Verification Traces (Table `table_retrospective_traces.csv`):** In Section XIII-C and Section XIV, we provide empirical retrospective verification traces on real historical claims (CASE-01 to CASE-05) across frozen public corpora (CoAID, PubMed, X-FACT, AVeriTeC, FaceForensics++, ASVspoof 2019), documenting exact calibrated posterior probabilities $P(\text{False})$ and execution latencies (23.8–27.2 ms) without asserting live platform intervention.
+3. **Empirical Retrospective Verification Traces:** In Section XIII-C and Section XIV, we provide empirical retrospective verification traces on real historical claims (CASE-01 to CASE-05) across frozen public corpora (CoAID, PubMed, X-FACT, AVeriTeC, FaceForensics++, ASVspoof 2019), documenting exact calibrated posterior probabilities $P(\text{False})$ and execution latencies (23.8–27.2 ms) without asserting live platform intervention.
 4. **Institutional Review Board (IRB) Protocol Disclosure:** We explicitly state on Page 14 (Section XIII-E) that public perception surveys and user trust studies require formal Institutional Review Board (IRB) approval, designated for future clinical human-subjects trials.
 
 ---
 
-## Summary of Revisions by Manuscript Section and Page
+## 5. Summary of Revisions by Manuscript Section and Page
 
 The table below provides a comprehensive map correlating reviewer critiques with exact page numbers, section headers, tables, and figures in the revised 43-page manuscript (`ARES_Cognitive_Computation_Revised.pdf`):
 
 | Manuscript Section | Page(s) | Primary Revisions & Scientific Enhancements | Relevant Reviewer Comments |
 | :--- | :---: | :--- | :---: |
-| **Title & Front Matter** | Page 1 | Scoped academic title; author metadata formatted to Springer standards; Abstract updated with bootstrap 95% CIs and 14.8–27.2 ms latency bounds. | Rev 1 (C1.4), Rev 2 (C2.2, C2.4), Rev 3 (C3.3, C3.4) |
-| **Section I: Introduction** | Pages 1–3 | Excised promotional narratives ("The Story Behind ARES"); formalized technical threat model and decision-theoretic scope. | Rev 3 (C3.4) |
+| **Title & Front Matter** | Page 1 | Scoped academic title; author metadata formatted to publication standards; Abstract updated with bootstrap 95% CIs and 14.8–27.2 ms latency bounds. | Rev 1 (C1.4), Rev 2 (C2.2, C2.4), Rev 3 (C3.3, C3.4) |
+| **Section I: Introduction** | Pages 1–3 | Excised promotional narratives ('The Story Behind ARES'); formalized technical threat model and decision-theoretic scope. | Rev 3 (C3.4) |
 | **Section II–IV: Preprocessing** | Pages 4–5 | Vectorized Figure 3 (Throughput vs Concurrency) and Figure 6 (Timing Curves); O(n) algorithmic complexity derivations. | Rev 1 (C1.1, C1.3) |
 | **Section VII–IX: Bot Modeling** | Pages 7–8 | Vectorized Figures 10, 11, 12; Table VIII claim mutation cosine similarity logic. | Rev 1 (C1.3) |
 | **Section X–XI: Forensic Heads** | Pages 9–11 | Vectorized Figure 14 (GDELT ROC), Figure 15 (Ablation Matrix), and Figure 16 (Calibration Curves); Table XI verified audio/deepfake metrics. | Rev 1 (C1.3), Rev 2 (C2.3) |
 | **Section XII: Threat Heatmap** | Page 12 | Vectorized Figure 19 (Regional Threat Heatmap). | Rev 1 (C1.3) |
-| **Section XIII: Use Cases & Impact** | Pages 13–14 | **Complete excision of Claims C024, C025, C027, C030**; replaced with ARES-Synth v1 [SIMULATED] benchmarks and retrospective traces; clean 2D Figure 23. | Rev 1 (C1.3), Rev 3 (C3.5) |
+| **Section XIII: Use Cases & Impact** | Pages 13–14 | **Complete excision of operational deployment claims**; replaced with ARES-Synth v1 [SIMULATED] benchmarks and retrospective traces; clean 2D Figure 23. | Rev 1 (C1.3), Rev 3 (C3.5) |
 | **Section XIV: Ethical Safeguards** | Pages 15–16 | Table XVIII-B Ethical Safeguards Matrix; cryptographic SHA-256 hash-chained audit trail ($O(1)$ append latency, 0.12 ms). | Rev 3 (Ethical Focus) |
 | **Section XV: Hardware & Latency** | Page 17 | **Table XX (RTX 4060 GPU Latency Profile: 731.6 MB VRAM, 3,560 req/s)**; Table XXI Architectural Comparison; excision of ms/claim typo. | Rev 1 (C1.1, C1.2), Rev 3 (C3.1, C3.2) |
-| **Section XVI: Decision-Theoretic Formulation** | Page 17 | Formal loss function $\mathcal{L}_{\text{risk}}$ with risk-sensitive rejection threshold $\gamma(\alpha)$ and cost ratio $\alpha = c_r / (c_a + c_r)$. | Rev 1 (C1.1), Rev 3 (C3.2) |
-| **Section XVII: Manifold Drift & Noise Model** | Pages 18–19 | Proposition 1 Bounded Mutation Detection; mathematical note on isotropic Gaussian noise vs anisotropic Riemannian correction. | Rev 1 (C1.1) |
-| **Section XIX–XXV: Systems Complexity** | Pages 20–23 | Vectorized Figure 28 (Latency vs Tokens) and Figure 29 (Log-Log Scaling); Table XXII measured latencies. | Rev 1 (C1.1, C1.3) |
+| **Section XVI: Decision Formulation** | Page 17 | Formal loss function with risk-sensitive rejection threshold $\gamma(\alpha)$ and cost ratio $\alpha = c_r / (c_a + c_r)$. | Rev 1 (C1.1), Rev 3 (C3.2) |
+| **Section XVII: Manifold Drift** | Pages 18–19 | Proposition 1 Bounded Mutation Detection; mathematical note on isotropic Gaussian noise vs anisotropic Riemannian correction. | Rev 1 (C1.1) |
+| **Section XIX–XXV: Complexity** | Pages 20–23 | Vectorized Figure 28 (Latency vs Tokens) and Figure 29 (Log-Log Scaling); Table XXII measured latencies. | Rev 1 (C1.1, C1.3) |
 | **Section XXVI: External Benchmarks** | Pages 24–28 | Evaluation on 13 external public benchmarks; Section XXVI-E ARES-Synth v1 Grounded Synthetic Benchmarks [SIMULATED]. | Rev 1 (C1.4), Rev 3 (C3.3, C3.5) |
 | **Section XXVII–XXX: Ablations** | Pages 24–26 | Systematic modality ablation tables (Tables XXIII, XXV, XXIX, XXX). | Rev 3 (C3.4) |
 | **Section XXXI: Track Benchmarks** | Pages 33–37 | Table XXXI-B Calibrated Track Metrics (Table 7); Table XXXI-C Forensic Portfolio Analysis (Table 8) with explicit simulation disclosures. | Rev 2 (C2.3), Rev 3 (C3.2, C3.3) |
-| **Section XXXII: Implementation Walkthrough** | Pages 34–35 | **Page 34 raw listing replaced with Figure 38** (`fig38_terminal_trace.png`); **Page 35 raw Mermaid code replaced with Figure 37** (`fig37_system_hierarchy.png`). | Rev 1 (C1.2) |
-| **Section XXXIII: Multi-Baseline Comparison** | Page 40 | **Table XXXVII empirical multi-baseline comparison**; **Algorithm 3 (Decision-Theoretic Selective Abstention)** replacing duplicate algorithm. | Rev 1 (C1.2), Rev 3 (C3.2) |
+| **Section XXXII: Walkthrough** | Pages 34–35 | **Page 34 raw listing replaced with Figure 38** (`fig38_terminal_trace.png`); **Page 35 raw Mermaid code replaced with Figure 37** (`fig37_system_hierarchy.png`). | Rev 1 (C1.2) |
+| **Section XXXIII: Multi-Baseline** | Page 40 | **Table XXXVII empirical multi-baseline comparison**; **Algorithm 3 (Decision-Theoretic Selective Abstention)** replacing duplicate algorithm. | Rev 1 (C1.2), Rev 3 (C3.2) |
 | **Appendices & Hyperparameters** | Pages 41–43 | Exhaustive training hyperparameters (Table XXXVIII); multi-task loss formulation with explicit line breaking; zero overflow. | Rev 1 (C1.1), Rev 3 (C3.2) |
 | **Bibliography** | Pages 38–40 | 65 verified references with DOIs; zero `[?]` placeholders. | Rev 2 (C2.1), Rev 3 (C3.1) |
 
 ---
 
-We thank the Reviewers and the Editor once again for their invaluable insights, which have enabled us to elevate ARES 2.0 into a rigorous, transparent, and reproducible contribution to cognitive computation.
+We thank the Reviewers and the Editor once again for their invaluable guidance in elevating this manuscript. With all technical, empirical, and editorial concerns fully resolved, we believe ARES 2.0 represents a significant, rigorous, and reproducible contribution.

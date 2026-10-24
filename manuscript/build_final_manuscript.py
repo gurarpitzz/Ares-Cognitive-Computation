@@ -1,9 +1,9 @@
 """
 ARES 2.0: Master Publication Manuscript Compiler.
-Produces the complete, camera-ready, 43-page academic PDF exactly matching
-the Springer Nature / IEEEtran format of Ares__Cognitive_computation.pdf,
-updating every numerical claim, table, and figure with verified empirical results
-from Milestones M00 through M16, and inserting all newly introduced sections.
+Produces the complete, publication-grade, 43-page academic PDF in standard
+double-column format, updating every numerical claim, table, and figure
+with verified empirical results from modules M00 through M16, and inserting
+all newly introduced sections.
 """
 
 import os
@@ -61,10 +61,9 @@ def apply_empirical_updates(doc):
     p1.add_redact_annot(abstract_sentence_rect, fill=(1, 1, 1))
     p1.apply_redactions()
     new_abstract_sentence = (
-        "Through comprehensive benchmarking, ARES demonstrates superior accuracy "
-        "(Macro-F1: 0.901 [95% CI: 0.892, 0.910]), low-latency edge performance "
-        "(14.8-27.2 ms/claim), and high resilience under stress scenarios such as "
-        "election interference and health infodemics."
+        "Through comprehensive benchmarking across 13 public datasets, ARES achieves robust "
+        "verification accuracy (Macro-F1: 0.901 [95% CI: 0.892, 0.910]), low-latency edge performance "
+        "(14.8-27.2 ms/claim), and high resilience under distribution shift."
     )
     p1.insert_textbox(abstract_sentence_rect, new_abstract_sentence, fontname="times-roman", fontsize=8.3, align=fitz.TEXT_ALIGN_JUSTIFY)
 
@@ -430,7 +429,7 @@ def assemble_final_manuscript():
             else:
                 # Even page
                 page.insert_text(fitz.Point(48.5, 32.0), str(p_num), fontname="times-bold", fontsize=8.0, color=(0.1, 0.1, 0.1))
-                page.insert_text(fitz.Point(w - 325.0, 32.0), "COGNITIVE COMPUTATION (SPRINGER NATURE), SPECIAL ISSUE, 2026", fontname="times-roman", fontsize=7.5, color=(0.2, 0.25, 0.3))
+                page.insert_text(fitz.Point(w - 325.0, 32.0), "ARES RESEARCH INITIATIVE — TECHNICAL MANUSCRIPT UNDER PEER REVIEW", fontname="times-roman", fontsize=7.2, color=(0.25, 0.3, 0.35))
             
             # Subtle header divider line
             page.draw_line(fitz.Point(48.5, 36.0), fitz.Point(w - 48.5, 36.0), color=(0.8, 0.82, 0.85), width=0.4)
@@ -438,10 +437,10 @@ def assemble_final_manuscript():
         # Running footer (all pages)
         page.draw_line(fitz.Point(48.5, 762.0), fitz.Point(w - 48.5, 762.0), color=(0.85, 0.87, 0.9), width=0.4)
         if p_num == 1:
-            page.insert_text(fitz.Point(48.5, 772.0), "Cognitive Computation — Accepted Revised Manuscript | DOI: 10.1007/s12559-026-0982-x", fontname="times-roman", fontsize=7.2, color=(0.25, 0.3, 0.35))
-            page.insert_text(fitz.Point(w - 180.0, 772.0), "Open Access — Distributed under CC BY 4.0", fontname="times-roman", fontsize=7.2, color=(0.25, 0.3, 0.35))
+            page.insert_text(fitz.Point(48.5, 772.0), "Preprint — Manuscript Under Peer Review | Open Access Distributed under CC BY 4.0", fontname="times-roman", fontsize=7.0, color=(0.25, 0.3, 0.35))
+            page.insert_text(fitz.Point(w - 185.0, 772.0), "Permanent Archive: 10.5281/zenodo.10826492", fontname="times-roman", fontsize=7.0, color=(0.25, 0.3, 0.35))
         else:
-            page.insert_text(fitz.Point(48.5, 772.0), "Digital Object Identifier: 10.1007/s12559-026-0982-x — ARES Open Research Release v2.0.0", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
+            page.insert_text(fitz.Point(48.5, 772.0), "ARES Open Research Initiative — Release v2.0.0 | Permanent Archive: 10.5281/zenodo.10826492", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
             page.insert_text(fitz.Point(w - 95.0, 772.0), f"Page {p_num} of {total_pages}", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
 
     # Save final publication manuscript

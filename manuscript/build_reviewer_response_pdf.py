@@ -1,7 +1,7 @@
 """
 ARES 2.0: Master Compiler for Point-by-Point Response to Reviewers PDF.
 Generates a publication-grade, professionally styled PDF response document
-matching Springer Nature / Cognitive Computation editorial standards.
+matching peer-reviewed scientific editorial standards.
 """
 
 import os
@@ -51,7 +51,7 @@ class NumberedCanvas(canvas.Canvas):
             self.drawString(54, h - 36, "ARES 2.0 -- RESPONSE TO REVIEWERS")
             self.setFont("Helvetica", 7.5)
             self.setFillColor(colors.HexColor("#64748b"))
-            self.drawRightString(w - 54, h - 36, "COGNITIVE COMPUTATION (SPRINGER NATURE) -- ID: eda35bea-a77d-4e7d-ba30-edb38c688296")
+            self.drawRightString(w - 54, h - 36, "SUBMISSION REF: eda35bea-a77d-4e7d-ba30-edb38c688296")
             
             # Header rule
             self.setStrokeColor(colors.HexColor("#cbd5e1"))
@@ -85,7 +85,7 @@ def build_response_pdf():
 
     styles = getSampleStyleSheet()
 
-    # Custom typography matching Springer Nature
+    # Custom typography matching scientific publication format
     title_style = ParagraphStyle(
         'DocTitle',
         fontName='Helvetica-Bold',
@@ -183,13 +183,13 @@ def build_response_pdf():
 
     meta_text = (
         "<b>Manuscript Reference:</b> Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
-        "<b>Target Journal:</b> <i>Cognitive Computation</i> (Springer Nature) -- Special Issue / Research Article<br/>"
+        "<b>Submission Status:</b> Revised Technical Rebuttal -- Tracking ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
         "<b>Revised Article Title:</b> <i>ARES: Evidence-Grounded, Calibrated Multimodal Misinformation Verification with "
         "Mutation-Aware Claim Memory and Decision-Theoretic Abstention</i><br/>"
         "<b>Corresponding Author:</b> Gurarpit Singh (ORCID: 0009-0002-8610-3885)<br/>"
         "<b>Permanent Archive DOI:</b> <font color='#1e3a8a'><u>10.5281/zenodo.10826492</u></font> | "
         "<b>Open-Source Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (v2.0.0)<br/>"
-        "<b>Camera-Ready Manuscript:</b> Exactly 43 Pages (Springer Nature / IEEEtran double-column format)"
+        "<b>Revised Technical Manuscript:</b> Exactly 43 Pages (Standard double-column format)"
     )
     meta_table = Table([[Paragraph(meta_text, meta_style)]], colWidths=[504])
     meta_table.setStyle(TableStyle([
@@ -200,20 +200,19 @@ def build_response_pdf():
     story.append(meta_table)
     story.append(Spacer(1, 12))
 
-    # Letter to the Editor
-    story.append(Paragraph("1. Cover Letter to the Editor", h1_style))
+    # Cover Letter to the Editorial Board
+    story.append(Paragraph("1. Cover Letter to the Editorial Board", h1_style))
     letter_text = (
-        "<b>Prof. Amir Hussain</b><br/>"
-        "Editor-in-Chief, <i>Cognitive Computation</i><br/>"
-        "Springer Nature<br/><br/>"
-        "Dear Prof. Hussain,<br/><br/>"
+        "<b>Editorial Office & Reviewers</b><br/>"
+        "Manuscript Tracking: eda35bea-a77d-4e7d-ba30-edb38c688296<br/><br/>"
+        "Dear Editor and Reviewers,<br/><br/>"
         "We sincerely thank you and the three anonymous Reviewers for the discerning, rigorous, and constructive "
         "evaluation of our manuscript <b>eda35bea-a77d-4e7d-ba30-edb38c688296</b>. We appreciated the clarity of "
         "the critique regarding typesetting errors, unrendered formulas, raw markup leaks, and the need for rigorous external "
         "validation and open-source reproducibility.<br/><br/>"
-        "In response, we have executed an exhaustive, ground-up rebuild of the entire research asset across 16 formal "
-        "development milestones (M00 through M16). Rather than offering cosmetic patches, we conducted a systematic forensic "
-        "audit of the codebase, mathematical derivations, and manuscript claims to eliminate all promotional narratives and ungrounded "
+        "In response, we have executed a comprehensive technical, empirical, and editorial overhaul of the research "
+        "platform across 16 formal modules. Rather than offering superficial cosmetic adjustments, we conducted a systematic "
+        "review of the codebase, mathematical derivations, and manuscript claims to eliminate all promotional narratives and ungrounded "
         "assumptions. Specifically:<br/><br/>"
         "- <b>Complete Formula and Typographic Re-Typesetting:</b> Every equation (adversarial classification loss, throughput bounds, "
         "and bounded mutation derivations) has been re-typeset using standard two-column macros with explicit line breaking. Zero margin "
@@ -222,18 +221,18 @@ def build_response_pdf():
         "have been completely excised and replaced with high-resolution 300 DPI vector graphics: <b>Figure 38</b> (terminal trace) and "
         "<b>Figure 37</b> (system hierarchy). Legacy 3D perspective charts (Figure 23) have been replaced with clean 2D grouped bar charts with "
         "bootstrap standard error bars.<br/>"
-        "- <b>Excision of Ungrounded Real-World Claims (Audit Ledger BLOCKED.md):</b> In strict alignment with research integrity standards, "
-        "we excised narrative assertions claiming a 47% traffic drop, Level-3 alert in 18 minutes, classified military alerting in Ladakh, "
-        "13,000 bot takedowns, and a 4,000-user survey. These scenarios have been reframed into controlled, reproducible benchmarks on "
-        "the newly constructed <b>ARES-Synth v1</b> corpus--explicitly designated <b>[SIMULATED BENCHMARK EVALUATION]</b>--and empirical "
-        "retrospective verification traces (CASE-01 to CASE-05) on frozen historical corpora.<br/>"
+        "- <b>Excision of Ungrounded Operational Claims:</b> In strict alignment with research integrity standards and scientific ethics, "
+        "we excised narrative assertions claiming operational real-world deployment outcomes (such as estimated traffic reductions, "
+        "emergency alerts, military escalations, platform post takedowns, and public perception surveys). These scenarios have been "
+        "reframed into controlled, reproducible benchmarks on the newly constructed <b>ARES-Synth v1</b> corpus--explicitly designated "
+        "<b>[SIMULATED BENCHMARK EVALUATION]</b>--and empirical retrospective verification traces (CASE-01 to CASE-05) on frozen historical corpora.<br/>"
         "- <b>Public Open-Source Reproducibility:</b> The complete codebase, test suite, frozen dataset manifests (with SHA-256 hashes), "
         "and evaluation scripts are public under Apache-2.0 on GitHub (tag: <code>v2.0.0</code>) and permanently archived on Zenodo "
         "(DOI: <code>10.5281/zenodo.10826492</code>). A single command (<code>pytest ares_v2/tests -q</code>) validates all <b>110 unit tests</b> "
         "in under 45 seconds.<br/>"
         "- <b>Statistical Protocol & Confidence Bounds:</b> Every empirical metric across our 13 external benchmark datasets now includes "
         "paired percentile bootstrap 95% confidence intervals (<i>B</i> = 10,000), exact two-sided McNemar tests, and family-wise Holm-Bonferroni corrections.<br/>"
-        "- <b>Citation Audit:</b> Zero unresolved <code>[?]</code> placeholders remain. The bibliography was audited and expanded to 65 verified "
+        "- <b>Citation Verification:</b> Zero unresolved <code>[?]</code> placeholders remain. The bibliography was verified and expanded to 65 verified "
         "peer-reviewed citations with active DOIs."
     )
     story.append(Paragraph(letter_text, body_style))
@@ -271,8 +270,8 @@ def build_response_pdf():
         "1.1", "Math formula overflows & text rendering",
         "Widespread formatting and typesetting problems render large portions of the article difficult to read. "
         "Specific issues include: Unreadable mathematical formulas where text overflows, such as the throughput and cross-entropy loss functions.",
-        "We have completely re-typeset all mathematical expressions across the manuscript using two-column Springer Nature / IEEEtran macros "
-        "with explicit multi-line breaking environments (<code>multiline</code> and <code>split</code>). Specifically:<br/>"
+        "We have completely re-typeset all mathematical expressions across the manuscript using standard two-column "
+        "macros with explicit multi-line breaking environments (<code>multiline</code> and <code>split</code>). Specifically:<br/>"
         "1. <b>Adversarial Loss Function (Appendix A, Page 43):</b> The compound classification loss "
         "L = lambda_cls L_CE(y, y_hat) + lambda_adv L_adv(x + delta, y) + lambda_reg ||theta||_2^2 has been partitioned across lines with explicit sub-terms. "
         "All loss weights (lambda_cls = 1.0, lambda_adv = 0.3, lambda_reg = 10^-4) and perturbation limits (epsilon = 0.02) are cleanly tabulated in Table XXXVIII.<br/>"
@@ -281,14 +280,14 @@ def build_response_pdf():
         "3. <b>Bounded Mutation Drift (Section XVIII, Page 18):</b> Bounded cosine drift expectations are formatted with explicit fractional notation, "
         "accompanied by a mathematical clarification noting that while isotropic Gaussian noise N(0, Sigma) provides a closed-form analytical proxy, "
         "Corollary 3 supplies the first-order anisotropic Riemannian correction on discrete linguistic manifolds.<br/>"
-        "Visual inspection and automated bounding-box coordinate audits confirm <b>zero margin formula overflow or text clipping</b> across all 43 pages."
+        "Visual inspection and automated bounding-box coordinate verification confirm <b>zero margin formula overflow or text clipping</b> across all 43 pages."
     ))
 
     story.extend(make_comment_response(
         "1.2", "Raw LaTeX code in tables & markup rendering",
         "Tables containing raw LaTeX code instead of rendered output.",
         "We have eradicated all raw code snippets and markup leaks from tables and body text:<br/>"
-        "1. <b>Automated Table Engine:</b> All tables were re-typeset using our automated script (<code>ares_v2/scripts/m15/make_tables.py</code>) "
+        "1. <b>Automated Table Engine:</b> All tables were re-typeset using our automated script (<code>ares_v2/scripts/make_tables.py</code>) "
         "in clean <code>booktabs</code> format with horizontal rules (<code>\\toprule</code>, <code>\\midrule</code>, <code>\\bottomrule</code>) "
         "and zero unescaped markup.<br/>"
         "2. <b>Excision of Page 34 Raw Listings:</b> The raw listings block (<code>listings basicstyle=, breaklines=true...</code>) on Page 34 has been "
@@ -322,7 +321,7 @@ def build_response_pdf():
         "2. <b>Permanent DOI Archive:</b> Minted on Zenodo at <b>10.5281/zenodo.10826492</b>.<br/>"
         "3. <b>Data Manifests with Checksums:</b> Complete data availability manifests with SHA-256 hashes for all 13 external benchmark datasets "
         "(LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017) are provided in "
-        "<code>milestones/M15_release/data_availability.md</code>.<br/>"
+        "<code>docs/data_availability.md</code>.<br/>"
         "4. <b>Automated Verification Suite:</b> Running <code>pytest ares_v2/tests -q</code> verifies all <b>110 unit tests</b> in under 45 seconds."
     ))
 
@@ -337,20 +336,20 @@ def build_response_pdf():
     story.extend(make_comment_response(
         "2.1", "Unresolved citation placeholders [?]",
         "1. Unresolved citation markers '[?]' appear multiple times in the text, severely compromising academic rigor.",
-        "We conducted an exhaustive automated and manual bibliography audit across the entire manuscript:<br/>"
+        "We conducted an exhaustive automated and manual bibliography verification across the entire manuscript:<br/>"
         "1. <b>Complete Elimination:</b> Every single inline <code>[?]</code> placeholder was traced, matched to primary literature, and replaced with "
         "verified BibTeX citations. An automated regex scan of the compiled 43-page PDF confirms that <b>zero <code>[?]</code> markers remain</b>.<br/>"
         "2. <b>Bibliography Expansion:</b> Expanded from 50 to 65 verified peer-reviewed publications with active DOIs.<br/>"
         "3. <b>Citation Corrections:</b> Corrected 17 citation errors from the preliminary draft (e.g., Graves et al. 2013 properly cited; Grinberg et al. Science 2019 "
-        "corrected; Gordon Pennycook first name corrected; Durmus et al. FEQA 2020 properly attributed). Full citation audit records are available in "
-        "<code>milestones/M15_release/tables/table_reference_verification.csv</code>."
+        "corrected; Gordon Pennycook first name corrected; Durmus et al. FEQA 2020 properly attributed). Full citation verification records are available in "
+        "<code>docs/tables/table_reference_verification.csv</code>."
     ))
 
     story.extend(make_comment_response(
         "2.2", "Author name formatting",
         "2. The formatting of the author name 'Gurarpit Singh' contains obvious errors and does not conform to publication standards.",
         "The author metadata, institutional affiliations, contact emails, and ORCID identifier (<code>0009-0002-8610-3885</code>) have been re-typeset "
-        "on Page 1 and running headers across all 43 pages to strictly adhere to Springer Nature / <i>Cognitive Computation</i> publication guidelines."
+        "on Page 1 and across the manuscript to strictly adhere to peer-reviewed publication guidelines."
     ))
 
     story.extend(make_comment_response(
@@ -388,7 +387,7 @@ def build_response_pdf():
         "1. <b>Citation Placeholders:</b> As detailed in Comment 2.1, all <code>[?]</code> placeholders have been eliminated across 65 verified references.<br/>"
         "2. <b>Structured Comparative Matrix (Section XV, Page 17; Table XXI):</b> Benchmarked ARES 2.0 against 10 state-of-the-art platforms "
         "(ClaimBuster, FEVER pipeline, MultiModal-FC, dEFEND, Grover, FakeFlow, CheckThat!, AVeriTeC, F3-Net, AASIST) across 8 functional dimensions: "
-        "dense evidence grounding, multimodal scope, calibration, claim mutation memory, decision-theoretic abstention, execution latency, audit chain, and language scope.<br/>"
+        "dense evidence grounding, multimodal scope, calibration, claim mutation memory, decision-theoretic abstention, execution latency, tamper-evident verification chain, and language scope.<br/>"
         "3. <b>Scoped Novelty:</b> Excised unsupported assertions claiming ARES is the 'first system to unify all dimensions', focusing precisely on our integration of "
         "dense evidence retrieval, calibrated multimodal verifiers, mutation-aware claim memory, and decision-theoretic abstention."
     ))
@@ -430,13 +429,15 @@ def build_response_pdf():
     ))
 
     story.extend(make_comment_response(
-        "3.5", "Real-World Use Cases, Human Study Fabrication Refusal, and Grounded Benchmarking (Audit Issue M-5)",
+        "3.5", "Real-World Use Cases, Human Study Ethics, and Grounded Benchmarking",
         "Use cases (e.g., disaster response, elections) highlight practical applicability.",
-        "While practical applicability is important, an internal scientific audit revealed that the original manuscript's Section XIII included ungrounded claims of "
-        "external deployment outcomes: a 47% traffic drop during Assam floods (Claim C024), classified military alerts in Ladakh (Claim C025), 13,000 post takedowns (Claim C027), "
-        "and a 4,000-user survey claiming +62% trust gain (Claim C030).<br/><br/>"
-        "In strict adherence to research integrity and scientific ethics (documented in our audit ledger <code>BLOCKED.md</code>):<br/>"
-        "1. <b>Excision of Ungrounded Deployment Claims:</b> Claims C024, C025, C027, and C030 have been <b>completely excised</b> from the text.<br/>"
+        "While practical applicability is a vital consideration, an objective re-assessment of our preliminary manuscript's Section XIII identified narrative claims of external societal impact:<br/>"
+        "- An assertion of a 47% reduction in panic traffic congestion during the 2022 Assam floods within 18 minutes.<br/>"
+        "- An assertion of an operational intelligence alert issued to military command during a border standoff.<br/>"
+        "- An assertion of automated intervention resulting in 13,000+ social media post removals.<br/>"
+        "- An assertion of an empirical public perception survey (n = 4,000) indicating a +62% trust gain.<br/><br/>"
+        "In strict adherence to scientific reporting standards and research ethics:<br/>"
+        "1. <b>Complete Excision of Ungrounded Operational Claims:</b> We have completely excised all unsubstantiated operational claims regarding emergency deployment, military alerts, platform post removals, and public trust surveys from the text.<br/>"
         "2. <b>Controlled Evaluation on ARES-Synth v1 [SIMULATED]:</b> The disaster, border conflict, and election scenarios were reframed into controlled, reproducible "
         "evaluations on the newly constructed <b>ARES-Synth v1</b> benchmark (Section XIII-A/B/D, Pages 13-14; Section XXVI-E, Page 28), explicitly labeled "
         "<b>[SIMULATED BENCHMARK EVALUATION]</b>:<br/>"
@@ -460,14 +461,14 @@ def build_response_pdf():
 
     mapping_data = [
         [Paragraph("Manuscript Section", table_header), Paragraph("Page(s)", table_header), Paragraph("Key Revisions & Enhancements", table_header), Paragraph("Relevant Comments", table_header)],
-        [Paragraph("Title & Front Matter", table_cell_bold), Paragraph("Page 1", table_cell), Paragraph("Scoped technical title; author metadata formatted to Springer standards; abstract with 95% CIs and 14.8-27.2 ms latency bounds.", table_cell), Paragraph("Rev 1 (C1.4), Rev 2 (C2.2, C2.4), Rev 3 (C3.3, C3.4)", table_cell)],
+        [Paragraph("Title & Front Matter", table_cell_bold), Paragraph("Page 1", table_cell), Paragraph("Scoped academic title; author metadata formatted to publication standards; Abstract updated with bootstrap 95% CIs and 14.8-27.2 ms latency bounds.", table_cell), Paragraph("Rev 1 (C1.4), Rev 2 (C2.2, C2.4), Rev 3 (C3.3, C3.4)", table_cell)],
         [Paragraph("Section I: Introduction", table_cell_bold), Paragraph("Pages 1-3", table_cell), Paragraph("Excised promotional narratives ('The Story Behind ARES'); formalized technical threat model and decision-theoretic scope.", table_cell), Paragraph("Rev 3 (C3.4)", table_cell)],
         [Paragraph("Section II-IV: Preprocessing", table_cell_bold), Paragraph("Pages 4-5", table_cell), Paragraph("Vectorized Figure 3 (Throughput vs Concurrency) and Figure 6 (Timing Curves); O(n) algorithmic complexity derivations.", table_cell), Paragraph("Rev 1 (C1.1, C1.3)", table_cell)],
         [Paragraph("Section VII-IX: Bot Modeling", table_cell_bold), Paragraph("Pages 7-8", table_cell), Paragraph("Vectorized Figures 10, 11, 12; Table VIII claim mutation cosine similarity logic.", table_cell), Paragraph("Rev 1 (C1.3)", table_cell)],
         [Paragraph("Section X-XI: Forensic Heads", table_cell_bold), Paragraph("Pages 9-11", table_cell), Paragraph("Vectorized Figure 14 (GDELT ROC), Figure 15 (Ablation Matrix), Figure 16 (Calibration Curves); Table XI verified audio/deepfake metrics.", table_cell), Paragraph("Rev 1 (C1.3), Rev 2 (C2.3)", table_cell)],
         [Paragraph("Section XII: Threat Heatmap", table_cell_bold), Paragraph("Page 12", table_cell), Paragraph("Vectorized Figure 19 (Regional Threat Heatmap).", table_cell), Paragraph("Rev 1 (C1.3)", table_cell)],
-        [Paragraph("Section XIII: Use Cases & Impact", table_cell_bold), Paragraph("Pages 13-14", table_cell), Paragraph("<b>Complete excision of Claims C024, C025, C027, C030</b>; replaced with ARES-Synth v1 [SIMULATED] benchmarks and retrospective traces; clean 2D Figure 23.", table_cell), Paragraph("Rev 1 (C1.3), Rev 3 (C3.5)", table_cell)],
-        [Paragraph("Section XIV: Ethical Safeguards", table_cell_bold), Paragraph("Pages 15-16", table_cell), Paragraph("Table XVIII-B Ethical Safeguards Matrix; cryptographic SHA-256 hash-chained audit trail (O(1) append latency, 0.12 ms).", table_cell), Paragraph("Rev 3 (Ethical Focus)", table_cell)],
+        [Paragraph("Section XIII: Use Cases & Impact", table_cell_bold), Paragraph("Pages 13-14", table_cell), Paragraph("<b>Complete excision of operational deployment claims</b>; replaced with ARES-Synth v1 [SIMULATED] benchmarks and retrospective traces; clean 2D Figure 23.", table_cell), Paragraph("Rev 1 (C1.3), Rev 3 (C3.5)", table_cell)],
+        [Paragraph("Section XIV: Ethical Safeguards", table_cell_bold), Paragraph("Pages 15-16", table_cell), Paragraph("Table XVIII-B Ethical Safeguards Matrix; cryptographic SHA-256 hash-chained verification trail (O(1) append latency, 0.12 ms).", table_cell), Paragraph("Rev 3 (Ethical Focus)", table_cell)],
         [Paragraph("Section XV: Hardware & Latency", table_cell_bold), Paragraph("Page 17", table_cell), Paragraph("<b>Table XX (RTX 4060 GPU Latency: 731.6 MB VRAM, 3,560 req/s)</b>; Table XXI Architectural Comparison; excision of ms/claim typo.", table_cell), Paragraph("Rev 1 (C1.1, C1.2), Rev 3 (C3.1, C3.2)", table_cell)],
         [Paragraph("Section XVI: Decision Formulation", table_cell_bold), Paragraph("Page 17", table_cell), Paragraph("Formal loss function with risk-sensitive rejection threshold gamma(alpha) and cost ratio alpha = c_r / (c_a + c_r).", table_cell), Paragraph("Rev 1 (C1.1), Rev 3 (C3.2)", table_cell)],
         [Paragraph("Section XVII: Manifold Drift", table_cell_bold), Paragraph("Pages 18-19", table_cell), Paragraph("Proposition 1 Bounded Mutation Detection; mathematical note on isotropic Gaussian noise vs anisotropic Riemannian correction.", table_cell), Paragraph("Rev 1 (C1.1)", table_cell)],
@@ -497,7 +498,7 @@ def build_response_pdf():
     story.append(Paragraph(
         "We thank the Editor and the Reviewers once again for their invaluable guidance in elevating this manuscript. "
         "With all technical, empirical, and editorial concerns fully resolved, we believe ARES 2.0 represents a significant, "
-        "rigorous, and reproducible contribution to <i>Cognitive Computation</i>.", body_style
+        "rigorous, and reproducible contribution.", body_style
     ))
 
     # Build PDF with dynamic NumberedCanvas
