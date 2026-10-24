@@ -57,15 +57,25 @@ def apply_empirical_updates(doc):
     # PAGE 1: Title, Abstract, Introduction
     # =========================================================================
     p1 = doc[0]
-    # Keep original native LaTeX Title (Blocks 1 & 2) and Author (Block 3) untouched!
+    # Clean author sub-header region: ensure no stray "Independent Researcher ? RInI"
+    r_author_sub = fitz.Rect(48.5, 158.0, 564.8, 198.0)
+    p1.add_redact_annot(r_author_sub, fill=(1, 1, 1))
+    
+    # Fix "Abstract?In an era..." by cleanly stamping "Abstract: In"
+    r_abs_init = fitz.Rect(58.0, 200.0, 118.5, 210.5)
+    p1.add_redact_annot(r_abs_init, fill=(1, 1, 1))
+    
     # Update only the empirical benchmark paragraph of the abstract (Block 5) without touching Block 4
     r_abs5 = fitz.Rect(48.5, 359.8, 301.8, 443.0)
     p1.add_redact_annot(r_abs5, fill=(1, 1, 1))
     p1.apply_redactions()
+
+    p1.insert_text(fitz.Point(58.9, 208.0), "Abstract: In", fontname="times-bold", fontsize=9.0, color=(0, 0, 0))
+
     new_abs5 = (
         "Through comprehensive benchmarking across 13 public datasets, "
         "ARES demonstrates robust accuracy (Macro-F1: 0.901 [95% CI: 0.892, 0.910]), "
-        "low latency (14.8–27.2 ms/claim), and high resilience under distribution shift and "
+        "low latency (14.8-27.2 ms/claim), and high resilience under distribution shift and "
         "adversarial perturbation. Designed for deployment in national security, disaster "
         "response, and electoral integrity, ARES establishes an evidence-grounded standard "
         "for autonomous multimodal truth evaluation."
@@ -195,8 +205,8 @@ def apply_empirical_updates(doc):
     p13.apply_redactions()
 
     txt_mturk = (
-        "3) Dense Evidence Indexing: Scalable passage retrieval via BGE-M3 [15] cross-encoder over verified corpora.\n"
-        "4) Supervised NLI Calibration: Claim-evidence entailment evaluated against frozen public benchmarks (FEVER [5], AVeriTeC [8]).\n"
+        "3) Dense Evidence Indexing: Scalable passage retrieval via BGE-M3 [61] cross-encoder over verified corpora.\n"
+        "4) Supervised NLI Calibration: Claim-evidence entailment evaluated against frozen public benchmarks (FEVER [5], AVeriTeC [52]).\n"
         "5) Controlled Adversarial Injection: Synthetic false claims inserted into minibatches:"
     )
     p13.insert_textbox(r_mturk, txt_mturk, fontname="times-roman", fontsize=8.1, align=fitz.TEXT_ALIGN_JUSTIFY)
@@ -241,7 +251,7 @@ def apply_empirical_updates(doc):
     p14.apply_redactions()
 
     txt_mil = (
-        "- Multimodal Audio Scanner: Detected neural acoustic synthesis artifacts (ASVspoof 2019 benchmark [6]).\n"
+        "- Multimodal Audio Scanner: Detected neural acoustic synthesis artifacts (ASVspoof 2019 benchmark [16]).\n"
         "- Geopolitical Context Mapper: Corroborated absence of conflict reports across global OSINT event feeds [32].\n"
         "- Mutation Tracker: Traced linguistic lineage across synthetic paraphrase variants.\n"
         "Evaluation Outcome [SIMULATED]: Evaluated on ARES-Synth v1 Track S1 (n=620 items), ARES achieved Macro-F1 = 0.8982 [95% CI: 0.874, 0.921], reliably flagging entity swaps without operational military deployment."
@@ -265,7 +275,7 @@ def apply_empirical_updates(doc):
         "Controlled Evaluation: Tested on ARES-Synth v1 Track S3 (Electoral Disinformation, n=620 items).\n"
         "- Acoustic Analysis: Flagged spliced speech boundaries via spectral discontinuity analysis.\n"
         "- Cross-Document Consistency: Discovered conflicting factual predicates across competing document versions.\n"
-        "Evaluation Outcome [SIMULATED]: Achieved Macro-F1 = 0.8654 [95% CI: 0.838, 0.891]. Offline bot coordination analysis on TwiBot-20 [28] reached Macro-F1 = 0.864 without live platform post takedowns."
+        "Evaluation Outcome [SIMULATED]: Achieved Macro-F1 = 0.8654 [95% CI: 0.838, 0.891]. Offline bot coordination analysis on TwiBot-20 [55] reached Macro-F1 = 0.864 without live platform post takedowns."
     )
     p14.insert_textbox(r_elect, txt_elect, fontname="times-roman", fontsize=8.0, align=fitz.TEXT_ALIGN_JUSTIFY)
 
@@ -273,7 +283,7 @@ def apply_empirical_updates(doc):
     txt_cumul = (
         "E. 8.5 Institutional Review Board (IRB) Protocol & Human Scope\n"
         "ARES delivers rigorous, reproducible verification:\n"
-        "- Latency: 14.8–27.2 ms median verification latency.\n"
+        "- Latency: 14.8-27.2 ms median verification latency.\n"
         "- Calibration: Expected Calibration Error of 0.038.\n"
         "- Open Reproducibility: Complete code, test harnesses (110 passing unit tests), and frozen datasets released under Apache-2.0.\n"
         "- Formal Ethical Disclosure: Public perception surveys and user trust evaluations require formal Institutional Review Board (IRB) approval under human subjects research protocols and are reserved for designated clinical trials."
@@ -292,7 +302,8 @@ def apply_empirical_updates(doc):
     r_c1 = fitz.Rect(48.5, 232.0, 302.0, 750.0)
     p16.add_redact_annot(r_c1, fill=(1, 1, 1))
 
-    r_c2 = fitz.Rect(311.6, 50.0, 564.8, 455.0)
+    # Widen right margin to 595.0 to cover stray word fragment 'laim' and 'm'
+    r_c2 = fitz.Rect(311.6, 50.0, 595.0, 465.0)
     p16.add_redact_annot(r_c2, fill=(1, 1, 1))
     p16.apply_redactions()
 
@@ -322,11 +333,11 @@ def apply_empirical_updates(doc):
 
     # Insert 10-System Capability Matrix (Table XXI) (Audit Item 3)
     tbl21_path = os.path.join(PROJECT_ROOT, "manuscript", "table21_architectural_comparison.png")
-    p16.insert_image(fitz.Rect(311.6, 150.0, 564.8, 355.0), filename=tbl21_path, keep_proportion=True)
+    p16.insert_image(fitz.Rect(311.6, 148.0, 568.0, 355.0), filename=tbl21_path, keep_proportion=True)
 
     txt_c2_bot = (
         "E. Empirical Benchmarking Summary\n"
-        "ARES establishes a verified verification profile operating in 14.8–27.2 ms per claim with a total VRAM footprint of 2,352 MB. This eliminates the latency bottleneck of generative language models (500–1,200 ms) while ensuring complete cryptographic auditability."
+        "ARES establishes a verified verification profile operating in 14.8-27.2 ms per claim with a total VRAM footprint of 2,352 MB. This eliminates the latency bottleneck of generative language models (500-1,200 ms) while ensuring complete cryptographic auditability."
     )
     p16.insert_textbox(fitz.Rect(311.6, 365.0, 564.8, 455.0), txt_c2_bot, fontname="times-roman", fontsize=8.0, align=fitz.TEXT_ALIGN_JUSTIFY)
 
@@ -356,11 +367,23 @@ def apply_empirical_updates(doc):
     p19.insert_textbox(r_fig25_cap, "Fig. 25: Empirical semantic mutation distribution bounded in [0, 1], showing clear separation between benign and mutated claim drift (theta_alpha = 0.812).", fontname="times-roman", fontsize=7.5, align=fitz.TEXT_ALIGN_JUSTIFY)
 
     # =========================================================================
-    # PAGE 20: Token Scaling & FLOP Crossover (Fig. 28)
+    # PAGE 20 (Page 21 in composite): Token Scaling & Section XX-A Hardware Patch
     # =========================================================================
     p20 = doc[19]
     fig28_path = os.path.join(PROJECT_ROOT, "milestones", "M13_systems_perf", "figures", "fig28_latency_vs_tokens.png")
     replace_figure_exact(p20, "Fig. 28:", fig28_path, top_y=160.0, bot_y=368.0, col_x0=311.6, col_x1=564.8)
+
+    # Patch Section XX-A NVIDIA A100 GPU -> RTX 4060 GPU with ASCII bullets
+    r_hw21 = fitz.Rect(311.6, 500.0, 565.0, 565.0)
+    p20.add_redact_annot(r_hw21, fill=(1, 1, 1))
+    p20.apply_redactions()
+    txt_hw21 = (
+        "All measurements were performed under fixed conditions:\n"
+        "- Model: Fine-tuned RoBERTa (12 layers, d = 768)\n"
+        "- Hardware: NVIDIA RTX 4060 GPU, 32GB RAM, AMD Ryzen 7 CPU\n"
+        "- Batch size: 1 (to isolate per-claim latency)"
+    )
+    p20.insert_textbox(r_hw21, txt_hw21, fontname="times-roman", fontsize=8.0, align=fitz.TEXT_ALIGN_LEFT)
 
     # =========================================================================
     # PAGE 21: Log-Log Complexity Scaling (Fig. 29)
@@ -404,21 +427,27 @@ def apply_empirical_updates(doc):
     # PAGE 29 (Page 31 in composite): Unit Conversion Reconciled in Eq 47-48
     # =========================================================================
     p29 = doc[28]
-    r_triage_c1 = fitz.Rect(48.5, 670.0, 302.0, 715.0)
+    # Redact down to y=752.0 to cover duplicate Eq (47)
+    r_triage_c1 = fitz.Rect(48.5, 668.0, 302.0, 752.0)
     p29.add_redact_annot(r_triage_c1, fill=(1, 1, 1))
-    r_triage_c2 = fitz.Rect(311.6, 68.0, 564.8, 105.0)
+    # Redact from y=52.0 to 120.0 to cover leftover "less than 1 second..."
+    r_triage_c2 = fitz.Rect(311.6, 52.0, 565.0, 120.0)
     p29.add_redact_annot(r_triage_c2, fill=(1, 1, 1))
     p29.apply_redactions()
 
     txt_triage_c1 = (
+        "Observed latency parameters under triage:\n"
         "T_auto = 23.8 ms (automated),\n"
         "T_human = 18.6 s (tier-1 analyst triage),\n"
-        "with heavy-tailed distribution reflecting alert priority."
+        "with heavy-tailed distribution reflecting alert priority.\n"
+        "The expected system-wide latency is:\n"
+        "E[T] = (1 - E) * T_auto + E * T_human.  (47)"
     )
     p29.insert_textbox(r_triage_c1, txt_triage_c1, fontname="times-roman", fontsize=7.8, align=fitz.TEXT_ALIGN_JUSTIFY)
 
     txt_triage_c2 = (
-        "E[T] = (1 - E)*T_auto + E*T_human = 1.28 s (48)\n"
+        "Substituting empirical parameters yields:\n"
+        "E[T] = 1.28 s (automated + triage).      (48)\n"
         "Under comprehensive specialist review (T_human = 18.6 min = 1116 s), E[T_deep] = 75.91 s (1.27 min)."
     )
     p29.insert_textbox(r_triage_c2, txt_triage_c2, fontname="times-roman", fontsize=7.2, align=fitz.TEXT_ALIGN_JUSTIFY)
@@ -481,6 +510,14 @@ def apply_empirical_updates(doc):
     replace_figure_exact(p36, "Fig. 41:", fig41_path, top_y=60.0, bot_y=244.0, col_x0=48.5, col_x1=302.0)
     replace_figure_exact(p36, "Fig. 42:", fig42_path, top_y=270.0, bot_y=477.0, col_x0=48.5, col_x1=302.0)
 
+    # Re-caption Fig. 41 cleanly with complete sentence
+    r_fig41_cap = fitz.Rect(48.5, 246.0, 302.0, 272.0)
+    p36.add_redact_annot(r_fig41_cap, fill=(1, 1, 1))
+
+    # White out any stray 0.9010 next to Step 1: Preprocessing in Algorithm 2
+    for r in p36.search_for("0.9010"):
+        p36.add_redact_annot(r, fill=(1, 1, 1))
+
     # Redact legacy Table XXXVII
     r_tbl37 = fitz.Rect(48.5, 540.0, 302.0, 645.0)
     p36.add_redact_annot(r_tbl37, fill=(1, 1, 1))
@@ -490,6 +527,8 @@ def apply_empirical_updates(doc):
     p36.add_redact_annot(r_algo3, fill=(1, 1, 1))
     p36.apply_redactions()
 
+    p36.insert_textbox(r_fig41_cap, "Fig. 41: ARES outperforms prior baseline architectures in terms of F1 score, demonstrating consistent Macro-F1 gains across architectures.", fontname="times-roman", fontsize=7.5, align=fitz.TEXT_ALIGN_JUSTIFY)
+
     tbl37_path = os.path.join(PROJECT_ROOT, "manuscript", "table37_baseline_comparison.png")
     p36.insert_image(fitz.Rect(48.5, 542.0, 302.0, 642.0), filename=tbl37_path, keep_proportion=True)
 
@@ -497,22 +536,23 @@ def apply_empirical_updates(doc):
     p36.insert_image(fitz.Rect(311.6, 335.0, 564.8, 590.0), filename=algo3_path, keep_proportion=True)
 
     # =========================================================================
-    # PAGE 37 (Page 41 in composite): Conflict of Interest Unabridged
+    # PAGE 37 (Page 41 in composite): Conflict of Interest (Single Column, Col 1 Only)
     # =========================================================================
     p37 = doc[36]
-    r_coi = fitz.Rect(48.5, 660.0, 564.8, 730.0)
+    # Place compact single-column box strictly over the 6-line CONFLICT OF INTEREST paragraph in Col 1
+    # leaving Section XXXIII. CONCLUSION completely untouched!
+    r_coi = fitz.Rect(48.5, 620.0, 302.0, 692.0)
     p37.add_redact_annot(r_coi, fill=(1, 1, 1))
     p37.apply_redactions()
     txt_coi = (
-        "CONFLICT OF INTEREST STATEMENT\n"
         "The author declares that there are no financial, commercial, institutional, or personal conflicts of interest "
         "that could be perceived as having influenced or biased the research, methodologies, empirical computations, or conclusions "
         "presented in this manuscript."
     )
-    p37.insert_textbox(r_coi, txt_coi, fontname="times-roman", fontsize=8.0, align=fitz.TEXT_ALIGN_JUSTIFY)
+    p37.insert_textbox(r_coi, txt_coi, fontname="times-roman", fontsize=7.8, align=fitz.TEXT_ALIGN_JUSTIFY)
 
     # =========================================================================
-    # PAGE 38 (Page 42 in composite): 65 Peer-Reviewed References with DOIs
+    # PAGE 38 (Page 42 in composite): 65 Peer-Reviewed References + Appendix A
     # =========================================================================
     p38 = doc[37]
     r_p38_all = fitz.Rect(48.5, 52.0, 564.8, 750.0)
@@ -528,44 +568,51 @@ def apply_empirical_updates(doc):
     col2_refs = "\n".join(formatted_refs[33:])
 
     r_ref_c1 = fitz.Rect(48.5, 68.0, 302.0, 750.0)
-    r_ref_c2 = fitz.Rect(311.6, 68.0, 564.8, 750.0)
+    r_ref_c2 = fitz.Rect(311.6, 68.0, 564.8, 535.0)
     p38.insert_textbox(r_ref_c1, col1_refs, fontname="times-roman", fontsize=5.5, align=fitz.TEXT_ALIGN_LEFT)
     p38.insert_textbox(r_ref_c2, col2_refs, fontname="times-roman", fontsize=5.5, align=fitz.TEXT_ALIGN_LEFT)
 
+    # Insert Appendix A (Model Architectures) at bottom right of Page 42 with verified citations and clean ASCII
+    r_app_a = fitz.Rect(311.6, 540.0, 564.8, 750.0)
+    txt_app_a = (
+        "APPENDIX A: MODEL ARCHITECTURES\n"
+        "ARES is a modular system composed of modality-specific encoders:\n"
+        "a) Text Encoder: We use a transformer-based encoder (DeBERTa-v3-base [51]):\n"
+        "- Layers: 12, Hidden size: 768, Attention heads: 12, Parameters: ~86M.\n"
+        "The [CLS] token embedding is projected to 512 dimensions.\n"
+        "b) Image / Video Encoder: Visual inputs are processed with ResNet-50 / EfficientNet [8]:\n"
+        "- Layers: 50, Feature dimension: 2048, Pretraining: ImageNet, Parameters: ~25M.\n"
+        "For video, frames are uniformly sampled (16 frames) with temporal average pooling.\n"
+        "c) Audio Encoder: Audio signals are encoded with a 2D CNN over log-mel spectrograms [16]:\n"
+        "- Input: 80-channel log-mel spectrograms, Convolutional blocks: 6, Parameters: ~8M."
+    )
+    p38.insert_textbox(r_app_a, txt_app_a, fontname="times-roman", fontsize=7.2, align=fitz.TEXT_ALIGN_JUSTIFY)
+
     # =========================================================================
-    # PAGE 39 (Page 43 in composite): Appendices & RTX 4060 Environment
+    # PAGE 39 (Page 43 in composite): Hardware Environment & Clean Appendix
     # =========================================================================
     p39 = doc[38]
+    # Patch NVIDIA A100 to RTX 4060 in Section D (Inference and Optimization Details, Col 1)
+    r_d_hw = fitz.Rect(48.5, 615.0, 302.0, 648.0)
+    p39.add_redact_annot(r_d_hw, fill=(1, 1, 1))
+
     # Redact legacy A100 block in Col 2 (Audit Item 15)
     r_a100 = fitz.Rect(312.0, 54.0, 564.8, 140.0)
     p39.add_redact_annot(r_a100, fill=(1, 1, 1))
     p39.apply_redactions()
 
+    p39.insert_textbox(r_d_hw, "Median inference latency is measured on an NVIDIA RTX 4060 GPU with no batch queuing.", fontname="times-roman", fontsize=7.8, align=fitz.TEXT_ALIGN_JUSTIFY)
+
     txt_rtx4060 = (
         "F. Hardware and Software Environment\n"
-        "• GPU: NVIDIA GeForce RTX 4060 Laptop GPU (8GB GDDR6 VRAM, 3072 CUDA cores)\n"
-        "• CPU: AMD Ryzen 7 7840HS (8 cores, 16 threads, 3.8 GHz base clock)\n"
-        "• RAM: 32GB DDR5-5600\n"
-        "• Frameworks: PyTorch 2.2, CUDA 12.1\n"
-        "• OS: Ubuntu 22.04 LTS / Windows 11 Enterprise (dual-verified)"
+        "- GPU: NVIDIA GeForce RTX 4060 Laptop GPU (8GB GDDR6 VRAM, 3072 CUDA cores)\n"
+        "- CPU: AMD Ryzen 7 7840HS (8 cores, 16 threads, 3.8 GHz base clock)\n"
+        "- RAM: 32GB DDR5-5600\n"
+        "- Frameworks: PyTorch 2.2, CUDA 12.1\n"
+        "- OS: Ubuntu 22.04 LTS / Windows 11 Enterprise (dual-verified)"
     )
     p39.insert_textbox(r_a100, txt_rtx4060, fontname="times-roman", fontsize=7.8, align=fitz.TEXT_ALIGN_LEFT)
-
-    # Insert Appendix A (Model Architectures) into empty bottom half of Col 2
-    r_app_a = fitz.Rect(312.0, 240.0, 564.8, 480.0)
-    txt_app_a = (
-        "APPENDIX A: MODEL ARCHITECTURES\n"
-        "ARES is a modular system composed of modality-specific neural encoders:\n"
-        "a) Text Encoder: We use a transformer-based encoder (DeBERTa-v3-base [14]):\n"
-        "• Layers: 12, Hidden size: 768, Attention heads: 12, Parameters: ≈86M\n"
-        "The [CLS] token embedding is projected to 512 dimensions.\n"
-        "b) Image / Video Encoder: Visual inputs are processed with ResNet-50 / EfficientNet [33]:\n"
-        "• Layers: 50, Feature dimension: 2048, Pretraining: ImageNet, Parameters: ≈25M\n"
-        "For video, frames are uniformly sampled (16 frames) and features aggregated via temporal average pooling.\n"
-        "c) Audio Encoder: Audio signals are encoded with a 2D CNN over log-mel spectrograms [6]:\n"
-        "• Input: 80-channel log-mel spectrograms, Convolutional blocks: 6, Output dimension: 512, Parameters: ≈8M"
-    )
-    p39.insert_textbox(r_app_a, txt_app_a, fontname="times-roman", fontsize=7.5, align=fitz.TEXT_ALIGN_JUSTIFY)
+    # Duplicate Appendix A box on Page 43 is cleanly removed as it is now properly placed on Page 42!
 
     print("Empirical updates successfully applied to all original pages.")
 
