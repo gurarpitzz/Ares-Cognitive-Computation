@@ -437,10 +437,9 @@ def assemble_final_manuscript():
         # Running footer (all pages)
         page.draw_line(fitz.Point(48.5, 762.0), fitz.Point(w - 48.5, 762.0), color=(0.85, 0.87, 0.9), width=0.4)
         if p_num == 1:
-            page.insert_text(fitz.Point(48.5, 772.0), "Preprint — Manuscript Under Peer Review | Open Access Distributed under CC BY 4.0", fontname="times-roman", fontsize=7.0, color=(0.25, 0.3, 0.35))
-            page.insert_text(fitz.Point(w - 185.0, 772.0), "Permanent Archive: 10.5281/zenodo.10826492", fontname="times-roman", fontsize=7.0, color=(0.25, 0.3, 0.35))
+            page.insert_text(fitz.Point(48.5, 772.0), "Preprint — Technical Manuscript Under Peer Review | Open Access Distributed under CC BY 4.0", fontname="times-roman", fontsize=7.0, color=(0.25, 0.3, 0.35))
         else:
-            page.insert_text(fitz.Point(48.5, 772.0), "ARES Open Research Initiative — Release v2.0.0 | Permanent Archive: 10.5281/zenodo.10826492", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
+            page.insert_text(fitz.Point(48.5, 772.0), "ARES Open Research Initiative — Technical Manuscript Under Peer Review", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
             page.insert_text(fitz.Point(w - 95.0, 772.0), f"Page {p_num} of {total_pages}", fontname="times-roman", fontsize=7.0, color=(0.3, 0.35, 0.4))
 
     # Save final publication manuscript

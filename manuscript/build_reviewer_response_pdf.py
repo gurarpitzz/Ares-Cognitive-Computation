@@ -65,7 +65,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFont("Helvetica", 7.2)
         self.setFillColor(colors.HexColor("#64748b"))
-        self.drawString(54, 34, "Permanent Archive: 10.5281/zenodo.10826492 | Open Research Release v2.0.0")
+        self.drawString(54, 34, "ARES Open Research Initiative — Response to Reviewers")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(w - 54, 34, page_str)
 
