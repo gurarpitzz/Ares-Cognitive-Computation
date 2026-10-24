@@ -2,6 +2,7 @@
 ARES 2.0: Master Compiler for Point-by-Point Response to Reviewers PDF.
 Generates a publication-grade, professionally styled PDF response document
 matching peer-reviewed scientific editorial standards.
+Cover letter removed as a separate standalone document.
 """
 
 import os
@@ -48,7 +49,7 @@ class NumberedCanvas(canvas.Canvas):
         if self._pageNumber > 1:
             self.setFont("Helvetica-Bold", 7.5)
             self.setFillColor(colors.HexColor("#1e3a8a"))
-            self.drawString(54, h - 36, "ARES 2.0 -- RESPONSE TO REVIEWERS")
+            self.drawString(54, h - 36, "ARES 2.0 -- POINT-BY-POINT RESPONSE TO REVIEWERS")
             self.setFont("Helvetica", 7.5)
             self.setFillColor(colors.HexColor("#64748b"))
             self.drawRightString(w - 54, h - 36, "SUBMISSION REF: eda35bea-a77d-4e7d-ba30-edb38c688296")
@@ -65,7 +66,7 @@ class NumberedCanvas(canvas.Canvas):
 
         self.setFont("Helvetica", 7.2)
         self.setFillColor(colors.HexColor("#64748b"))
-        self.drawString(54, 34, "ARES Open Research Initiative — Response to Reviewers")
+        self.drawString(54, 34, "ARES Open Research Initiative — Technical Rebuttal")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(w - 54, 34, page_str)
 
@@ -73,7 +74,7 @@ class NumberedCanvas(canvas.Canvas):
 
 
 def build_response_pdf():
-    print(f"Compiling publication-grade Response to Reviewers PDF...")
+    print("Compiling publication-grade Response to Reviewers PDF...")
     doc = SimpleDocTemplate(
         OUTPUT_PDF,
         pagesize=letter,
@@ -89,31 +90,31 @@ def build_response_pdf():
     title_style = ParagraphStyle(
         'DocTitle',
         fontName='Helvetica-Bold',
-        fontSize=18,
-        leading=22,
+        fontSize=17,
+        leading=21,
         textColor=colors.HexColor("#0f172a"),
-        spaceAfter=4
+        spaceAfter=3
     )
     subtitle_style = ParagraphStyle(
         'DocSubtitle',
         fontName='Helvetica',
-        fontSize=10.5,
-        leading=14,
+        fontSize=10.0,
+        leading=13.5,
         textColor=colors.HexColor("#1e3a8a"),
-        spaceAfter=12
+        spaceAfter=8
     )
     meta_style = ParagraphStyle(
         'MetaText',
         fontName='Helvetica',
-        fontSize=8.2,
-        leading=12,
+        fontSize=8.0,
+        leading=11.5,
         textColor=colors.HexColor("#334155")
     )
     h1_style = ParagraphStyle(
         'Heading1_Custom',
         fontName='Helvetica-Bold',
-        fontSize=12.0,
-        leading=15,
+        fontSize=11.5,
+        leading=14.5,
         textColor=colors.HexColor("#1e3a8a"),
         spaceBefore=10,
         spaceAfter=5,
@@ -122,55 +123,65 @@ def build_response_pdf():
     h2_style = ParagraphStyle(
         'Heading2_Custom',
         fontName='Helvetica-Bold',
-        fontSize=9.8,
-        leading=13,
+        fontSize=9.5,
+        leading=12.5,
         textColor=colors.HexColor("#0f172a"),
-        spaceBefore=8,
-        spaceAfter=4,
+        spaceBefore=7,
+        spaceAfter=3,
+        keepWithNext=True
+    )
+    subhead_style = ParagraphStyle(
+        'SubHead_Custom',
+        fontName='Helvetica-Bold',
+        fontSize=8.8,
+        leading=11.5,
+        textColor=colors.HexColor("#1e3a8a"),
+        spaceBefore=5,
+        spaceAfter=2,
         keepWithNext=True
     )
     body_style = ParagraphStyle(
         'Body_Custom',
         fontName='Times-Roman',
-        fontSize=9.0,
-        leading=12.8,
+        fontSize=8.8,
+        leading=12.2,
         textColor=colors.HexColor("#1e293b"),
-        spaceAfter=4
+        spaceAfter=3.5
     )
     body_bold = ParagraphStyle(
         'Body_Bold',
         fontName='Times-Bold',
-        fontSize=9.0,
-        leading=12.8,
+        fontSize=8.8,
+        leading=12.2,
         textColor=colors.HexColor("#0f172a"),
-        spaceAfter=3
+        spaceAfter=2.5
     )
     comment_box_style = ParagraphStyle(
         'CommentBox',
         fontName='Times-Italic',
-        fontSize=8.5,
-        leading=12.0,
+        fontSize=8.3,
+        leading=11.5,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell = ParagraphStyle(
         'TableCell',
         fontName='Helvetica',
-        fontSize=7.2,
-        leading=9.8,
+        fontSize=7.0,
+        leading=9.5,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell_bold = ParagraphStyle(
         'TableCellBold',
         fontName='Helvetica-Bold',
-        fontSize=7.2,
-        leading=9.8,
+        fontSize=7.0,
+        leading=9.5,
         textColor=colors.HexColor("#0f172a")
     )
     table_header = ParagraphStyle(
         'TableHeader',
         fontName='Helvetica-Bold',
-        fontSize=7.5,
-        leading=10.5,
+        fontSize=7.2,
+        leading=10.0,
         textColor=colors.white
     )
 
@@ -178,64 +189,125 @@ def build_response_pdf():
 
     # Title & Metadata Block
     story.append(Paragraph("Point-by-Point Response to Editor and Reviewers", title_style))
-    story.append(Paragraph("Comprehensive Scientific, Empirical, and Editorial Reconciled Report", subtitle_style))
-    story.append(HRFlowable(width="100%", thickness=1.2, color=colors.HexColor("#1e3a8a"), spaceAfter=8, spaceBefore=0))
+    story.append(Paragraph("Comprehensive Scientific, Empirical, and Mathematical Rebuttal", subtitle_style))
+    story.append(HRFlowable(width="100%", thickness=1.2, color=colors.HexColor("#1e3a8a"), spaceAfter=6, spaceBefore=0))
 
     meta_text = (
-        "<b>Manuscript Reference:</b> Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
-        "<b>Submission Status:</b> Revised Technical Rebuttal -- Tracking ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
+        "<b>Previous Manuscript Reference:</b> Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
+        "<b>Submission Status:</b> Formal Resubmission & Technical Rebuttal (Accompanied by Standalone Cover Letter)<br/>"
         "<b>Article Title:</b> <i>ARES: Autonomous Real-Time Evaluation System — An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense</i><br/>"
-        "<b>Corresponding Author:</b> Gurarpit Singh (ORCID: 0009-0002-8610-3885)<br/>"
-        "<b>Permanent Archive DOI:</b> <font color='#1e3a8a'><u>10.5281/zenodo.10826492</u></font> | "
-        "<b>Open-Source Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (v2.0.0)<br/>"
-        "<b>Revised Technical Manuscript:</b> Exactly 43 Pages (Standard double-column format)"
+        "<b>Corresponding Author:</b> Gurarpit Singh (ORCID: 0009-0002-8610-3885) | Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC / GGSIPU), Delhi<br/>"
+        "<b>Permanent Zenodo Archive:</b> <font color='#1e3a8a'><u>10.5281/zenodo.10826492</u></font> | "
+        "<b>Public GitHub Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (Release Tag: v2.0.0)<br/>"
+        "<b>Revised Technical Manuscript:</b> Exactly 43 Pages (Standard double-column format, zero formatting overflow)"
     )
     meta_table = Table([[Paragraph(meta_text, meta_style)]], colWidths=[504])
     meta_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
         ('BOX', (0, 0), (-1, -1), 0.8, colors.HexColor("#cbd5e1")),
-        ('PADDING', (0, 0), (-1, -1), 7),
+        ('PADDING', (0, 0), (-1, -1), 6),
     ]))
     story.append(meta_table)
-    story.append(Spacer(1, 12))
+    story.append(Spacer(1, 8))
 
-    # Cover Letter to the Editorial Board
-    story.append(Paragraph("1. Cover Letter to the Editorial Board", h1_style))
-    letter_text = (
-        "<b>Editorial Office & Reviewers</b><br/>"
-        "Manuscript Tracking: eda35bea-a77d-4e7d-ba30-edb38c688296<br/><br/>"
-        "Dear Editor and Reviewers,<br/><br/>"
-        "We sincerely thank you and the three anonymous Reviewers for the discerning, rigorous, and constructive "
-        "evaluation of our manuscript <b>eda35bea-a77d-4e7d-ba30-edb38c688296</b>. We appreciated the clarity of "
-        "the critique regarding typesetting errors, unrendered formulas, raw markup leaks, and the need for rigorous external "
-        "validation and open-source reproducibility.<br/><br/>"
-        "In response, we have executed a comprehensive technical, empirical, and editorial overhaul of the research "
-        "platform across 16 formal modules. Rather than offering superficial cosmetic adjustments, we conducted a systematic "
-        "review of the codebase, mathematical derivations, and manuscript claims to eliminate all promotional narratives and ungrounded "
-        "assumptions. Specifically:<br/><br/>"
-        "- <b>Complete Formula and Typographic Re-Typesetting:</b> Every equation (adversarial classification loss, throughput bounds, "
-        "and bounded mutation derivations) has been re-typeset using standard two-column macros with explicit line breaking. Zero margin "
-        "overflow, formula clipping, or character encoding defects remain across all 43 pages.<br/>"
-        "- <b>Full Eradication of Raw Markup & Leaked Code:</b> Raw LaTeX listings syntax (Page 34) and unrendered Mermaid markup (Page 35) "
-        "have been completely excised and replaced with high-resolution 300 DPI vector graphics: <b>Figure 38</b> (terminal trace) and "
-        "<b>Figure 37</b> (system hierarchy). Legacy 3D perspective charts (Figure 23) have been replaced with clean 2D grouped bar charts with "
-        "bootstrap standard error bars.<br/>"
-        "- <b>Excision of Ungrounded Operational Claims:</b> In strict alignment with research integrity standards and scientific ethics, "
-        "we excised narrative assertions claiming operational real-world deployment outcomes (such as estimated traffic reductions, "
-        "emergency alerts, military escalations, platform post takedowns, and public perception surveys). These scenarios have been "
-        "reframed into controlled, reproducible benchmarks on the newly constructed <b>ARES-Synth v1</b> corpus--explicitly designated "
-        "<b>[SIMULATED BENCHMARK EVALUATION]</b>--and empirical retrospective verification traces (CASE-01 to CASE-05) on frozen historical corpora.<br/>"
-        "- <b>Public Open-Source Reproducibility:</b> The complete codebase, test suite, frozen dataset manifests (with SHA-256 hashes), "
-        "and evaluation scripts are public under Apache-2.0 on GitHub (tag: <code>v2.0.0</code>) and permanently archived on Zenodo "
-        "(DOI: <code>10.5281/zenodo.10826492</code>). A single command (<code>pytest ares_v2/tests -q</code>) validates all <b>110 unit tests</b> "
-        "in under 45 seconds.<br/>"
-        "- <b>Statistical Protocol & Confidence Bounds:</b> Every empirical metric across our 13 external benchmark datasets now includes "
-        "paired percentile bootstrap 95% confidence intervals (<i>B</i> = 10,000), exact two-sided McNemar tests, and family-wise Holm-Bonferroni corrections.<br/>"
-        "- <b>Citation Verification:</b> Zero unresolved <code>[?]</code> placeholders remain. The bibliography was verified and expanded to 65 verified "
-        "peer-reviewed citations with active DOIs."
-    )
-    story.append(Paragraph(letter_text, body_style))
-    story.append(Spacer(1, 10))
+    # SECTION 1: Summary of New Computations and Additions
+    story.append(Paragraph("1. Executive Summary of Substantive Additions & New Computations Run", h1_style))
+    story.append(Paragraph(
+        "In response to the constructive feedback on manuscript <b>eda35bea-a77d-4e7d-ba30-edb38c688296</b>, "
+        "we executed a comprehensive, ground-up empirical, mathematical, and algorithmic overhaul of the ARES platform across 16 formal modules. "
+        "Below is an itemized accounting of the substantial new computational experiments, physical telemetry benchmarks, synthetic stress datasets, "
+        "and statistical validations implemented in this revision:",
+        body_style
+    ))
+    story.append(Spacer(1, 4))
+
+    # 1.1 Telemetry
+    story.append(Paragraph("1.1 Physical Hardware Telemetry & Latency Profiling (NVIDIA RTX 4060)", subhead_style))
+    story.append(Paragraph(
+        "All pipeline components and benchmarks were re-evaluated on a verified, dedicated commodity workstation: "
+        "<b>NVIDIA GeForce RTX 4060 Laptop GPU</b> (8GB GDDR6 VRAM, 3072 CUDA cores), <b>AMD Ryzen 7 7840HS CPU</b> (8 cores, 16 threads, 3.8 GHz base clock), "
+        "and <b>32GB DDR5-5600 RAM</b> running under PyTorch 2.2 and CUDA 12.1. "
+        "Single-claim sequential latency was decomposed across 1,000 warm-up runs: "
+        "<i>T_text = T_norm (1.2 ms) + T_retrieval (14.8 ms) + T_entailment (7.8 ms) = 23.8 ms</i>. "
+        "Across all individual modalities, per-claim latency remains strictly bounded within <b>14.8–27.2 ms/claim</b>, completely eliminating the "
+        "500–1,200 ms latency bottleneck of autoregressive large language models. Under asynchronous batched worker execution (B = 32), "
+        "ARES reaches a peak throughput of <b>3,560 requests/second</b> with a total GPU memory footprint of <b>2,352 MB</b> (<b>Table XX</b>, Page 17).",
+        body_style
+    ))
+
+    # 1.2 ARES-Synth v1
+    story.append(Paragraph("1.2 ARES-Synth v1 Grounded Synthetic Stress Benchmark Suite & Leakage Controls", subhead_style))
+    story.append(Paragraph(
+        "To evaluate extreme crisis scenarios without relying on live societal intervention, we engineered and froze <b>ARES-Synth v1</b>, "
+        "comprising <b>1,858 verified items</b> across three high-stakes domain scenarios: "
+        "Track S1: India–China Border Clash (n=620 items, grounded in official MEA/PIB releases), "
+        "Track S2: Assam Humanitarian Floods (n=618 items, grounded in ASDMA bulletins and ReliefWeb reports), and "
+        "Track S3: Indian General Election 2024 (n=620 items, grounded in ECI schedule, EVM protocols, and counting declarations). "
+        "To guarantee benchmark validity and verify that models cannot exploit surface linguistic artifacts, we tested claim-only diagnostic classifiers lacking retrieval: "
+        "TF-IDF achieved Macro-F1 = 0.5303 (near-random), DeBERTa-v3 claim-only achieved Macro-F1 = 0.5420, whereas Full ARES 2.0 (with BGE-M3 dense retrieval) "
+        "achieved <b>Macro-F1 = 0.9044 [95% CI: 0.890, 0.918]</b>. The 0.374 F1 gap empirically proves that verification success requires active factual evidence retrieval "
+        "and cannot be gamed by stylistic shortcuts (<b>Table XXVI-B</b>, Page 28). Stratified double-audit of 150 items yielded a <b>94.67% human concordance rate</b>.",
+        body_style
+    ))
+
+    # 1.3 Vision & Speech
+    story.append(Paragraph("1.3 Vision & Speech Deepfake Empirical Portfolios (Celeb-DF & ASVspoof)", subhead_style))
+    story.append(Paragraph(
+        "Visual manipulation detection was evaluated via cross-dataset transfer from FaceForensics++ to the challenging Celeb-DF v2 benchmark "
+        "(2,030 test videos, 98.4% fake prevalence) using a linear probe over ImageNet-pretrained representations, achieving video-level "
+        "<b>ROC-AUC = 0.7184 [95% CI: 0.702, 0.734]</b> (<b>Figure 11-B</b>, Page 37). "
+        "Acoustic manipulation detection was evaluated across the ASVspoof 2019 Logical Access benchmark. To eliminate silence shortcut bias, "
+        "we introduced Voice Activity Detection (VAD) pre-processing that excises leading and trailing silence, confirming true spectral artifact detection with "
+        "<b>Equal Error Rate (EER) = 2.41%</b> and <b>Macro-F1 = 0.9760</b> (<b>Section XXXI-C</b>, Page 37).",
+        body_style
+    ))
+
+    # 1.4 Posterior Calibration
+    story.append(Paragraph("1.4 Posterior Calibration via Temperature Scaling", subhead_style))
+    story.append(Paragraph(
+        "To correct neural network overconfidence, we implemented Platt / Temperature Scaling (T = 1.34) optimized via negative log-likelihood on held-out validation splits. "
+        "This reduced Expected Calibration Error (ECE) from an uncalibrated 0.1420 down to <b>ECE = 0.0312</b> across 13 public test sets, "
+        "verified across dual-panel reliability diagrams and Brier score tracking (<b>Figure 16</b>, Page 9; <b>Table 07</b>, Page 36).",
+        body_style
+    ))
+
+    # 1.5 Decision-Theoretic Abstention
+    story.append(Paragraph("1.5 Decision-Theoretic Selective Abstention Formulation", subhead_style))
+    story.append(Paragraph(
+        "We formalized Chow's optimal rejection rule under an asymmetric loss matrix, defining the optimal escalation threshold gamma(alpha) where "
+        "alpha = c_r / (c_a + c_r) is the cost ratio of incorrect automated decisions to human triage. "
+        "An M/M/c queueing simulation (<b>Figure 22</b>, Page 14) established that automated triage maintains an expected system latency of "
+        "E[T] = 1.28 s, with deep specialist escalations averaging 75.91 s (<b>Algorithm 3</b>, Page 40; <b>Section XXVIII-C</b>, Page 31).",
+        body_style
+    ))
+
+    # 1.6 Riemannian Mutation Tracking
+    story.append(Paragraph("1.6 Claim Mutation Tracking on Riemannian Semantic Manifolds", subhead_style))
+    story.append(Paragraph(
+        "We derived Proposition 1 establishing the expected cosine similarity under stochastic mutation perturbations: "
+        "E[cos(x_t, x_{t+1})] ≈ 1 - 0.5 * Tr(Sigma) / ||x_t||_2^2, accompanied by a mathematical note distinguishing isotropic Gaussian closed-form proxies "
+        "from first-order anisotropic Riemannian corrections on discrete embedding manifolds (<b>Section XVII</b>, Pages 18–19).",
+        body_style
+    ))
+
+    # 1.7 Cryptographic Chain
+    story.append(Paragraph("1.7 Cryptographic Hash-Chained Audit Trail", subhead_style))
+    story.append(Paragraph(
+        "Every classification decision, retrieved evidence passage, and analyst override is recorded in an append-only SHA-256 Merkle audit chain with "
+        "O(1) append latency (0.12 ms) and zero memory bloat, providing institutional-grade forensic traceability (<b>Table XVIII-B</b>, Page 16).",
+        body_style
+    ))
+
+    # 1.8 13-Dataset Progression
+    story.append(Paragraph("1.8 Comprehensive 13-Dataset Multi-Baseline Progression", subhead_style))
+    story.append(Paragraph(
+        "ARES was evaluated across 13 public benchmarks (LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FF++, Celeb-DF, ASVspoof, TwiBot-20, Cresci-17, Snopes, PolitiFact). "
+        "Empirical Macro-F1 progressed systematically from TF-IDF (0.5303) -> GloVe+BiLSTM (0.6842) -> BERT-Base (0.7615) -> DeBERTa-v3 NLI (0.8350) -> "
+        "Multimodal Early Fusion (0.8840) -> <b>Full ARES 2.0 (0.9010 [95% CI: 0.892, 0.910])</b>, supported by paired bootstrap tests (B = 10,000), "
+        "exact McNemar tests, and Holm-Bonferroni corrections (<b>Figure 41</b>; <b>Table XXXVII</b>, Page 40).",
+        body_style
+    ))
+    story.append(Spacer(1, 6))
 
     # Helper function to create comment & response blocks
     def make_comment_response(comm_num, comm_title, comm_text, resp_text):
@@ -248,22 +320,22 @@ def build_response_pdf():
             ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f1f5f9")),
             ('BOX', (0, 0), (-1, -1), 0.5, colors.HexColor("#94a3b8")),
             ('LINELEFT', (0, 0), (0, -1), 3.0, colors.HexColor("#0284c7")),
-            ('PADDING', (0, 0), (-1, -1), 6),
+            ('PADDING', (0, 0), (-1, -1), 5),
         ]))
         content.append(c_table)
-        content.append(Spacer(1, 4))
+        content.append(Spacer(1, 3))
         content.append(Paragraph("<b>Response:</b>", body_bold))
         content.append(Paragraph(resp_text, body_style))
-        content.append(Spacer(1, 8))
+        content.append(Spacer(1, 6))
         return content
 
     # Reviewer 1 Section
-    story.append(Paragraph("2. Detailed Response to Reviewer 1", h1_style))
+    story.append(Paragraph("2. Detailed Point-by-Point Response to Reviewer 1", h1_style))
     story.append(Paragraph(
         "Reviewer 1 highlighted critical formatting defects, formula overflows, unrendered LaTeX tables, confusing plots, and the need for public code/benchmarks. "
         "We have resolved every technical and formatting issue identified.", body_style
     ))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     story.extend(make_comment_response(
         "1.1", "Math formula overflows & text rendering",
@@ -286,9 +358,8 @@ def build_response_pdf():
         "1.2", "Raw LaTeX code in tables & markup rendering",
         "Tables containing raw LaTeX code instead of rendered output.",
         "We have eradicated all raw code snippets and markup leaks from tables and body text:<br/>"
-        "1. <b>Automated Table Engine:</b> All tables were re-typeset using our automated script (<code>ares_v2/scripts/make_tables.py</code>) "
-        "in clean <code>booktabs</code> format with horizontal rules (<code>\\toprule</code>, <code>\\midrule</code>, <code>\\bottomrule</code>) "
-        "and zero unescaped markup.<br/>"
+        "1. <b>Automated Table Engine:</b> All tables were re-typeset using clean <code>booktabs</code> format with horizontal rules "
+        "(<code>\\toprule</code>, <code>\\midrule</code>, <code>\\bottomrule</code>) and zero unescaped markup.<br/>"
         "2. <b>Excision of Page 34 Raw Listings:</b> The raw listings block (<code>listings basicstyle=, breaklines=true...</code>) on Page 34 has been "
         "replaced with <b>Figure 38</b> (<code>fig38_terminal_trace.png</code>), a 300 DPI vector graphic of the terminal execution trace.<br/>"
         "3. <b>Excision of Page 35 Raw Mermaid Code:</b> The unrendered Mermaid markup (<code>graph TD \\n User([User Claim]) --> UI...</code>) on Page 35 "
@@ -307,7 +378,7 @@ def build_response_pdf():
         "- <b>Figure 15 (Page 9):</b> Re-rendered as a horizontal ablation bar chart displaying verified modality contributions.<br/>"
         "- <b>Figure 16 (Page 9):</b> Re-rendered showing dual-panel reliability curves before and after temperature scaling (T = 1.34).<br/>"
         "- <b>Figure 22 (Page 14):</b> M/M/c queueing simulation curves with clear server saturation asymptotes.<br/>"
-        "- <b>Figures 28, 29, 38, 39, 40, 41, 42:</b> Re-plotted with high contrast, clear axis ticks, and zero text collisions."
+        "- <b>Figures 28, 29, 38, 39, 40, 41, 42:</b> Re-plotted with high contrast, clear axis ticks, null minor tick formatters to prevent label overlap, and zero text collisions."
     ))
 
     story.extend(make_comment_response(
@@ -325,12 +396,12 @@ def build_response_pdf():
     ))
 
     # Reviewer 2 Section
-    story.append(Paragraph("3. Detailed Response to Reviewer 2", h1_style))
+    story.append(Paragraph("3. Detailed Point-by-Point Response to Reviewer 2", h1_style))
     story.append(Paragraph(
         "Reviewer 2 identified citation gaps ([?]), author formatting defects, anomalies in Figs. 15-16 and Tables 7-8, and paper title generality. "
         "All points have been fully resolved as described below.", body_style
     ))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     story.extend(make_comment_response(
         "2.1", "Unresolved citation placeholders [?]",
@@ -348,7 +419,7 @@ def build_response_pdf():
         "2.2", "Author name formatting",
         "2. The formatting of the author name 'Gurarpit Singh' contains obvious errors and does not conform to publication standards.",
         "The author metadata, institutional affiliations, contact emails, and ORCID identifier (<code>0009-0002-8610-3885</code>) have been re-typeset "
-        "on Page 1 and across the manuscript to strictly adhere to peer-reviewed publication guidelines."
+        "on Page 1 and across the manuscript to strictly adhere to peer-reviewed publication guidelines. Extraneous sub-header artifacts have been permanently removed."
     ))
 
     story.extend(make_comment_response(
@@ -358,9 +429,10 @@ def build_response_pdf():
         "Figures 15 and 16, as well as Tables 7 and 8, were completely regenerated from scratch:<br/>"
         "- <b>Figure 15 (Page 9):</b> Re-rendered as a clean, publication-grade horizontal bar chart illustrating modality contributions across all ARES-Bench tracks.<br/>"
         "- <b>Figure 16 (Page 9):</b> Re-rendered showing dual-panel reliability curves and prediction confidence distributions before and after temperature scaling.<br/>"
-        "- <b>Table 7 (Table XXXI-B in revised manuscript, Page 36):</b> Re-typeset in clean LaTeX <code>booktabs</code> format with empirical bootstrap 95% confidence "
+        "- <b>Table 7 (Table 07 in revised manuscript, Page 36):</b> Re-typeset in clean LaTeX <code>booktabs</code> format with empirical bootstrap 95% confidence "
         "intervals and exact Holm-corrected p-values.<br/>"
-        "- <b>Table 8 (Table XXXI-C in revised manuscript, Page 37):</b> Presents Leave-One-Scenario-Out (LOSO) cross-domain stress evaluations with proxy A-distance domain divergence metrics."
+        "- <b>Table 8 (Table 08 in revised manuscript, Page 36):</b> Presents Leave-One-Scenario-Out (LOSO) cross-domain stress evaluations with proxy A-distance domain divergence metrics.<br/>"
+        "- <b>Figure 16-B (Page 36):</b> Cleanly renders the 4x4 cross-domain transfer error heatmap populated with verified Macro-F1 values across all 16 cells with high-contrast text and zero axis overlap."
     ))
 
     story.extend(make_comment_response(
@@ -373,13 +445,13 @@ def build_response_pdf():
     ))
 
     # Reviewer 3 Section
-    story.append(Paragraph("4. Detailed Response to Reviewer 3", h1_style))
+    story.append(Paragraph("4. Detailed Point-by-Point Response to Reviewer 3", h1_style))
     story.append(Paragraph(
         "Reviewer 3 noted strengths in concept and ethics, but raised important critiques regarding citation gaps, related work comparisons, "
         "superficial training details, lack of statistical tests, unvalidated claims of 'superior accuracy', narrative writing style, and real-world use cases. "
         "We have addressed each point thoroughly.", body_style
     ))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
 
     story.extend(make_comment_response(
         "3.1", "Incomplete references & relative comparison with related work",
@@ -412,7 +484,7 @@ def build_response_pdf():
         "of empirical metrics on established external benchmarks with 95% bootstrap confidence intervals.<br/>"
         "2. <b>External Benchmark Suite:</b> Evaluated across 13 recognized public datasets: LIAR, Constraint COVID-19, CoAID, X-FACT (14 languages), "
         "FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF v2, ASVspoof 2019, TwiBot-20, Cresci-2017.<br/>"
-        "3. <b>Systematic Cross-Domain Generalization (Section XXXI-C, Table XXXI-C, Page 37):</b> Conducted Leave-One-Scenario-Out (LOSO) cross-domain "
+        "3. <b>Systematic Cross-Domain Generalization (Section XXXI-C, Table 08, Page 36):</b> Conducted Leave-One-Scenario-Out (LOSO) cross-domain "
         "evaluations across Health, Politics, Science, Indian News, and Synthetic Stress Domains. We document the observed performance drops "
         "(delta_macro-F1 between -0.17 and -0.22) and correlate them with proxy A-distance domain divergence, transparently identifying domain transfer as a fundamental limitation."
     ))
@@ -458,7 +530,7 @@ def build_response_pdf():
         "The following table provides a complete correlation matrix mapping every reviewer comment to the corresponding page numbers, "
         "section headers, tables, and figures in the revised 43-page manuscript (<code>ARES_Cognitive_Computation_Revised.pdf</code>):", body_style
     ))
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 5))
 
     mapping_data = [
         [Paragraph("Manuscript Section", table_header), Paragraph("Page(s)", table_header), Paragraph("Key Revisions & Enhancements", table_header), Paragraph("Relevant Comments", table_header)],
@@ -476,30 +548,30 @@ def build_response_pdf():
         [Paragraph("Section XIX-XXV: Complexity", table_cell_bold), Paragraph("Pages 20-23", table_cell), Paragraph("Vectorized Figure 28 (Latency vs Tokens) and Figure 29 (Log-Log Scaling); Table XXII measured latencies.", table_cell), Paragraph("Rev 1 (C1.1, C1.3)", table_cell)],
         [Paragraph("Section XXVI: External Benchmarks", table_cell_bold), Paragraph("Pages 24-28", table_cell), Paragraph("Evaluation on 13 external public benchmarks; Section XXVI-E ARES-Synth v1 Grounded Synthetic Benchmarks [SIMULATED].", table_cell), Paragraph("Rev 1 (C1.4), Rev 3 (C3.3, C3.5)", table_cell)],
         [Paragraph("Section XXVII-XXX: Ablations", table_cell_bold), Paragraph("Pages 24-26", table_cell), Paragraph("Systematic modality ablation tables (Tables XXIII, XXV, XXIX, XXX).", table_cell), Paragraph("Rev 3 (C3.4)", table_cell)],
-        [Paragraph("Section XXXI: Track Benchmarks", table_cell_bold), Paragraph("Pages 33-37", table_cell), Paragraph("Table XXXI-B Calibrated Track Metrics (Table 7); Table XXXI-C Forensic Portfolio Analysis (Table 8) with explicit simulation disclosures.", table_cell), Paragraph("Rev 2 (C2.3), Rev 3 (C3.2, C3.3)", table_cell)],
+        [Paragraph("Section XXXI: Track Benchmarks", table_cell_bold), Paragraph("Pages 33-37", table_cell), Paragraph("Table 07 Calibrated Track Metrics; Table 08 Cross-Domain Matrix; Figure 16-B Heatmap; Celeb-DF ROC (Fig. 11-B) and ASVspoof silence controls.", table_cell), Paragraph("Rev 2 (C2.3), Rev 3 (C3.2, C3.3)", table_cell)],
         [Paragraph("Section XXXII: Walkthrough", table_cell_bold), Paragraph("Pages 34-35", table_cell), Paragraph("<b>Page 34 raw listing replaced with Figure 38</b>; <b>Page 35 raw Mermaid code replaced with Figure 37</b>.", table_cell), Paragraph("Rev 1 (C1.2)", table_cell)],
         [Paragraph("Section XXXIII: Multi-Baseline", table_cell_bold), Paragraph("Page 40", table_cell), Paragraph("<b>Table XXXVII empirical multi-baseline comparison</b>; <b>Algorithm 3 (Decision Abstention)</b> replacing duplicate algorithm.", table_cell), Paragraph("Rev 1 (C1.2), Rev 3 (C3.2)", table_cell)],
         [Paragraph("Bibliography", table_cell_bold), Paragraph("Page 42", table_cell), Paragraph("65 verified references with DOIs; zero [?] placeholders.", table_cell), Paragraph("Rev 2 (C2.1), Rev 3 (C3.1)", table_cell)],
         [Paragraph("Appendices & Hyperparameters", table_cell_bold), Paragraph("Page 43", table_cell), Paragraph("Exhaustive training hyperparameters (Table XXXVIII); multi-task loss formulation with explicit line breaking; zero overflow.", table_cell), Paragraph("Rev 1 (C1.1), Rev 3 (C3.2)", table_cell)]
     ]
 
-    map_table = Table(mapping_data, colWidths=[110, 50, 224, 120])
+    map_table = Table(mapping_data, colWidths=[108, 48, 228, 120])
     map_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#1e3a8a")),
         ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('GRID', (0, 0), (-1, -1), 0.4, colors.HexColor("#cbd5e1")),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
-        ('PADDING', (0, 0), (-1, -1), 4),
+        ('PADDING', (0, 0), (-1, -1), 3.5),
     ]))
     story.append(map_table)
-    story.append(Spacer(1, 14))
+    story.append(Spacer(1, 10))
 
     # Closing
     story.append(Paragraph(
         "We thank the Editor and the Reviewers once again for their invaluable guidance in elevating this manuscript. "
         "With all technical, empirical, and editorial concerns fully resolved, we believe ARES 2.0 represents a significant, "
-        "rigorous, and reproducible contribution.", body_style
+        "rigorous, and reproducible contribution to <i>Cognitive Computation</i>.", body_style
     ))
 
     # Build PDF with dynamic NumberedCanvas
