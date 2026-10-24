@@ -1,8 +1,7 @@
 """
 ARES 2.0: Master Compiler for Point-by-Point Response to Reviewers PDF.
-Generates a publication-grade, professionally styled PDF response document
-matching peer-reviewed scientific editorial standards.
-Cover letter removed as a separate standalone document.
+Generates an authentic, publication-grade academic rebuttal document
+matching formal LaTeX standards, with zero Zenodo references and zero internal project jargon.
 """
 
 import os
@@ -47,26 +46,26 @@ class NumberedCanvas(canvas.Canvas):
 
         # Running Header (Pages 2+)
         if self._pageNumber > 1:
-            self.setFont("Helvetica-Bold", 7.5)
+            self.setFont("Times-Bold", 8.0)
             self.setFillColor(colors.HexColor("#1e3a8a"))
-            self.drawString(54, h - 36, "ARES 2.0 -- POINT-BY-POINT RESPONSE TO REVIEWERS")
-            self.setFont("Helvetica", 7.5)
-            self.setFillColor(colors.HexColor("#64748b"))
-            self.drawRightString(w - 54, h - 36, "SUBMISSION REF: eda35bea-a77d-4e7d-ba30-edb38c688296")
+            self.drawString(54, h - 36, "ARES: POINT-BY-POINT RESPONSE TO REVIEWERS")
+            self.setFont("Times-Roman", 8.0)
+            self.setFillColor(colors.HexColor("#475569"))
+            self.drawRightString(w - 54, h - 36, "PREVIOUS SUBMISSION REF: eda35bea-a77d-4e7d-ba30-edb38c688296")
             
             # Header rule
             self.setStrokeColor(colors.HexColor("#cbd5e1"))
-            self.setLineWidth(0.6)
-            self.line(54, h - 42, w - 54, h - 42)
+            self.setLineWidth(0.5)
+            self.line(54, h - 40, w - 54, h - 40)
 
         # Running Footer (All Pages)
         self.setStrokeColor(colors.HexColor("#e2e8f0"))
-        self.setLineWidth(0.6)
+        self.setLineWidth(0.5)
         self.line(54, 46, w - 54, 46)
 
-        self.setFont("Helvetica", 7.2)
+        self.setFont("Times-Italic", 7.8)
         self.setFillColor(colors.HexColor("#64748b"))
-        self.drawString(54, 34, "ARES Open Research Initiative — Technical Rebuttal")
+        self.drawString(54, 34, "Cognitive Computation — Point-by-Point Response to Editor and Reviewers")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(w - 54, 34, page_str)
 
@@ -80,24 +79,24 @@ def build_response_pdf():
         pagesize=letter,
         leftMargin=54,
         rightMargin=54,
-        topMargin=54,
+        topMargin=50,
         bottomMargin=54
     )
 
     styles = getSampleStyleSheet()
 
-    # Custom typography matching scientific publication format
+    # Custom typography matching formal LaTeX academic rebuttal standards
     title_style = ParagraphStyle(
         'DocTitle',
-        fontName='Helvetica-Bold',
-        fontSize=17,
-        leading=21,
+        fontName='Times-Bold',
+        fontSize=16.5,
+        leading=20.5,
         textColor=colors.HexColor("#0f172a"),
         spaceAfter=3
     )
     subtitle_style = ParagraphStyle(
         'DocSubtitle',
-        fontName='Helvetica',
+        fontName='Times-Roman',
         fontSize=10.0,
         leading=13.5,
         textColor=colors.HexColor("#1e3a8a"),
@@ -105,38 +104,38 @@ def build_response_pdf():
     )
     meta_style = ParagraphStyle(
         'MetaText',
-        fontName='Helvetica',
-        fontSize=8.0,
-        leading=11.5,
+        fontName='Times-Roman',
+        fontSize=8.5,
+        leading=12.2,
         textColor=colors.HexColor("#334155")
     )
     h1_style = ParagraphStyle(
         'Heading1_Custom',
-        fontName='Helvetica-Bold',
+        fontName='Times-Bold',
         fontSize=11.5,
         leading=14.5,
         textColor=colors.HexColor("#1e3a8a"),
-        spaceBefore=10,
+        spaceBefore=11,
         spaceAfter=5,
         keepWithNext=True
     )
     h2_style = ParagraphStyle(
         'Heading2_Custom',
-        fontName='Helvetica-Bold',
-        fontSize=9.5,
-        leading=12.5,
+        fontName='Times-Bold',
+        fontSize=9.8,
+        leading=13.0,
         textColor=colors.HexColor("#0f172a"),
-        spaceBefore=7,
+        spaceBefore=8,
         spaceAfter=3,
         keepWithNext=True
     )
     subhead_style = ParagraphStyle(
         'SubHead_Custom',
-        fontName='Helvetica-Bold',
-        fontSize=8.8,
-        leading=11.5,
+        fontName='Times-Bold',
+        fontSize=9.0,
+        leading=12.0,
         textColor=colors.HexColor("#1e3a8a"),
-        spaceBefore=5,
+        spaceBefore=6,
         spaceAfter=2,
         keepWithNext=True
     )
@@ -144,44 +143,44 @@ def build_response_pdf():
         'Body_Custom',
         fontName='Times-Roman',
         fontSize=8.8,
-        leading=12.2,
+        leading=12.4,
         textColor=colors.HexColor("#1e293b"),
-        spaceAfter=3.5
+        spaceAfter=4
     )
     body_bold = ParagraphStyle(
         'Body_Bold',
         fontName='Times-Bold',
         fontSize=8.8,
-        leading=12.2,
+        leading=12.4,
         textColor=colors.HexColor("#0f172a"),
-        spaceAfter=2.5
+        spaceAfter=3
     )
     comment_box_style = ParagraphStyle(
         'CommentBox',
         fontName='Times-Italic',
-        fontSize=8.3,
-        leading=11.5,
+        fontSize=8.5,
+        leading=12.0,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell = ParagraphStyle(
         'TableCell',
-        fontName='Helvetica',
-        fontSize=7.0,
-        leading=9.5,
+        fontName='Times-Roman',
+        fontSize=7.2,
+        leading=9.8,
         textColor=colors.HexColor("#1e293b")
     )
     table_cell_bold = ParagraphStyle(
         'TableCellBold',
-        fontName='Helvetica-Bold',
-        fontSize=7.0,
-        leading=9.5,
+        fontName='Times-Bold',
+        fontSize=7.2,
+        leading=9.8,
         textColor=colors.HexColor("#0f172a")
     )
     table_header = ParagraphStyle(
         'TableHeader',
-        fontName='Helvetica-Bold',
-        fontSize=7.2,
-        leading=10.0,
+        fontName='Times-Bold',
+        fontSize=7.5,
+        leading=10.2,
         textColor=colors.white
     )
 
@@ -190,31 +189,31 @@ def build_response_pdf():
     # Title & Metadata Block
     story.append(Paragraph("Point-by-Point Response to Editor and Reviewers", title_style))
     story.append(Paragraph("Comprehensive Scientific, Empirical, and Mathematical Rebuttal", subtitle_style))
-    story.append(HRFlowable(width="100%", thickness=1.2, color=colors.HexColor("#1e3a8a"), spaceAfter=6, spaceBefore=0))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#1e3a8a"), spaceAfter=8, spaceBefore=0))
 
     meta_text = (
         "<b>Previous Manuscript Reference:</b> Submission ID eda35bea-a77d-4e7d-ba30-edb38c688296<br/>"
         "<b>Submission Status:</b> Formal Resubmission & Technical Rebuttal (Accompanied by Standalone Cover Letter)<br/>"
         "<b>Article Title:</b> <i>ARES: Autonomous Real-Time Evaluation System — An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense</i><br/>"
         "<b>Corresponding Author:</b> Gurarpit Singh (ORCID: 0009-0002-8610-3885) | Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC / GGSIPU), Delhi<br/>"
-        "<b>Permanent Zenodo Archive:</b> <font color='#1e3a8a'><u>10.5281/zenodo.10826492</u></font> | "
-        "<b>Public GitHub Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (Release Tag: v2.0.0)<br/>"
-        "<b>Revised Technical Manuscript:</b> Exactly 43 Pages (Standard double-column format, zero formatting overflow)"
+        "<b>Institutional Email:</b> <code>bca_04817702024_gurarpit@vipstc.edu.in</code><br/>"
+        "<b>Open-Source Repository:</b> <font color='#1e3a8a'><u>https://github.com/gurarpitzz/Ares-Cognitive-Computation</u></font> (Release Tag: v2.0.0)<br/>"
+        "<b>Revised Technical Manuscript:</b> Exactly 43 Pages (Standard double-column publication format, zero formatting overflow)"
     )
     meta_table = Table([[Paragraph(meta_text, meta_style)]], colWidths=[504])
     meta_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
         ('BOX', (0, 0), (-1, -1), 0.8, colors.HexColor("#cbd5e1")),
-        ('PADDING', (0, 0), (-1, -1), 6),
+        ('PADDING', (0, 0), (-1, -1), 7),
     ]))
     story.append(meta_table)
-    story.append(Spacer(1, 8))
+    story.append(Spacer(1, 10))
 
     # SECTION 1: Summary of New Computations and Additions
     story.append(Paragraph("1. Executive Summary of Substantive Additions & New Computations Run", h1_style))
     story.append(Paragraph(
         "In response to the constructive feedback on manuscript <b>eda35bea-a77d-4e7d-ba30-edb38c688296</b>, "
-        "we executed a comprehensive, ground-up empirical, mathematical, and algorithmic overhaul of the ARES platform across 16 formal modules. "
+        "we executed a comprehensive, ground-up empirical, mathematical, and algorithmic overhaul of the ARES verification framework across all functional dimensions. "
         "Below is an itemized accounting of the substantial new computational experiments, physical telemetry benchmarks, synthetic stress datasets, "
         "and statistical validations implemented in this revision:",
         body_style
@@ -320,13 +319,13 @@ def build_response_pdf():
             ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f1f5f9")),
             ('BOX', (0, 0), (-1, -1), 0.5, colors.HexColor("#94a3b8")),
             ('LINELEFT', (0, 0), (0, -1), 3.0, colors.HexColor("#0284c7")),
-            ('PADDING', (0, 0), (-1, -1), 5),
+            ('PADDING', (0, 0), (-1, -1), 6),
         ]))
         content.append(c_table)
-        content.append(Spacer(1, 3))
+        content.append(Spacer(1, 4))
         content.append(Paragraph("<b>Response:</b>", body_bold))
         content.append(Paragraph(resp_text, body_style))
-        content.append(Spacer(1, 6))
+        content.append(Spacer(1, 8))
         return content
 
     # Reviewer 1 Section
@@ -358,11 +357,11 @@ def build_response_pdf():
         "1.2", "Raw LaTeX code in tables & markup rendering",
         "Tables containing raw LaTeX code instead of rendered output.",
         "We have eradicated all raw code snippets and markup leaks from tables and body text:<br/>"
-        "1. <b>Automated Table Engine:</b> All tables were re-typeset using clean <code>booktabs</code> format with horizontal rules "
+        "1. <b>Automated Table Engine:</b> All tables were re-typeset in clean <code>booktabs</code> format with horizontal rules "
         "(<code>\\toprule</code>, <code>\\midrule</code>, <code>\\bottomrule</code>) and zero unescaped markup.<br/>"
-        "2. <b>Excision of Page 34 Raw Listings:</b> The raw listings block (<code>listings basicstyle=, breaklines=true...</code>) on Page 34 has been "
+        "2. <b>Excision of Page 34 Raw Listings:</b> The raw listings block on Page 34 has been "
         "replaced with <b>Figure 38</b> (<code>fig38_terminal_trace.png</code>), a 300 DPI vector graphic of the terminal execution trace.<br/>"
-        "3. <b>Excision of Page 35 Raw Mermaid Code:</b> The unrendered Mermaid markup (<code>graph TD \\n User([User Claim]) --> UI...</code>) on Page 35 "
+        "3. <b>Excision of Page 35 Raw Mermaid Code:</b> The unrendered Mermaid markup on Page 35 "
         "has been replaced with <b>Figure 37</b> (<code>fig37_system_hierarchy.png</code>), a 300 DPI architectural diagram illustrating pipeline orchestration.<br/>"
         "4. <b>Table XXI & Table XXXVII:</b> Replaced the broken vertical table on Page 17 with an architectural paradigm profile (<b>Table XXI</b>), "
         "and updated Table XXXVII on Page 40 to our verified empirical multi-baseline benchmark (<b>Table XXXVII</b>)."
@@ -371,7 +370,7 @@ def build_response_pdf():
     story.extend(make_comment_response(
         "1.3", "Confusing and overlaid visual components",
         "Plots with confusing and overlayed visual components. These problems are present in both the PDF and DOC versions provided.",
-        "All figures have been completely re-plotted from raw JSON result files using 300 DPI vector graphics with colorblind-safe palettes, "
+        "All figures have been completely re-plotted from raw empirical result data using 300 DPI vector graphics with colorblind-safe palettes, "
         "standardized font sizes (8.5-10 pt), physical units on all axes, and zero overlapping elements:<br/>"
         "- <b>Figure 23 (Page 14):</b> The legacy 3D perspective bar chart has been replaced with a clean 2D grouped bar chart with paired bootstrap "
         "error bars (<code>fig23_stress_scenarios.png</code>), comparing baseline systems against ARES across Election, Health, Conflict, and Disaster scenarios.<br/>"
@@ -388,11 +387,10 @@ def build_response_pdf():
         "reproducibility claims. I recommend that the authors address all content and formatting issues and provide links to the mentioned resources.",
         "We have open-sourced the complete research platform under the Apache-2.0 license:<br/>"
         "1. <b>Public GitHub Repository:</b> <code>https://github.com/gurarpitzz/Ares-Cognitive-Computation</code> (Release Tag: <code>v2.0.0</code>).<br/>"
-        "2. <b>Permanent DOI Archive:</b> Minted on Zenodo at <b>10.5281/zenodo.10826492</b>.<br/>"
-        "3. <b>Data Manifests with Checksums:</b> Complete data availability manifests with SHA-256 hashes for all 13 external benchmark datasets "
+        "2. <b>Data Manifests with Checksums:</b> Complete data availability manifests with SHA-256 hashes for all 13 external benchmark datasets "
         "(LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017) are provided in "
         "<code>docs/data_availability.md</code>.<br/>"
-        "4. <b>Automated Verification Suite:</b> Running <code>pytest ares_v2/tests -q</code> verifies all <b>110 unit tests</b> in under 45 seconds."
+        "3. <b>Automated Verification Suite:</b> Running <code>pytest ares_v2/tests -q</code> verifies all <b>110 unit tests</b> in under 45 seconds."
     ))
 
     # Reviewer 2 Section
@@ -439,7 +437,7 @@ def build_response_pdf():
         "2.4", "Paper title scope and methodological alignment",
         "4. The paper title is overly general and fails to clearly reflect the core technical contribution or methodological innovation of this study.",
         "We have retained the overarching platform title (<b>\"ARES: Autonomous Real-Time Evaluation System — An AI-Driven Multi-Modal Truth Infrastructure for Misinformation Defense\"</b>) "
-        "to maintain indexing and citation continuity with our permanent open-source release (<code>v2.0.0</code>) and Zenodo archive (DOI: <code>10.5281/zenodo.10826492</code>). "
+        "to maintain indexing and citation continuity with our permanent open-source release (<code>v2.0.0</code>). "
         "Simultaneously, we have made the core technical innovations—dense evidence retrieval grounding, multimodal forensic calibration (ECE = 0.0312), mutation-aware claim memory, and decision-theoretic selective abstention—"
         "explicit throughout the Abstract, Introduction, Section headers, and experimental benchmarks across all 43 pages."
     ))
@@ -562,7 +560,7 @@ def build_response_pdf():
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('GRID', (0, 0), (-1, -1), 0.4, colors.HexColor("#cbd5e1")),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
-        ('PADDING', (0, 0), (-1, -1), 3.5),
+        ('PADDING', (0, 0), (-1, -1), 4),
     ]))
     story.append(map_table)
     story.append(Spacer(1, 10))
@@ -570,7 +568,7 @@ def build_response_pdf():
     # Closing
     story.append(Paragraph(
         "We thank the Editor and the Reviewers once again for their invaluable guidance in elevating this manuscript. "
-        "With all technical, empirical, and editorial concerns fully resolved, we believe ARES 2.0 represents a significant, "
+        "With all technical, empirical, and editorial concerns fully resolved, we believe ARES represents a significant, "
         "rigorous, and reproducible contribution to <i>Cognitive Computation</i>.", body_style
     ))
 

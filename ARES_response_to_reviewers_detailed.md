@@ -7,7 +7,6 @@
 **Corresponding Author:** Gurarpit Singh (ORCID: `0009-0002-8610-3885`)  
 **Affiliation:** Department of Computer Applications, Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC), Guru Gobind Singh Indraprastha University (GGSIPU), Delhi, India  
 **Institutional Email:** `bca_04817702024_gurarpit@vipstc.edu.in`  
-**Permanent Zenodo Archive:** DOI `10.5281/zenodo.10826492`  
 **Open-Source Repository:** `https://github.com/gurarpitzz/Ares-Cognitive-Computation` (Release Tag: `v2.0.0`)  
 **Revised Technical Manuscript:** Exactly 43 Pages (Standard double-column publication format)  
 **Date:** October 2026  
@@ -16,19 +15,19 @@
 
 ## 1. Executive Summary of Substantive Additions & New Computations
 
-In response to the feedback from the Editorial Board and the three Reviewers on manuscript **eda35bea-a77d-4e7d-ba30-edb38c688296**, we did not merely apply cosmetic edits. Instead, we executed a comprehensive, ground-up empirical, mathematical, and algorithmic overhaul of the ARES platform across 16 formal modules. 
+In response to the constructive feedback from the Editorial Board and the three Reviewers on manuscript **eda35bea-a77d-4e7d-ba30-edb38c688296**, we did not merely apply cosmetic edits. Instead, we executed a comprehensive, ground-up empirical, mathematical, and algorithmic overhaul of the ARES verification framework across all functional dimensions. 
 
 Below is an itemized accounting of the substantial new computational experiments, physical telemetry benchmarks, synthetic stress datasets, and statistical validations implemented in this revision:
 
 ### 1.1 Physical Hardware Telemetry & Latency Profiling (NVIDIA RTX 4060)
-* **Dedicated Hardware Setup:** All pipeline components were benchmarked on a verified commodity workstation: **NVIDIA GeForce RTX 4060 Laptop GPU** (8GB GDDR6 VRAM, 3072 CUDA cores), **AMD Ryzen 7 7840HS CPU** (8 cores, 16 threads, 3.8 GHz base clock), and **32GB DDR5-5600 RAM** running PyTorch 2.2 and CUDA 12.1.
+* **Dedicated Hardware Platform:** All pipeline components and empirical benchmarks were re-evaluated on a verified commodity workstation: **NVIDIA GeForce RTX 4060 Laptop GPU** (8GB GDDR6 VRAM, 3072 CUDA cores), **AMD Ryzen 7 7840HS CPU** (8 cores, 16 threads, 3.8 GHz base clock), and **32GB DDR5-5600 RAM** running PyTorch 2.2 and CUDA 12.1.
 * **Component-Wise Latency Decomposition:** Single-claim sequential latency was measured with millisecond precision across 1,000 warm-up runs:
   $$\text{Latency}_{\text{text}} = T_{\text{norm}} (1.2\text{ ms}) + T_{\text{retrieval}} (14.8\text{ ms}) + T_{\text{entailment}} (7.8\text{ ms}) = 23.8\text{ ms}$$
   Across all individual modalities, per-claim latency remains strictly bounded within **14.8–27.2 ms/claim**, completely eliminating the 500–1,200 ms latency bottleneck of autoregressive generative large language models (LLMs).
 * **Batched Throughput & Memory Footprint:** Under asynchronous batched worker execution ($B=32$), ARES achieves a peak throughput of **3,560 requests/second** while requiring only **2,352 MB** of total GPU memory footprint (**Table XX**, Page 17).
 
 ### 1.2 ARES-Synth v1 Grounded Synthetic Stress Benchmark Suite
-* **Dataset Construction:** To evaluate extreme crisis scenarios without relying on live societal intervention, we engineered and frozen **ARES-Synth v1**, comprising **1,858 verified items** across three high-stakes domain scenarios:
+* **Dataset Construction:** To evaluate extreme crisis scenarios without relying on live societal intervention, we engineered and froze **ARES-Synth v1**, comprising **1,858 verified items** across three high-stakes domain scenarios:
   1. *Track S1: India–China Border Clash* ($n=620$ items): Grounded in official MEA/PIB releases and archived records.
   2. *Track S2: Assam Humanitarian Floods* ($n=618$ items): Grounded in Assam State Disaster Management Authority (ASDMA) bulletins and ReliefWeb situation reports.
   3. *Track S3: Indian General Election 2024* ($n=620$ items): Grounded in Election Commission of India (ECI) schedule, EVM protocols, and counting declarations.
@@ -106,8 +105,8 @@ We sincerely apologize for the formatting and typesetting issues in the original
 
 **Response:**  
 We have resolved this formatting defect across the entire manuscript:
-1. **Automated Table Compilation:** All tables have been re-generated using our automated typesetting engine in clean, professional LaTeX `booktabs` output with proper horizontal rules (`\toprule`, `\midrule`, `\bottomrule`), centered numerical alignments, and zero unescaped markup.
-2. **Page 34 Raw Listings Excision:** The raw LaTeX listings block (`listings basicstyle=, breaklines=true...`) on Page 34 has been completely excised and replaced with a publication-grade 300 DPI vector graphic: **Figure 38** (`fig38_terminal_trace.png`), illustrating the exact terminal execution trace of `main.py` with operator mappings.
+1. **Automated Table Compilation:** All tables have been re-generated in clean, professional LaTeX `booktabs` output with proper horizontal rules (`\toprule`, `\midrule`, `\bottomrule`), centered numerical alignments, and zero unescaped markup.
+2. **Page 34 Raw Listings Excision:** The raw LaTeX listings block (`listings basicstyle=, breaklines=true...`) on Page 34 has been completely excised and replaced with a publication-grade 300 DPI vector graphic: **Figure 38** (`fig38_terminal_trace.png`), illustrating the exact terminal execution trace of the verification engine with operator mappings.
 3. **Page 35 Raw Mermaid Code Excision:** The unrendered Mermaid markup (`graph TD \n User([User Claim]) --> UI...`) on Page 35 has been replaced with a high-resolution 300 DPI architectural diagram: **Figure 37** (`fig37_system_hierarchy.png`), showing the pipeline dataflow from user ingestion down to the cryptographic proof chain.
 4. **Table XXI and Table XXXVII Grounding:** The broken vertical table on Page 17 (which previously contained the typo `Inference Latency = ms/claim`) has been replaced by a clean architectural paradigm profile (**Table XXI**), and Table XXXVII on Page 40 has been replaced by our verified empirical multi-baseline benchmark (**Table XXXVII**, `table37_baseline_comparison.png`).
 
@@ -117,7 +116,7 @@ We have resolved this formatting defect across the entire manuscript:
 > *"Plots with confusing and overlayed visual components. These problems are present in both the PDF and DOC versions provided."*
 
 **Response:**  
-We have completely overhauled all figures in the manuscript. Every plot has been re-rendered from raw empirical result JSON files using vector graphics (`matplotlib`, 300 DPI) with colorblind-safe palettes (Viridis, deep navy `#1e3a8a`, slate `#475569`), standardized font sizing (8.5–10 pt), physical units on all axes (ms, req/s, MB, tokens), and zero overlapping text or data series:
+We have completely overhauled all figures in the manuscript. Every plot has been re-rendered from raw empirical result data using vector graphics (`matplotlib`, 300 DPI) with colorblind-safe palettes (Viridis, deep navy `#1e3a8a`, slate `#475569`), standardized font sizing (8.5–10 pt), physical units on all axes (ms, req/s, MB, tokens), and zero overlapping text or data series:
 * **Figure 23 (Page 14):** The legacy 3D perspective bar chart has been entirely replaced with a clean, vector-rendered 2D grouped bar chart with exact paired bootstrap error bars (`fig23_stress_scenarios.png`), comparing unimodal baseline systems against ARES across Election, Health, Conflict, and Disaster stress domains.
 * **Figure 15 (Page 9):** Displays a clear, legible horizontal bar chart illustrating modality contributions across all ARES-Bench tracks (`fig15_multimodal_ablation_matrix.png`).
 * **Figure 16 (Page 9):** Presents dual-panel reliability curves and prediction confidence distributions before and after temperature scaling calibration ($T=1.34$).
@@ -134,9 +133,8 @@ We have completely overhauled all figures in the manuscript. Every plot has been
 **Response:**  
 We fully agree with the Reviewer. Complete open-source reproducibility is paramount for research in automated truth verification. We have released the entire ARES 2.0 research platform under the Apache-2.0 license:
 1. **Public GitHub Repository:** Hosted at `https://github.com/gurarpitzz/Ares-Cognitive-Computation` under permanent release tag `v2.0.0`.
-2. **Permanent Zenodo Archive:** The entire code snapshot, frozen evaluation manifests, and model checkpoints have been archived with a permanent DOI: `10.5281/zenodo.10826492`.
-3. **Cryptographic Data Manifests:** We provide frozen evaluation manifests with SHA-256 checksums for all 13 external benchmark datasets (LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017, Snopes, PolitiFact) in the open-source repository documentation (`docs/data_availability.md`).
-4. **One-Command Automated Reproduction:** The complete test suite of **110 passing unit tests** can be executed in under 45 seconds via:
+2. **Cryptographic Data Manifests:** We provide frozen evaluation manifests with SHA-256 checksums for all 13 external benchmark datasets (LIAR, Constraint, CoAID, X-FACT, FEVER 1.0, AVeriTeC, FaceForensics++, Celeb-DF, ASVspoof 2019, TwiBot-20, Cresci-2017, Snopes, PolitiFact) in the open-source repository documentation (`docs/data_availability.md`).
+3. **One-Command Automated Reproduction:** The complete test suite of **110 passing unit tests** can be executed in under 45 seconds via:
    ```bash
    pytest ares_v2/tests -q
    ```
@@ -301,4 +299,4 @@ The table below provides a comprehensive map correlating reviewer critiques with
 
 ---
 
-We thank the Reviewers and the Editor once again for their invaluable guidance in elevating this manuscript. With all technical, empirical, and editorial concerns fully resolved, we believe ARES 2.0 represents a significant, rigorous, and reproducible contribution to *Cognitive Computation*.
+We thank the Reviewers and the Editor once again for their invaluable guidance in elevating this manuscript. With all technical, empirical, and editorial concerns fully resolved, we believe ARES represents a significant, rigorous, and reproducible contribution to *Cognitive Computation*.
